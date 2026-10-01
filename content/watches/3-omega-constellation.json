@@ -1,0 +1,20 @@
+{
+  "slug": "3-omega-constellation",
+  "brand": "Omega",
+  "model": "Constellation",
+  "reference": "",
+  "year": "",
+  "status": "sold",
+  "featured": false,
+  "order": 3,
+  "price_mode": "on_request",
+  "price_dkk": null,
+  "set": "",
+  "condition": "",
+  "description": "Two-tone steel and gold with the Constellation's signature bracelet bars and case claws, around a pale dial.",
+  "images": [
+    "/media/uploads/3-omega-constellation.jpg"
+  ],
+  "focus_x": 53,
+  "focus_y": 40
+}

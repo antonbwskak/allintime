@@ -1,0 +1,20 @@
+{
+  "slug": "1-rolex-submariner",
+  "brand": "Rolex",
+  "model": "Submariner Date",
+  "reference": "",
+  "year": "",
+  "status": "sold",
+  "featured": false,
+  "order": 1,
+  "price_mode": "on_request",
+  "price_dkk": null,
+  "set": "",
+  "condition": "",
+  "description": "Black dial and bezel, date under the Cyclops lens and an Oyster bracelet. The dive watch every other dive watch is measured against.",
+  "images": [
+    "/media/uploads/1-rolex-submariner.jpg"
+  ],
+  "focus_x": 50,
+  "focus_y": 42
+}

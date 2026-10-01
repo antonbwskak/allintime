@@ -1,0 +1,20 @@
+{
+  "slug": "9-omega-speedmaster",
+  "brand": "Omega",
+  "model": "Speedmaster Professional",
+  "reference": "",
+  "year": "",
+  "status": "sold",
+  "featured": false,
+  "order": 9,
+  "price_mode": "on_request",
+  "price_dkk": null,
+  "set": "",
+  "condition": "",
+  "description": "The Moonwatch on a steel bracelet: black dial, three subdials, tachymeter bezel and a hand-wound chronograph movement.",
+  "images": [
+    "/media/uploads/9-omega-speedmaster.jpg"
+  ],
+  "focus_x": 50,
+  "focus_y": 55
+}

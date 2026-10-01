@@ -1,0 +1,20 @@
+{
+  "slug": "15-omega-speedmaster",
+  "brand": "Omega",
+  "model": "Speedmaster Moonwatch",
+  "reference": "",
+  "year": "",
+  "status": "sold",
+  "featured": true,
+  "order": 15,
+  "price_mode": "on_request",
+  "price_dkk": null,
+  "set": "",
+  "condition": "",
+  "description": "Hand-wound chronograph with the tachymeter bezel and black step dial. The watch that went to the moon, and has barely changed since.",
+  "images": [
+    "/media/uploads/15-omega-speedmaster.jpg"
+  ],
+  "focus_x": 47,
+  "focus_y": 42
+}

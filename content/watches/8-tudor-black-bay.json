@@ -1,0 +1,20 @@
+{
+  "slug": "8-tudor-black-bay",
+  "brand": "Tudor",
+  "model": "Black Bay",
+  "reference": "",
+  "year": "",
+  "status": "sold",
+  "featured": false,
+  "order": 8,
+  "price_mode": "on_request",
+  "price_dkk": null,
+  "set": "",
+  "condition": "",
+  "description": "Black dial and bezel, gilt markers and snowflake hands. The look of Tudor's 1950s divers, made today.",
+  "images": [
+    "/media/uploads/8-tudor-black-bay.jpg"
+  ],
+  "focus_x": 50,
+  "focus_y": 47
+}

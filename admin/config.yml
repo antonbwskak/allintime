@@ -1,0 +1,84 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# Run `npx decap-server` and uncomment to edit locally without logging in
+# local_backend: true
+
+site_url: /
+logo_url: /assets/logo-mark.png
+media_folder: media/uploads
+public_folder: /media/uploads
+
+collections:
+  - name: watches
+    label: Watches
+    label_singular: Watch
+    description: Every watch on the site. Set the status to Sold when it goes, and it moves to the archive automatically.
+    folder: content/watches
+    create: true
+    delete: true
+    extension: json
+    format: json
+    slug: "{{fields.brand}}-{{fields.model}}"
+    identifier_field: model
+    summary: "{{brand}} {{model}} · {{status}}"
+    sortable_fields: [order, brand, status]
+    fields:
+      - { name: brand, label: Brand, widget: select, options: [Rolex, Tudor, Omega, Panerai, Cartier, "Patek Philippe", "Audemars Piguet", "Grand Seiko", Breitling, IWC, "Jaeger-LeCoultre", Longines, Other] }
+      - { name: model, label: Model, widget: string, hint: "e.g. Speedmaster Moonwatch" }
+      - { name: reference, label: Reference, widget: string, required: false, hint: "e.g. 311.30.42.30.01.005" }
+      - { name: year, label: Year, widget: string, required: false }
+      - name: status
+        label: Status
+        widget: select
+        default: available
+        options:
+          - { label: "Available", value: available }
+          - { label: "Reserved", value: reserved }
+          - { label: "Sold", value: sold }
+      - name: price_mode
+        label: Price
+        widget: select
+        default: on_request
+        options:
+          - { label: "Price on request", value: on_request }
+          - { label: "Show price", value: price }
+      - { name: price_dkk, label: "Price (DKK)", widget: number, value_type: int, required: false, hint: "Only shown when Price is set to Show price" }
+      - { name: set, label: "Box & papers", widget: string, required: false, hint: "e.g. Full set, box and papers 2019" }
+      - { name: condition, label: Condition, widget: string, required: false, hint: "e.g. Light wear on bracelet, serviced 2024" }
+      - { name: description, label: Description, widget: text, required: false }
+      - name: images
+        label: Photos
+        widget: list
+        summary: "{{fields.image}}"
+        field: { name: image, label: Photo, widget: image }
+        hint: The first photo is the main one.
+      - { name: featured, label: "Feature on front page", widget: boolean, default: false }
+      - { name: order, label: "Sort order", widget: number, value_type: int, default: 100, hint: "Lower numbers show first" }
+      - { name: focus_x, label: "Photo focus left-right (0-100)", widget: number, value_type: int, default: 50, required: false }
+      - { name: focus_y, label: "Photo focus top-bottom (0-100)", widget: number, value_type: int, default: 50, required: false }
+
+  - name: pages
+    label: Site text
+    files:
+      - name: settings
+        label: Front page and contact
+        file: content/settings.json
+        format: json
+        fields:
+          - { name: hero_kicker, label: "Hero small line", widget: string }
+          - { name: hero_title, label: "Hero headline", widget: string }
+          - { name: hero_text, label: "Hero text", widget: text }
+          - { name: hero_video, label: "Hero video (mp4, optional)", widget: file, required: false, hint: "Leave empty to use the hero photo instead" }
+          - { name: hero_video_mobile, label: "Hero video for phones (smaller mp4, optional)", widget: file, required: false }
+          - { name: hero_image, label: "Hero photo", widget: image }
+          - { name: hero_caption, label: "Hero caption", widget: string, required: false }
+          - { name: intro_title, label: "Intro headline", widget: string }
+          - { name: intro_text, label: "Intro text", widget: text }
+          - { name: sell_title, label: "Sell section headline", widget: string }
+          - { name: sell_text, label: "Sell section text", widget: text }
+          - { name: email, label: "Contact email", widget: string }
+          - { name: instagram, label: "Instagram handle", widget: string }
+          - { name: location, label: Location, widget: string }
+          - { name: viewings, label: "Viewings line", widget: string }
