@@ -34,8 +34,8 @@ for (const w of watches) {
   w.url = `watch/${s}/${PREVIEW ? 'index.html' : ''}`;
 }
 
-const statusText = w => ({ available: 'Available', reserved: 'Reserved', sold: 'Sold' }[w.status] || 'Available');
-const priceText = w => w.status === 'sold' ? 'Sold' : (w.price_mode === 'price' && w.price_dkk ? `DKK ${kr.format(w.price_dkk)}` : 'Price on request');
+const statusText = w => ({ available: 'Tilgængelig', reserved: 'Reserveret', sold: 'Solgt' }[w.status] || 'Tilgængelig');
+const priceText = w => w.status === 'sold' ? 'Solgt' : (w.price_mode === 'price' && w.price_dkk ? `DKK ${kr.format(w.price_dkk)}` : 'Pris på forespørgsel');
 const pos = w => `${w.focus_x ?? 50}% ${w.focus_y ?? 50}%`;
 const rel = p => (p || '').replace(/^\//, '');
 
@@ -50,17 +50,17 @@ const R = '../../';
 const home = R + (PREVIEW ? 'index.html' : '');
 const header = `<header class="top" data-qa-ignore>
   <a href="${home}" class="brand" aria-label="All in Time, home"><img src="${R}assets/logo-word.png" alt="All in Time" width="160" height="32"></a>
-  <nav aria-label="Main"><a href="${R}${soldUrl}">Sold watches</a><a href="${home}#sell">Sell or trade</a><a href="#enquire" class="pill">Enquire</a></nav>
+  <nav aria-label="Main"><a href="${R}${soldUrl}">Solgte ure</a><a href="${home}#sell">Sælg eller byt</a><a href="#enquire" class="pill">Skriv til os</a></nav>
 </header>`;
 const footer = `<footer class="foot">
   <div class="wrap fcols">
     <img src="${R}assets/logo.png" alt="All in Time" class="flogo" width="150" height="114">
-    <div><p class="label light">Contact</p>${email ? `<a href="mailto:${esc(email)}">${esc(email)}</a><br>` : ''}<a href="https://www.instagram.com/${esc(ig)}/" target="_blank" rel="noopener">Instagram</a></div>
-    <div><p class="label light">Visit</p>${esc(settings.viewings || '')}<br>${esc(settings.location || '')}</div>
-    <div><p class="label light">Explore</p><a href="${R}${soldUrl}">Sold watches</a><br><a href="${home}#sell">Sell or trade</a></div>
+    <div><p class="label light">Kontakt</p>${email ? `<a href="mailto:${esc(email)}">${esc(email)}</a><br>` : ''}<a href="https://www.instagram.com/${esc(ig)}/" target="_blank" rel="noopener">Instagram</a></div>
+    <div><p class="label light">Besøg</p>${esc(settings.viewings || '')}<br>${esc(settings.location || '')}</div>
+    <div><p class="label light">Udforsk</p><a href="${R}${soldUrl}">Solgte ure</a><br><a href="${home}#sell">Sælg eller byt</a></div>
   </div>
   <div class="wrap fbig" aria-hidden="true"><img src="${R}assets/logo-word.png" alt="" loading="lazy"></div>
-  <div class="wrap fine"><span>© ${new Date().getFullYear()} All in Time</span><a href="#">Back to top</a></div>
+  <div class="wrap fine"><span>© ${new Date().getFullYear()} All in Time</span><a href="#">Til toppen</a></div>
 </footer>`;
 const card = w => `<a class="card" href="${R}${esc(w.url)}">
   <div class="ph"><img src="${R}${esc(rel(w.images[0]))}" alt="${esc(w.brand + ' ' + w.model)}" loading="lazy" style="object-position:${pos(w)}"></div>
@@ -86,7 +86,7 @@ function page(w, i) {
     offers: { '@type': 'Offer', priceCurrency: 'DKK', availability: sold ? 'https://schema.org/SoldOut' : w.status === 'reserved' ? 'https://schema.org/LimitedAvailability' : 'https://schema.org/InStock', ...(w.price_mode === 'price' && w.price_dkk && !sold ? { price: w.price_dkk } : {}), seller: { '@type': 'Organization', name: 'All in Time' } }
   };
   return `<!doctype html>
-<html lang="en">
+<html lang="da">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -95,7 +95,7 @@ function page(w, i) {
 ${canonical ? `<link rel="canonical" href="${canonical}">` : ''}
 <meta property="og:type" content="product">
 <meta property="og:title" content="${esc(name)} · All in Time">
-<meta property="og:description" content="${esc(sold ? 'Sold. Looking for one like it? Ask us.' : priceText(w) + '. Pre-loved, from Denmark.')}">
+<meta property="og:description" content="${esc(sold ? 'Solgt. Leder du efter et lignende? Spørg os.' : priceText(w) + '. Brugt, fra Danmark.')}">
 <meta property="og:image" content="${esc(abs(img0))}">
 ${canonical ? `<meta property="og:url" content="${canonical}">` : ''}
 <meta name="twitter:card" content="summary_large_image">
@@ -109,48 +109,48 @@ ${canonical ? `<meta property="og:url" content="${canonical}">` : ''}
 <body class="wpage">
 ${header}
 <main>
-  <nav class="crumbs wrap" aria-label="Breadcrumb"><a href="${home}">All in Time</a><span>/</span>${sold ? `<a href="${R}${soldUrl}">Sold watches</a>` : `<a href="${home}#available">Watches</a>`}<span>/</span><span aria-current="page">${esc(name)}</span></nav>
+  <nav class="crumbs wrap" aria-label="Breadcrumb"><a href="${home}">All in Time</a><span>/</span>${sold ? `<a href="${R}${soldUrl}">Solgte ure</a>` : `<a href="${home}#available">Ure</a>`}<span>/</span><span aria-current="page">${esc(name)}</span></nav>
   <section class="wp wrap">
     <div class="gal">
       <div class="gmain loupe-host" id="gmain"><img id="gimg" src="${R}${esc(rel(img0))}" alt="${esc(name)}" style="object-position:${pos(w)}" fetchpriority="high"></div>
-      ${w.images.length > 1 ? `<div class="gthumbs" role="list">${w.images.map((p, k) => `<button type="button" role="listitem" data-src="${R}${esc(rel(p))}" aria-label="Photo ${k + 1} of ${w.images.length}"${k === 0 ? ' aria-current="true"' : ''}><img src="${R}${esc(rel(p))}" alt="" loading="lazy"></button>`).join('')}</div>` : ''}
-      <p class="ghint">Hover the photo to look closer</p>
+      ${w.images.length > 1 ? `<div class="gthumbs" role="list">${w.images.map((p, k) => `<button type="button" role="listitem" data-src="${R}${esc(rel(p))}" aria-label="Foto ${k + 1} af ${w.images.length}"${k === 0 ? ' aria-current="true"' : ''}><img src="${R}${esc(rel(p))}" alt="" loading="lazy"></button>`).join('')}</div>` : ''}
+      <p class="ghint">Hold musen over fotoet for at se nærmere</p>
     </div>
     <aside class="info">
       <p class="label">${esc(w.brand)}</p>
       <h1 class="display">${esc(w.model)}</h1>
       ${(w.reference || w.year) ? `<p class="sub">${[w.reference && 'Ref. ' + esc(w.reference), esc(w.year)].filter(Boolean).join(' · ')}</p>` : ''}
       <div class="pricebox"><span class="price">${esc(priceText(w))}</span>${!sold ? `<span class="badge ${w.status}">${esc(statusText(w))}</span>` : ''}</div>
-      ${sold ? `<p class="soldnote">This watch has found a new owner. We regularly find similar pieces, so ask and we will keep an eye out.</p>` : ''}
-      <div class="actions"><a class="btn" href="#enquire">${sold ? 'Find me one like this' : 'Enquire about this watch'}</a><a class="tlink" href="https://www.instagram.com/${esc(ig)}/" target="_blank" rel="noopener">or message on Instagram</a></div>
+      ${sold ? `<p class="soldnote">Dette ur har fundet en ny ejer. Vi finder jævnligt lignende ure, så spørg — så holder vi øje.</p>` : ''}
+      <div class="actions"><a class="btn" href="#enquire">${sold ? 'Find mig et lignende' : 'Spørg om dette ur'}</a><a class="tlink" href="https://www.instagram.com/${esc(ig)}/" target="_blank" rel="noopener">eller skriv på Instagram</a></div>
       ${w.description ? `<p class="body wdesc">${esc(w.description)}</p>` : ''}
       <dl class="specs">${specs.map(r => `<div><dt>${esc(r[0])}</dt><dd>${esc(r[1])}</dd></div>`).join('')}</dl>
-      <ul class="assure">${settings.viewings ? `<li>${esc(settings.viewings)}${settings.location ? ', ' + esc(settings.location) : ''}</li>` : ''}<li>Questions answered personally${email ? ` at <a href="mailto:${esc(email)}">${esc(email)}</a>` : ''}</li></ul>
+      <ul class="assure">${settings.viewings ? `<li>${esc(settings.viewings)}${settings.location ? ', ' + esc(settings.location) : ''}</li>` : ''}<li>Alle spørgsmål besvares personligt${email ? ` på <a href="mailto:${esc(email)}">${esc(email)}</a>` : ''}</li></ul>
     </aside>
   </section>
 
   <section id="enquire" class="wp-enq">
     <div class="wrap wp-enq-in">
       <div>
-        <p class="label light">${sold ? 'Find one like it' : 'Enquire'}</p>
-        <h2 class="display">${sold ? 'Looking for one like this?' : 'Interested in this watch?'}</h2>
-        <p class="lead">${sold ? 'Tell us what matters to you, the reference, the year or the dial, and we will let you know when we find one.' : 'Ask anything about it, or arrange a viewing. You will hear back personally, usually the same day.'}</p>
+        <p class="label light">${sold ? 'Find et lignende' : 'Skriv til os'}</p>
+        <h2 class="display">${sold ? 'Leder du efter et lignende?' : 'Interesseret i dette ur?'}</h2>
+        <p class="lead">${sold ? 'Fortæl os hvad der betyder noget for dig — reference, årstal eller skive — så giver vi besked når vi finder et.' : 'Spørg om hvad som helst, eller aftal en besigtigelse. Du hører personligt svar, som regel samme dag.'}</p>
       </div>
       <form name="contact" method="POST" action="/" data-netlify="true" netlify-honeypot="company" class="form dark js-form">
         <input type="hidden" name="form-name" value="contact">
         <input type="hidden" name="topic" value="Enquiry">
-        <p class="hp"><label>Company <input name="company"></label></p>
-        <div class="row2"><label>Name<input name="name" required autocomplete="name"></label><label>Email<input name="email" type="email" required autocomplete="email"></label></div>
-        <label>Watch<input name="watch" data-fixed="1" value="${esc(name)}${w.reference ? ' (' + esc(w.reference) + ')' : ''}${sold ? ', or similar' : ''}"></label>
-        <label>Message<textarea name="message" rows="4" required placeholder="${sold ? 'What are you looking for? Budget, year, dial, box and papers…' : 'Your question, or when you would like to see it'}"></textarea></label>
+        <p class="hp"><label>Firma <input name="company"></label></p>
+        <div class="row2"><label>Navn<input name="name" required autocomplete="name"></label><label>Email<input name="email" type="email" required autocomplete="email"></label></div>
+        <label>Ur<input name="watch" data-fixed="1" value="${esc(name)}${w.reference ? ' (' + esc(w.reference) + ')' : ''}${sold ? ', eller lignende' : ''}"></label>
+        <label>Besked<textarea name="message" rows="4" required placeholder="${sold ? 'Hvad leder du efter? Budget, år, skive, boks og papirer…' : 'Dit spørgsmål, eller hvornår du gerne vil se det'}"></textarea></label>
         <button class="btn light" type="submit">Send</button>
         <p class="status" role="status" aria-live="polite"></p>
       </form>
     </div>
   </section>
 
-  <section class="wp-more wrap" aria-label="More watches">
-    <div class="shead split"><div><p class="label">More from All in Time</p><h2 class="display">You may also like</h2></div>
+  <section class="wp-more wrap" aria-label="Flere ure">
+    <div class="shead split"><div><p class="label">Mere fra All in Time</p><h2 class="display">Du synes måske også om</h2></div>
       <div class="pn"><a href="${R}${esc(prev.url)}" rel="prev">← ${esc(prev.brand)} ${esc(prev.model)}</a><a href="${R}${esc(next.url)}" rel="next">${esc(next.brand)} ${esc(next.model)} →</a></div></div>
     <div class="grid">${more.map(card).join('')}</div>
   </section>
@@ -186,14 +186,14 @@ watches.forEach((w, i) => {
   const soldList = watches.filter(w => w.status === 'sold').slice().reverse();
   const brands = [...new Set(soldList.map(w => w.brand))];
   const html = `<!doctype html>
-<html lang="en">
+<html lang="da">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Sold watches · All in Time</title>
-<meta name="description" content="${soldList.length} pre-loved watches All in Time has sold: ${esc(brands.join(', '))}. Looking for one like them? Ask us.">
+<title>Solgte ure · All in Time</title>
+<meta name="description" content="${soldList.length} brugte ure All in Time har solgt: ${esc(brands.join(', '))}. Leder du efter et lignende? Spørg os.">
 ${site ? `<link rel="canonical" href="${site}/sold/">` : ''}
-<meta property="og:title" content="Sold watches · All in Time">
+<meta property="og:title" content="Solgte ure · All in Time">
 <meta property="og:image" content="${esc(site ? site + '/' + rel(soldList[0]?.images[0]) : rel(soldList[0]?.images[0]))}">
 <meta name="theme-color" content="#0e3725">
 <link rel="icon" href="${R}assets/logo-mark.png">
@@ -205,15 +205,15 @@ ${site ? `<link rel="canonical" href="${site}/sold/">` : ''}
 ${header}
 <main>
   <section class="shero wrap">
-    <div><p class="label">Archive · ${soldList.length} watches</p><h1 class="display">Sold watches</h1></div>
-    <p class="body narrow">Every watch that has passed through All in Time, photographed as it was. Looking for one like them? Tell us and we will keep an eye out.</p>
+    <div><p class="label">Arkiv · ${soldList.length} ure</p><h1 class="display">Solgte ure</h1></div>
+    <p class="body narrow">Hvert ur der er gået gennem All in Time, fotograferet som det var. Leder du efter et lignende? Fortæl os det — så holder vi øje.</p>
   </section>
-  <section class="sold-list wrap" aria-label="All sold watches">
-    <div class="filters" role="tablist" aria-label="Filter by brand">
-      <button role="tab" aria-selected="true" data-b="">All<span>${soldList.length}</span></button>${brands.map(x => `<button role="tab" aria-selected="false" data-b="${esc(x)}">${esc(x)}<span>${soldList.filter(w => w.brand === x).length}</span></button>`).join('')}
+  <section class="sold-list wrap" aria-label="Alle solgte ure">
+    <div class="filters" role="tablist" aria-label="Filtrer efter mærke">
+      <button role="tab" aria-selected="true" data-b="">Alle<span>${soldList.length}</span></button>${brands.map(x => `<button role="tab" aria-selected="false" data-b="${esc(x)}">${esc(x)}<span>${soldList.filter(w => w.brand === x).length}</span></button>`).join('')}
     </div>
     <div class="grid" id="soldGrid">${soldList.map(w => card(w).replace('<a class="card"', `<a class="card" data-brand="${esc(w.brand)}"`)).join('')}</div>
-    <div class="sold-cta"><h2 class="display">Looking for one like these?</h2><a class="btn" href="${home}#contact">Ask us to find one</a></div>
+    <div class="sold-cta"><h2 class="display">Leder du efter et lignende?</h2><a class="btn" href="${home}#contact">Spørg os til at finde et</a></div>
   </section>
 </main>
 ${footer}
