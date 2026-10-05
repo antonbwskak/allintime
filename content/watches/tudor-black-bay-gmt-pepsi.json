@@ -1,0 +1,23 @@
+{
+  "set": "Komplet sæt med inderboks, yderboks, ekstra led, manualer samt garantikort.",
+  "brand": "Tudor",
+  "model": "Black Bay GMT \"Pepsi\"",
+  "reference": "79830RB-0001",
+  "featured": true,
+  "price_dkk": 20900,
+  "order": 100,
+  "focus_x": 50,
+  "focus_y": 50,
+  "status": "available",
+  "images": [
+    "/media/uploads/dscf0655.jpeg",
+    "/media/uploads/dscf0656.jpeg",
+    "/media/uploads/dscf0658.jpeg",
+    "/media/uploads/dscf0657.jpeg",
+    "/media/uploads/dscf0689.jpeg"
+  ],
+  "price_mode": "price",
+  "condition": "80%",
+  "description": "En moderne Tudor-klassiker med den karakteristiske rød/blå “Pepsi” GMT-krans og sort skive. Uret kombinerer Black Bays vintageinspirerede design med en praktisk GMT-funktion, der gør det muligt at aflæse flere tidszoner. Med 41 mm stålkasse, automatisk Manufacture-værk og 200 meters vandtæthed er det et robust og alsidigt sportsur med tydelige referencer til Tudors historiske design.",
+  "year": "2018"
+}
