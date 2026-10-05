@@ -7,8 +7,8 @@
   const W = (D.watches || []).filter(w => w.model), S = D.settings || {};
   const src = p => (p || '').replace(/^\//, '');
   const kr = new Intl.NumberFormat('da-DK');
-  const priceText = w => w.status === 'sold' ? 'Sold' : (w.price_mode === 'price' && w.price_dkk ? `DKK ${kr.format(w.price_dkk)}` : 'Price on request');
-  const statusText = w => ({ available: 'Available', reserved: 'Reserved', sold: 'Sold' }[w.status] || 'Available');
+  const priceText = w => w.status === 'sold' ? 'Solgt' : (w.price_mode === 'price' && w.price_dkk ? `DKK ${kr.format(w.price_dkk)}` : 'Pris på forespørgsel');
+  const statusText = w => ({ available: 'Tilgængelig', reserved: 'Reserveret', sold: 'Solgt' }[w.status] || 'Tilgængelig');
   const pos = w => `${w.focus_x ?? 50}% ${w.focus_y ?? 50}%`;
   const ig = (S.instagram || 'allintime.dk').replace(/^@/, '');
 
@@ -47,14 +47,14 @@
   {
     const a = W.filter(w => w.status !== 'sold'), g = $('#availGrid');
     if (a.length) { g.className = 'grid'; g.innerHTML = a.map(card).join(''); }
-    else { g.className = ''; $('#available').classList.add('is-empty'); g.innerHTML = `<div class="quiet"><p><b>Nothing available right now.</b> New pieces are announced on Instagram first.</p><a href="#contact">Ask us to find one</a></div>`; }
+    else { g.className = ''; $('#available').classList.add('is-empty'); g.innerHTML = `<div class="quiet"><p><b>Intet tilgængeligt lige nu.</b> Nye ure bliver announced på Instagram først.</p><a href="#contact">Spørg os til at finde et</a></div>`; }
   }
 
   // sold watches preview (8 most recent); the full list lives on /sold/
   {
     const sold = W.filter(w => w.status === 'sold').slice().reverse();
     if (!sold.length) $('#archive').hidden = true;
-    else { $('#archGrid').innerHTML = sold.slice(0, 8).map(card).join(''); $('#allSold').textContent = `See all ${sold.length} sold watches`; }
+    else { $('#archGrid').innerHTML = sold.slice(0, 8).map(card).join(''); $('#allSold').textContent = `Se alle ${sold.length} solgte ure`; }
   }
   const soldHref = D.sold_url || 'sold/'; $$('.js-sold,#allSold').forEach(a => a.href = soldHref);
 
