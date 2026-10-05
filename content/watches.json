@@ -351,7 +351,58 @@
       "focus_y": 47,
       "file": "16-tudor-black-bay-bronze.json",
       "url": "watch/tudor-black-bay-bronze/"
+    },
+    {
+      "set": "Komplet sæt med inderboks, yderboks, manual samt garantikort.",
+      "brand": "Omega",
+      "model": "Seamaster 300M Co-Axial \"Casino Royale\"",
+      "reference": "2220.80.00",
+      "featured": true,
+      "price_dkk": 24900,
+      "order": 100,
+      "focus_x": 50,
+      "focus_y": 50,
+      "status": "available",
+      "images": [
+        "/media/uploads/dscf0637.jpeg",
+        "/media/uploads/dscf0639.jpeg",
+        "/media/uploads/dscf0640.jpeg",
+        "/media/uploads/dscf0642.jpeg",
+        "/media/uploads/dscf0647.jpeg"
+      ],
+      "price_mode": "price",
+      "condition": "95%",
+      "description": "En ikonisk Omega Seamaster med blå bølgeskive, matchende dykkerkrans og Co-Axial automatikværk. Modellen er særligt kendt som “Casino Royale” Seamasteren, da den blev båret af Daniel Craig som James Bond i Casino Royale (2006). Med 300 meters vandtæthed og et tidløst sporty design er den en eftertragtet moderne Bond-klassiker.",
+      "file": "omega-seamaster-300m-co-axial-casino-royale.json",
+      "slug": "omega-seamaster-300m-co-axial-casino-royale",
+      "url": "watch/omega-seamaster-300m-co-axial-casino-royale/"
+    },
+    {
+      "set": "Komplet sæt med inderboks, yderboks, ekstra led, manualer samt garantikort.",
+      "brand": "Tudor",
+      "model": "Black Bay GMT \"Pepsi\"",
+      "reference": "79830RB-0001",
+      "featured": true,
+      "price_dkk": 20900,
+      "order": 100,
+      "focus_x": 50,
+      "focus_y": 50,
+      "status": "available",
+      "images": [
+        "/media/uploads/dscf0655.jpeg",
+        "/media/uploads/dscf0656.jpeg",
+        "/media/uploads/dscf0658.jpeg",
+        "/media/uploads/dscf0657.jpeg",
+        "/media/uploads/dscf0689.jpeg"
+      ],
+      "price_mode": "price",
+      "condition": "80%",
+      "description": "En moderne Tudor-klassiker med den karakteristiske rød/blå “Pepsi” GMT-krans og sort skive. Uret kombinerer Black Bays vintageinspirerede design med en praktisk GMT-funktion, der gør det muligt at aflæse flere tidszoner. Med 41 mm stålkasse, automatisk Manufacture-værk og 200 meters vandtæthed er det et robust og alsidigt sportsur med tydelige referencer til Tudors historiske design.",
+      "year": "2018",
+      "file": "tudor-black-bay-gmt-pepsi.json",
+      "slug": "tudor-black-bay-gmt-pepsi",
+      "url": "watch/tudor-black-bay-gmt-pepsi/"
     }
   ],
-  "built": "2026-10-05T20:10:54.158Z"
+  "built": "2026-10-05T20:13:03.293Z"
 }
