@@ -1,0 +1,22 @@
+{
+  "set": "Komplet sæt med inderboks, yderboks, manual samt garantikort.",
+  "brand": "Omega",
+  "model": "Seamaster 300M Co-Axial \"Casino Royale\"",
+  "reference": "2220.80.00",
+  "featured": true,
+  "price_dkk": 24900,
+  "order": 100,
+  "focus_x": 50,
+  "focus_y": 50,
+  "status": "available",
+  "images": [
+    "/media/uploads/dscf0637.jpeg",
+    "/media/uploads/dscf0639.jpeg",
+    "/media/uploads/dscf0640.jpeg",
+    "/media/uploads/dscf0642.jpeg",
+    "/media/uploads/dscf0647.jpeg"
+  ],
+  "price_mode": "price",
+  "condition": "95%",
+  "description": "En ikonisk Omega Seamaster med blå bølgeskive, matchende dykkerkrans og Co-Axial automatikværk. Modellen er særligt kendt som “Casino Royale” Seamasteren, da den blev båret af Daniel Craig som James Bond i Casino Royale (2006). Med 300 meters vandtæthed og et tidløst sporty design er den en eftertragtet moderne Bond-klassiker."
+}
