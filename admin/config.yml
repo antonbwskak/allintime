@@ -1,9 +1,10 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: antonbwskak/allintime
   branch: main
-
-# Run `npx decap-server` and uncomment to edit locally without logging in
-# local_backend: true
+  app_id: Ov23ctq2tXt9JzstPj6J
+  base_url: https://allintime.vercel.app
+  auth_endpoint: /api/auth
 
 site_url: /
 logo_url: /assets/logo-mark.png
