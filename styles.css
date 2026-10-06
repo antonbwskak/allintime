@@ -328,8 +328,8 @@ a.card{text-decoration:none;color:inherit}
 .hx-media video{animation:fadein 1.2s ease both}
 .hx-t{display:contents;font-size:clamp(52px,calc((50vw - min(34svh,380px) * .62 - 52px - var(--m)) / 4.2),150px);line-height:.9;white-space:nowrap}
 .hx-t .w{grid-row:1;display:block;font-size:clamp(52px,calc((50vw - min(34svh,380px) * .62 - 52px - var(--m)) / 4.2),150px);font-family:"Instrument Serif",Georgia,serif;letter-spacing:-.015em;line-height:.95}
-.hx-t .w:first-child{grid-column:1;justify-self:start}
-.hx-t .w+.w{grid-column:3;justify-self:start}
+.hx-t .w:first-child{grid-column:1;grid-row:1;justify-self:start}
+.hx-t .w+.w{grid-column:1;grid-row:2;justify-self:start}
 .hx-t .w b{font-weight:400}
 .hx-t em{font-style:italic}
 .hx-k{display:none}
