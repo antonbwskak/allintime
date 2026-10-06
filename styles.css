@@ -321,15 +321,15 @@ a.card{text-decoration:none;color:inherit}
 
 /* ================= calm hero: the dial, framed on green ================= */
 .hx{background:var(--green-d)}
-.hx-pin{position:relative;min-height:100svh;color:var(--paper);background:var(--green-d);display:grid;grid-template-columns:1fr 1fr auto;grid-template-rows:auto auto auto;column-gap:clamp(28px,2.6vw,52px);align-items:center;padding:calc(var(--hh) + 3svh) var(--m) clamp(28px,5svh,56px)}
+.hx-pin{position:relative;min-height:100svh;color:var(--paper);background:var(--green-d);display:grid;grid-template-columns:1fr auto;grid-template-rows:auto auto auto;column-gap:clamp(28px,2.6vw,52px);align-items:center;padding:calc(var(--hh) + 3svh) var(--m) clamp(28px,5svh,56px)}
 .hx-pin.grain::after{opacity:.1}
-.hx-media{grid-column:3;grid-row:1/4;position:relative;height:min(68svh,760px);aspect-ratio:.62;overflow:hidden;background:#1a0d10;box-shadow:0 0 0 1px rgba(196,162,106,.35),0 40px 80px rgba(0,0,0,.35)}
+.hx-media{grid-column:2;grid-row:1/4;position:relative;height:min(68svh,760px);aspect-ratio:.62;overflow:hidden;background:#1a0d10;box-shadow:0 0 0 1px rgba(196,162,106,.35),0 40px 80px rgba(0,0,0,.35)}
 .hx-media img,.hx-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 42%}
 .hx-media video{animation:fadein 1.2s ease both}
 .hx-t{display:contents;font-size:clamp(52px,calc((50vw - min(34svh,380px) * .62 - 52px - var(--m)) / 4.2),150px);line-height:.9;white-space:nowrap}
 .hx-t .w{grid-row:1;display:block;font-size:clamp(52px,calc((50vw - min(34svh,380px) * .62 - 52px - var(--m)) / 4.2),150px);font-family:"Instrument Serif",Georgia,serif;letter-spacing:-.015em;line-height:.95}
-.hx-t .w:first-child{grid-column:1;justify-self:end}
-.hx-t .w+.w{grid-column:2;justify-self:start}
+.hx-t .w:first-child{grid-column:1;justify-self:center}
+.hx-t .w+.w{grid-column:1;justify-self:center}
 .hx-t .w b{font-weight:400}
 .hx-t em{font-style:italic}
 .hx-k{display:none}
