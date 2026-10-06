@@ -16,7 +16,7 @@
 <link rel="icon" href="../../assets/logo-mark.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../styles.css?v=1791272090396">
+<link rel="stylesheet" href="../../styles.css?v=1791273717756">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Omega Seamaster Diver 300M","brand":{"@type":"Brand","name":"Omega"},"description":"The classic Seamaster 300M: blue wave-pattern dial, skeleton sword hands, date at three and the five-link bracelet.","image":["media/uploads/5-omega-seamaster-wave.jpg"],"itemCondition":"https://schema.org/UsedCondition","offers":{"@type":"Offer","priceCurrency":"DKK","availability":"https://schema.org/SoldOut","seller":{"@type":"Organization","name":"All in Time"}}}</script>
 </head>
 <body class="wpage">
@@ -99,7 +99,7 @@
   <div class="wrap fbig" aria-hidden="true"><img src="../../assets/logo-word.png" alt="" loading="lazy"></div>
   <div class="wrap fine"><span>© 2026 All in Time</span><a href="#">Til toppen</a></div>
 </footer>
-<script src="../../assets/common.js?v=1791272090396"></script>
+<script src="../../assets/common.js?v=1791273717756"></script>
 <script>
 (() => {
   const g = document.getElementById('gmain'), img = document.getElementById('gimg');
@@ -107,7 +107,7 @@
   const prevBtn = document.querySelector('.gnav.prev');
   const nextBtn = document.querySelector('.gnav.next');
   let current = 0;
-  const show = i => { current = ((i % thumbs.length) + thumbs.length) % thumbs.length; img.src = thumbs[current].dataset.src; thumbs.forEach((x, k) => x.setAttribute('aria-current', k === current)); };
+  const show = i => { current = ((i % thumbs.length) + thumbs.length) % thumbs.length; img.classList.add('sliding'); setTimeout(() => { img.src = thumbs[current].dataset.src; img.classList.remove('sliding'); thumbs.forEach((x, k) => x.setAttribute('aria-current', k === current)); }, 200); };
   thumbs.forEach((b, k) => b.addEventListener('click', () => show(k)));
   if (prevBtn) prevBtn.addEventListener('click', () => show(current - 1));
   if (nextBtn) nextBtn.addEventListener('click', () => show(current + 1));

@@ -166,7 +166,7 @@ ${footer}
   const prevBtn = document.querySelector('.gnav.prev');
   const nextBtn = document.querySelector('.gnav.next');
   let current = 0;
-  const show = i => { current = ((i % thumbs.length) + thumbs.length) % thumbs.length; img.src = thumbs[current].dataset.src; thumbs.forEach((x, k) => x.setAttribute('aria-current', k === current)); };
+  const show = i => { current = ((i % thumbs.length) + thumbs.length) % thumbs.length; img.classList.add('sliding'); setTimeout(() => { img.src = thumbs[current].dataset.src; img.classList.remove('sliding'); thumbs.forEach((x, k) => x.setAttribute('aria-current', k === current)); }, 200); };
   thumbs.forEach((b, k) => b.addEventListener('click', () => show(k)));
   if (prevBtn) prevBtn.addEventListener('click', () => show(current - 1));
   if (nextBtn) nextBtn.addEventListener('click', () => show(current + 1));
