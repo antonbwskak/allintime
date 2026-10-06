@@ -3,7 +3,7 @@ backend:
   repo: antonbwskak/allintime
   branch: main
   app_id: Ov23ctq2tXt9JzstPj6J
-  base_url: https://allintime.vercel.app
+  base_url: https://all-in-time.netlify.app
   auth_endpoint: /api/auth
 
 site_url: /
