@@ -50,7 +50,7 @@ const R = '../../';
 const home = R + (PREVIEW ? 'index.html' : '');
 const header = `<header class="top" data-qa-ignore>
   <a href="${home}" class="brand" aria-label="All in Time, home"><img src="${R}assets/logo-word.png" alt="All in Time" width="160" height="32"></a>
-  <nav aria-label="Main"><a href="${R}${soldUrl}">Solgte ure</a><a href="${home}#sell">Sælg eller byt</a><a href="#enquire" class="pill">Skriv til os</a></nav>
+  <nav aria-label="Main"><a href="${R}lager/">Ure på lager</a><a href="${R}${soldUrl}">Solgte ure</a><a href="${home}#sell">Sælg eller byt</a><a href="#enquire" class="pill">Skriv til os</a></nav>
 </header>`;
 const footer = `<footer class="foot">
   <div class="wrap fcols">
@@ -245,9 +245,58 @@ ${footer}
   fs.writeFileSync(path.join(d, 'index.html'), html.split(R).join('../')); // one folder deep
 }
 
+// ---- lager page (/lager/)
+{
+  const availList = watches.filter(w => w.status !== 'sold').sort((a, b) => (a.order ?? 999) - (b.order ?? 999));
+  const brands = [...new Set(availList.map(w => w.brand))];
+  const html = `<!doctype html>
+<html lang="da">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ure på lager · All in Time</title>
+<meta name="description" content="${availList.length} ure tilgængelige nu hos All in Time: ${esc(brands.join(', '))}. Se alle ure og kontakt os.">
+${site ? `<link rel="canonical" href="${site}/lager/">` : ''}
+<meta property="og:title" content="Ure på lager · All in Time">
+<meta property="og:image" content="${esc(site ? site + '/' + rel(availList[0]?.images[0]) : rel(availList[0]?.images[0]))}">
+<meta name="theme-color" content="#0e3725">
+<link rel="icon" href="${R}assets/logo-mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="${R}styles.css?v=${V}">
+</head>
+<body class="soldpage">
+${header}
+<main>
+  <section class="shero wrap">
+    <div><p class="label">Lager · ${availList.length} ure</p><h1 class="display">Ure på lager</h1></div>
+    <p class="body narrow">Alle ure der er tilgængelige lige nu. Vil du se et? Skriv til os — vi svarer personligt.</p>
+  </section>
+  <section class="sold-list wrap" aria-label="Alle tilgængelige ure">
+    <div class="filters" role="tablist" aria-label="Filtrer efter mærke">
+      <button role="tab" aria-selected="true" data-b="">Alle<span>${availList.length}</span></button>${brands.map(x => `<button role="tab" aria-selected="false" data-b="${esc(x)}">${esc(x)}<span>${availList.filter(w => w.brand === x).length}</span></button>`).join('')}
+    </div>
+    <div class="grid" id="availGrid">${availList.map(w => card(w).replace('<a class="card"', `<a class="card" data-brand="${esc(w.brand)}"`)).join('')}</div>
+    <div class="sold-cta"><h2 class="display">Leder du efter noget bestemt?</h2><a class="btn" href="${home}#contact">Skriv til os</a></div>
+  </section>
+</main>
+${footer}
+<script src="${R}assets/common.js?v=${V}"></script>
+<script>
+(() => {
+  const bs = [...document.querySelectorAll('.filters button')], cs = [...document.querySelectorAll('#availGrid .card')];
+  bs.forEach(b => b.addEventListener('click', () => { bs.forEach(x => x.setAttribute('aria-selected', x === b)); cs.forEach(c => c.hidden = !!b.dataset.b && c.dataset.brand !== b.dataset.b)); });
+})();
+</script>
+</body>
+</html>`;
+  const d = path.join(ROOT, 'lager'); fs.mkdirSync(d, { recursive: true });
+  fs.writeFileSync(path.join(d, 'index.html'), html.split(R).join('../'));
+}
+
 // ---- sitemap + robots
 if (site) {
-  const urls = ['', 'sold/', ...watches.map(w => `watch/${w.slug}/`)];
+  const urls = ['', 'sold/', 'lager/', ...watches.map(w => `watch/${w.slug}/`)];
   fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(u => `  <url><loc>${site}/${u}</loc><lastmod>${built.slice(0, 10)}</lastmod></url>`).join('\n')}\n</urlset>\n`);
 }
 fs.writeFileSync(path.join(ROOT, 'robots.txt'), `User-agent: *\nDisallow: /admin/\n${site ? `Sitemap: ${site}/sitemap.xml\n` : ''}`);

@@ -71,8 +71,8 @@ button,input,select,textarea{font:inherit;color:inherit}
 /* grid + cards */
 .grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:48px clamp(14px,1.8vw,30px)}
 .card{cursor:pointer;text-align:left;background:none;border:0;display:block;width:100%}
-.card .ph{overflow:hidden;background:var(--paper2);display:flex;align-items:center;justify-content:center}
-.card .ph img{width:100%;height:100%;object-fit:contain}
+.card .ph{overflow:hidden;background:var(--paper2);aspect-ratio:4/5}
+.card .ph img{width:100%;height:100%;object-fit:cover}
 .card .cap{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-top:14px;padding-top:12px;border-top:1px solid var(--line)}
 .card .b{font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 .card .st{font-size:13px;color:var(--muted)}
