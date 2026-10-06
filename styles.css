@@ -328,7 +328,7 @@ a.card{text-decoration:none;color:inherit}
 .hx-t .w b{font-weight:400}
 .hx-t em{font-style:italic}
 .hx-k{display:none}
-.hx-lead{grid-column:1;grid-row:2;max-width:400px;padding-top:24px}
+.hx-lead{grid-column:1;grid-row:2;max-width:400px;padding-top:8px}
 .hx-lead .lead{color:#dfe3d9;font-size:clamp(15.5px,1.1vw,18px)}
 .hx-lead .actions{margin-top:22px}
 .hx-cap{grid-column:1;grid-row:3;font-size:13px;letter-spacing:.04em;color:#c9cfc6;padding-top:20px}
