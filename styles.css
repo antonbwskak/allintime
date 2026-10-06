@@ -272,7 +272,7 @@ html[data-qa] .rv{opacity:1;transform:none}
 .crumbs a{text-decoration:none}.crumbs a:hover{color:var(--ink)}
 .crumbs [aria-current]{color:var(--ink)}
 .wp{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:clamp(36px,5vw,96px);align-items:start;padding-bottom:clamp(80px,11vh,140px)}
-.gmain{position:relative;aspect-ratio:4/5;overflow:hidden}
+.gmain{position:relative;overflow:hidden}
 .gmain img{width:100%;height:auto;object-fit:contain;transition:opacity .35s}
 .gthumbs{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
 .gthumbs button{width:78px;aspect-ratio:4/5;padding:0;border:1px solid transparent;background:var(--paper2);cursor:pointer;opacity:.6;transition:opacity .25s,border-color .25s}
