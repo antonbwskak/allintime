@@ -12,7 +12,7 @@
 <link rel="icon" href="../assets/logo-mark.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../styles.css?v=1791275071129">
+<link rel="stylesheet" href="../styles.css?v=1791275669581">
 </head>
 <body class="soldpage">
 <header class="top" data-qa-ignore>
@@ -25,9 +25,6 @@
     <p class="body narrow">Alle ure der er tilgængelige lige nu. Vil du se et? Skriv til os — vi svarer personligt.</p>
   </section>
   <section class="sold-list wrap" aria-label="Alle tilgængelige ure">
-    <div class="filters" role="tablist" aria-label="Filtrer efter mærke">
-      <button role="tab" aria-selected="true" data-b="">Alle<span>2</span></button><button role="tab" aria-selected="false" data-b="Omega">Omega<span>1</span></button><button role="tab" aria-selected="false" data-b="Tudor">Tudor<span>1</span></button>
-    </div>
     <div class="grid" id="availGrid"><a class="card" data-brand="Omega" href="../watch/omega-seamaster-300m-co-axial-casino-royale/">
   <div class="ph"><img src="../media/uploads/dscf0637.jpeg" alt="Omega Seamaster 300M Co-Axial &quot;Casino Royale&quot;" loading="lazy" style="object-position:50% 50%"></div>
   <div class="cap"><span class="b">Omega</span><span class="st avail">Tilgængelig</span></div>
@@ -50,12 +47,6 @@
   <div class="wrap fbig" aria-hidden="true"><img src="../assets/logo-word.png" alt="" loading="lazy"></div>
   <div class="wrap fine"><span>© 2026 All in Time</span><a href="#">Til toppen</a></div>
 </footer>
-<script src="../assets/common.js?v=1791275071129"></script>
-<script>
-(() => {
-  const bs = [...document.querySelectorAll('.filters button')], cs = [...document.querySelectorAll('#availGrid .card')];
-  bs.forEach(b => b.addEventListener('click', () => { bs.forEach(x => x.setAttribute('aria-selected', x === b)); cs.forEach(c => c.hidden = !!b.dataset.b && c.dataset.brand !== b.dataset.b)); });
-})();
-</script>
+<script src="../assets/common.js?v=1791275669581"></script>
 </body>
 </html>

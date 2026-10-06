@@ -273,21 +273,12 @@ ${header}
     <p class="body narrow">Alle ure der er tilgængelige lige nu. Vil du se et? Skriv til os — vi svarer personligt.</p>
   </section>
   <section class="sold-list wrap" aria-label="Alle tilgængelige ure">
-    <div class="filters" role="tablist" aria-label="Filtrer efter mærke">
-      <button role="tab" aria-selected="true" data-b="">Alle<span>${availList.length}</span></button>${brands.map(x => `<button role="tab" aria-selected="false" data-b="${esc(x)}">${esc(x)}<span>${availList.filter(w => w.brand === x).length}</span></button>`).join('')}
-    </div>
     <div class="grid" id="availGrid">${availList.map(w => card(w).replace('<a class="card"', `<a class="card" data-brand="${esc(w.brand)}"`)).join('')}</div>
     <div class="sold-cta"><h2 class="display">Leder du efter noget bestemt?</h2><a class="btn" href="${home}#contact">Skriv til os</a></div>
   </section>
 </main>
 ${footer}
 <script src="${R}assets/common.js?v=${V}"></script>
-<script>
-(() => {
-  const bs = [...document.querySelectorAll('.filters button')], cs = [...document.querySelectorAll('#availGrid .card')];
-  bs.forEach(b => b.addEventListener('click', () => { bs.forEach(x => x.setAttribute('aria-selected', x === b)); cs.forEach(c => c.hidden = !!b.dataset.b && c.dataset.brand !== b.dataset.b)); });
-})();
-</script>
 </body>
 </html>`;
   const d = path.join(ROOT, 'lager'); fs.mkdirSync(d, { recursive: true });
