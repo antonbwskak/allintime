@@ -12,7 +12,7 @@
 <link rel="icon" href="../assets/logo-mark.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../styles.css?v=1791275669581">
+<link rel="stylesheet" href="../styles.css?v=1791275754896">
 </head>
 <body class="soldpage">
 <header class="top" data-qa-ignore>
@@ -25,9 +25,6 @@
     <p class="body narrow">Hvert ur der er gået gennem All in Time, fotograferet som det var. Leder du efter et lignende? Fortæl os det — så holder vi øje.</p>
   </section>
   <section class="sold-list wrap" aria-label="Alle solgte ure">
-    <div class="filters" role="tablist" aria-label="Filtrer efter mærke">
-      <button role="tab" aria-selected="true" data-b="">Alle<span>16</span></button><button role="tab" aria-selected="false" data-b="Tudor">Tudor<span>6</span></button><button role="tab" aria-selected="false" data-b="Omega">Omega<span>8</span></button><button role="tab" aria-selected="false" data-b="Panerai">Panerai<span>1</span></button><button role="tab" aria-selected="false" data-b="Rolex">Rolex<span>1</span></button>
-    </div>
     <div class="grid" id="soldGrid"><a class="card" data-brand="Tudor" href="../watch/tudor-black-bay-bronze/">
   <div class="ph"><img src="../media/uploads/16-tudor-black-bay-bronze.jpg" alt="Tudor Black Bay Bronze" loading="lazy" style="object-position:45% 47%"></div>
   <div class="cap"><span class="b">Tudor</span><span class="st ">Solgt</span></div>
@@ -106,11 +103,9 @@
   <div class="wrap fbig" aria-hidden="true"><img src="../assets/logo-word.png" alt="" loading="lazy"></div>
   <div class="wrap fine"><span>© 2026 All in Time</span><a href="#">Til toppen</a></div>
 </footer>
-<script src="../assets/common.js?v=1791275669581"></script>
+<script src="../assets/common.js?v=1791275754896"></script>
 <script>
 (() => {
-  const bs = [...document.querySelectorAll('.filters button')], cs = [...document.querySelectorAll('#soldGrid .card')];
-  bs.forEach(b => b.addEventListener('click', () => { bs.forEach(x => x.setAttribute('aria-selected', x === b)); cs.forEach(c => c.hidden = !!b.dataset.b && c.dataset.brand !== b.dataset.b); }));
   if (new URLSearchParams(location.search).has('qa')) { const h = document.documentElement, H = innerHeight; h.dataset.qa = ''; const t = document.getElementById('soldGrid').getBoundingClientRect().top + scrollY;
     h.dataset.qaStops = JSON.stringify([['y', 0], ['y', Math.round(t - 80)], ['y', Math.round(t + H)], ['y', h.scrollHeight - H]]);
     new MutationObserver(() => { const v = h.dataset.qaGoto; if (!v) return; scrollTo(0, +v.split(',')[1]); h.dataset.qaGoto = ''; h.dataset.qaAt = v; }).observe(h, { attributes: true, attributeFilter: ['data-qa-goto'] });

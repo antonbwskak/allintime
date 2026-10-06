@@ -220,9 +220,6 @@ ${header}
     <p class="body narrow">Hvert ur der er gået gennem All in Time, fotograferet som det var. Leder du efter et lignende? Fortæl os det — så holder vi øje.</p>
   </section>
   <section class="sold-list wrap" aria-label="Alle solgte ure">
-    <div class="filters" role="tablist" aria-label="Filtrer efter mærke">
-      <button role="tab" aria-selected="true" data-b="">Alle<span>${soldList.length}</span></button>${brands.map(x => `<button role="tab" aria-selected="false" data-b="${esc(x)}">${esc(x)}<span>${soldList.filter(w => w.brand === x).length}</span></button>`).join('')}
-    </div>
     <div class="grid" id="soldGrid">${soldList.map(w => card(w).replace('<a class="card"', `<a class="card" data-brand="${esc(w.brand)}"`)).join('')}</div>
     <div class="sold-cta"><h2 class="display">Leder du efter et lignende?</h2><a class="btn" href="${home}#contact">Spørg os til at finde et</a></div>
   </section>
@@ -231,8 +228,6 @@ ${footer}
 <script src="${R}assets/common.js?v=${V}"></script>
 <script>
 (() => {
-  const bs = [...document.querySelectorAll('.filters button')], cs = [...document.querySelectorAll('#soldGrid .card')];
-  bs.forEach(b => b.addEventListener('click', () => { bs.forEach(x => x.setAttribute('aria-selected', x === b)); cs.forEach(c => c.hidden = !!b.dataset.b && c.dataset.brand !== b.dataset.b); }));
   if (new URLSearchParams(location.search).has('qa')) { const h = document.documentElement, H = innerHeight; h.dataset.qa = ''; const t = document.getElementById('soldGrid').getBoundingClientRect().top + scrollY;
     h.dataset.qaStops = JSON.stringify([['y', 0], ['y', Math.round(t - 80)], ['y', Math.round(t + H)], ['y', h.scrollHeight - H]]);
     new MutationObserver(() => { const v = h.dataset.qaGoto; if (!v) return; scrollTo(0, +v.split(',')[1]); h.dataset.qaGoto = ''; h.dataset.qaAt = v; }).observe(h, { attributes: true, attributeFilter: ['data-qa-goto'] });
