@@ -16,7 +16,7 @@
 <link rel="icon" href="../../assets/logo-mark.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../styles.css?v=1791273717756">
+<link rel="stylesheet" href="../../styles.css?v=1791273976073">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Omega Seamaster 300M Co-Axial \"Casino Royale\"","brand":{"@type":"Brand","name":"Omega"},"description":"En ikonisk Omega Seamaster med blå bølgeskive, matchende dykkerkrans og Co-Axial automatikværk. Modellen er særligt kendt som “Casino Royale” Seamasteren, da den blev båret af Daniel Craig som James Bond i Casino Royale (2006). Med 300 meters vandtæthed og et tidløst sporty design er den en eftertra","image":["media/uploads/dscf0637.jpeg","media/uploads/dscf0639.jpeg","media/uploads/dscf0640.jpeg","media/uploads/dscf0642.jpeg","media/uploads/dscf0647.jpeg"],"sku":"2220.80.00","itemCondition":"https://schema.org/UsedCondition","offers":{"@type":"Offer","priceCurrency":"DKK","availability":"https://schema.org/InStock","price":24900,"seller":{"@type":"Organization","name":"All in Time"}}}</script>
 </head>
 <body class="wpage">
@@ -30,7 +30,9 @@
     <div class="gal">
       <div class="gmain" id="gmain">
         <button class="gnav prev" aria-label="Forrige"><svg viewBox="0 0 24 24"><polyline points="15,18 9,12 15,6"/></svg></button><button class="gnav next" aria-label="Næste"><svg viewBox="0 0 24 24"><polyline points="9,18 15,12 9,6"/></svg></button>
-        <img id="gimg" src="../../media/uploads/dscf0637.jpeg" alt="Omega Seamaster 300M Co-Axial &quot;Casino Royale&quot;" style="object-position:50% 50%" fetchpriority="high">
+        <div class="gframes" id="gframes">
+          <img id="gimg" src="../../media/uploads/dscf0637.jpeg" alt="Omega Seamaster 300M Co-Axial &quot;Casino Royale&quot;" style="object-position:50% 50%" fetchpriority="high">
+        </div>
       </div>
       <div class="gthumbs" role="list"><button type="button" role="listitem" data-src="../../media/uploads/dscf0637.jpeg" aria-label="Foto 1 af 5" aria-current="true"><img src="../../media/uploads/dscf0637.jpeg" alt="" loading="lazy"></button><button type="button" role="listitem" data-src="../../media/uploads/dscf0639.jpeg" aria-label="Foto 2 af 5"><img src="../../media/uploads/dscf0639.jpeg" alt="" loading="lazy"></button><button type="button" role="listitem" data-src="../../media/uploads/dscf0640.jpeg" aria-label="Foto 3 af 5"><img src="../../media/uploads/dscf0640.jpeg" alt="" loading="lazy"></button><button type="button" role="listitem" data-src="../../media/uploads/dscf0642.jpeg" aria-label="Foto 4 af 5"><img src="../../media/uploads/dscf0642.jpeg" alt="" loading="lazy"></button><button type="button" role="listitem" data-src="../../media/uploads/dscf0647.jpeg" aria-label="Foto 5 af 5"><img src="../../media/uploads/dscf0647.jpeg" alt="" loading="lazy"></button></div>
     </div>
@@ -99,15 +101,27 @@
   <div class="wrap fbig" aria-hidden="true"><img src="../../assets/logo-word.png" alt="" loading="lazy"></div>
   <div class="wrap fine"><span>© 2026 All in Time</span><a href="#">Til toppen</a></div>
 </footer>
-<script src="../../assets/common.js?v=1791273717756"></script>
+<script src="../../assets/common.js?v=1791273976073"></script>
 <script>
 (() => {
-  const g = document.getElementById('gmain'), img = document.getElementById('gimg');
+  const gframes = document.getElementById('gframes');
   const thumbs = document.querySelectorAll('.gthumbs button');
   const prevBtn = document.querySelector('.gnav.prev');
   const nextBtn = document.querySelector('.gnav.next');
-  let current = 0;
-  const show = i => { current = ((i % thumbs.length) + thumbs.length) % thumbs.length; img.classList.add('sliding'); setTimeout(() => { img.src = thumbs[current].dataset.src; img.classList.remove('sliding'); thumbs.forEach((x, k) => x.setAttribute('aria-current', k === current)); }, 200); };
+  let current = 0, buf = null;
+  const imgs = [document.getElementById('gimg')];
+  if (thumbs.length > 1) { const b = document.createElement('img'); b.style.transform = 'translateX(100%)'; b.style.opacity = '0'; gframes.appendChild(b); imgs.push(b); buf = b; }
+  const show = i => {
+    const next = ((i % thumbs.length) + thumbs.length) % thumbs.length;
+    if (next === current) return;
+    const cur = imgs[current], nxt = imgs[next > 0 && imgs.length > 1 ? 1 : 0];
+    cur.style.transform = 'translateX(-100%)'; cur.style.opacity = '0';
+    nxt.src = thumbs[next].dataset.src;
+    nxt.style.transform = 'translateX(100%)'; nxt.style.opacity = '0';
+    requestAnimationFrame(() => { nxt.style.transform = 'translateX(0)'; nxt.style.opacity = '1'; });
+    current = next > 0 && imgs.length > 1 ? 1 : 0;
+    thumbs.forEach((x, k) => x.setAttribute('aria-current', k === next));
+  };
   thumbs.forEach((b, k) => b.addEventListener('click', () => show(k)));
   if (prevBtn) prevBtn.addEventListener('click', () => show(current - 1));
   if (nextBtn) nextBtn.addEventListener('click', () => show(current + 1));
