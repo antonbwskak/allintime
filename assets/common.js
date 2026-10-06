@@ -1,75 +1,8 @@
-/* All in Time: shared behaviour (loupe, forms, reveal). Used by the home page and every watch page. */
+/* All in Time: shared behaviour (forms, reveal). Used by the home page and every watch page. */
 (() => {
   const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => [...r.querySelectorAll(s)];
   const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const fine = matchMedia('(hover:hover) and (pointer:fine)').matches;
-
-  // Loupe: a real magnifier. Works on whichever image is currently shown in `host`,
-  // survives image swaps, and waits for images to load.
-  function loupe(host, getImg, opts = {}) {
-    if (!host || host.__loupe) return;
-    if (!fine) return touchLoupe(host, getImg, opts);
-    host.__loupe = true;
-    const L = opts.size || 220, Z = opts.zoom || 2.6;
-    const lens = document.createElement('div'); lens.className = 'lens'; lens.setAttribute('aria-hidden', 'true');
-    host.appendChild(lens);
-    let last = null, inside = false;
-    const draw = () => {
-      if (!inside || !last) return;
-      const im = getImg();
-      if (!im || !im.complete || !im.naturalWidth) { lens.classList.remove('on'); return; }
-      if (!lens.isConnected) host.appendChild(lens);
-      const r = host.getBoundingClientRect(), x = last.clientX - r.left, y = last.clientY - r.top;
-      if (x < 0 || y < 0 || x > r.width || y > r.height) { lens.classList.remove('on'); return; }
-      const s = Math.max(r.width / im.naturalWidth, r.height / im.naturalHeight);
-      const dw = im.naturalWidth * s, dh = im.naturalHeight * s;
-      const op = (getComputedStyle(im).objectPosition || '50% 50%').split(' ').map(v => parseFloat(v) / 100);
-      const ox = (r.width - dw) * (isNaN(op[0]) ? .5 : op[0]), oy = (r.height - dh) * (isNaN(op[1]) ? .5 : op[1]);
-      lens.style.backgroundImage = `url("${im.currentSrc || im.src}")`;
-      lens.style.backgroundSize = `${dw * Z}px ${dh * Z}px`;
-      lens.style.backgroundPosition = `${-((x - ox) * Z - L / 2)}px ${-((y - oy) * Z - L / 2)}px`;
-      lens.style.width = lens.style.height = L + 'px';
-      lens.style.left = `${x - L / 2}px`; lens.style.top = `${y - L / 2}px`;
-      lens.classList.add('on');
-    };
-    host.addEventListener('pointerenter', e => { inside = true; last = e; draw(); });
-    host.addEventListener('pointermove', e => { last = e; draw(); });
-    host.addEventListener('pointerleave', () => { inside = false; lens.classList.remove('on'); });
-    // re-draw when the image changes or finishes loading
-    host.addEventListener('swap', () => requestAnimationFrame(draw));
-    host.addEventListener('load', () => draw(), true);
-    addEventListener('scroll', () => { if (inside) requestAnimationFrame(draw); }, { passive: true });
-  }
-
-
-  // touch: press and hold a photo, then drag to look closer
-  function touchLoupe(host, getImg, opts = {}) {
-    host.__loupe = true;
-    const L = opts.touchSize || 150, Z = opts.zoom || 2.6;
-    const lens = document.createElement('div'); lens.className = 'lens touch'; lens.setAttribute('aria-hidden', 'true'); host.appendChild(lens);
-    let timer = 0, on = false, sx = 0, sy = 0;
-    const draw = (cx, cy) => {
-      const im = getImg(); if (!im || !im.naturalWidth) return;
-      if (!lens.isConnected) host.appendChild(lens);
-      const r = host.getBoundingClientRect(), x = Math.min(r.width, Math.max(0, cx - r.left)), y = Math.min(r.height, Math.max(0, cy - r.top));
-      const s = Math.max(r.width / im.naturalWidth, r.height / im.naturalHeight), dw = im.naturalWidth * s, dh = im.naturalHeight * s;
-      const op = (getComputedStyle(im).objectPosition || '50% 50%').split(' ').map(v => parseFloat(v) / 100);
-      const ox = (r.width - dw) * (isNaN(op[0]) ? .5 : op[0]), oy = (r.height - dh) * (isNaN(op[1]) ? .5 : op[1]);
-      lens.style.width = lens.style.height = L + 'px';
-      lens.style.backgroundImage = `url("${im.currentSrc || im.src}")`; lens.style.backgroundSize = `${dw * Z}px ${dh * Z}px`;
-      lens.style.backgroundPosition = `${-((x - ox) * Z - L / 2)}px ${-((y - oy) * Z - L / 2)}px`;
-      lens.style.left = `${x - L / 2}px`; lens.style.top = `${y - L - 36}px`; // sits above the thumb
-    };
-    const end = () => { clearTimeout(timer); if (on) { on = false; lens.classList.remove('on'); } };
-    host.addEventListener('touchstart', e => { const t = e.touches[0]; sx = t.clientX; sy = t.clientY; clearTimeout(timer);
-      timer = setTimeout(() => { on = true; draw(sx, sy); lens.classList.add('on'); navigator.vibrate && navigator.vibrate(8); }, 260); }, { passive: true });
-    host.addEventListener('touchmove', e => { const t = e.touches[0];
-      if (!on) { if (Math.hypot(t.clientX - sx, t.clientY - sy) > 10) clearTimeout(timer); return; }
-      e.preventDefault(); draw(t.clientX, t.clientY); }, { passive: false });
-    host.addEventListener('touchend', e => { if (on) e.preventDefault(); end(); });
-    host.addEventListener('touchcancel', end);
-    host.addEventListener('contextmenu', e => { if (on) e.preventDefault(); });
-  }
 
   // Forms: Netlify Forms, with an email fallback anywhere else
   function forms(getEmail) {
@@ -167,5 +100,5 @@
   autohide();
 
 
-  window.AIT = Object.assign(window.AIT || {}, { loupe, forms, reveal, esc });
+  window.AIT = Object.assign(window.AIT || {}, { forms, reveal, esc });
 })();

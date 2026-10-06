@@ -112,9 +112,8 @@ ${header}
   <nav class="crumbs wrap" aria-label="Breadcrumb"><a href="${home}">All in Time</a><span>/</span>${sold ? `<a href="${R}${soldUrl}">Solgte ure</a>` : `<a href="${home}#available">Ure</a>`}<span>/</span><span aria-current="page">${esc(name)}</span></nav>
   <section class="wp wrap">
     <div class="gal">
-      <div class="gmain loupe-host" id="gmain"><img id="gimg" src="${R}${esc(rel(img0))}" alt="${esc(name)}" style="object-position:${pos(w)}" fetchpriority="high"></div>
+      <div class="gmain" id="gmain"><img id="gimg" src="${R}${esc(rel(img0))}" alt="${esc(name)}" style="object-position:${pos(w)}" fetchpriority="high"></div>
       ${w.images.length > 1 ? `<div class="gthumbs" role="list">${w.images.map((p, k) => `<button type="button" role="listitem" data-src="${R}${esc(rel(p))}" aria-label="Foto ${k + 1} af ${w.images.length}"${k === 0 ? ' aria-current="true"' : ''}><img src="${R}${esc(rel(p))}" alt="" loading="lazy"></button>`).join('')}</div>` : ''}
-      <p class="ghint">Hold musen over fotoet for at se nærmere</p>
     </div>
     <aside class="info">
       <p class="label">${esc(w.brand)}</p>
@@ -165,7 +164,6 @@ ${footer}
     document.querySelectorAll('.gthumbs button').forEach(x => x.setAttribute('aria-current', x === b));
     g.dispatchEvent(new Event('swap'));
   }));
-  AIT.loupe(g, () => img, { size: 240, zoom: 2.4 });
   AIT.forms(() => ${JSON.stringify(email)});
 })();
 </script>
