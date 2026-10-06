@@ -16,7 +16,7 @@
 <link rel="icon" href="../../assets/logo-mark.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../../styles.css?v=1791270936620">
+<link rel="stylesheet" href="../../styles.css?v=1791272090396">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"Tudor Black Bay, burgundy","brand":{"@type":"Brand","name":"Tudor"},"description":"The burgundy bezel and gilt details that made the Black Bay famous, over a domed black dial.","image":["media/uploads/11-tudor-black-bay-red.jpg"],"itemCondition":"https://schema.org/UsedCondition","offers":{"@type":"Offer","priceCurrency":"DKK","availability":"https://schema.org/SoldOut","seller":{"@type":"Organization","name":"All in Time"}}}</script>
 </head>
 <body class="wpage">
@@ -28,7 +28,10 @@
   <nav class="crumbs wrap" aria-label="Breadcrumb"><a href="../../">All in Time</a><span>/</span><a href="../../sold/">Solgte ure</a><span>/</span><span aria-current="page">Tudor Black Bay, burgundy</span></nav>
   <section class="wp wrap">
     <div class="gal">
-      <div class="gmain" id="gmain"><img id="gimg" src="../../media/uploads/11-tudor-black-bay-red.jpg" alt="Tudor Black Bay, burgundy" style="object-position:50% 57%" fetchpriority="high"></div>
+      <div class="gmain" id="gmain">
+        
+        <img id="gimg" src="../../media/uploads/11-tudor-black-bay-red.jpg" alt="Tudor Black Bay, burgundy" style="object-position:50% 57%" fetchpriority="high">
+      </div>
       
     </div>
     <aside class="info">
@@ -96,15 +99,18 @@
   <div class="wrap fbig" aria-hidden="true"><img src="../../assets/logo-word.png" alt="" loading="lazy"></div>
   <div class="wrap fine"><span>© 2026 All in Time</span><a href="#">Til toppen</a></div>
 </footer>
-<script src="../../assets/common.js?v=1791270936620"></script>
+<script src="../../assets/common.js?v=1791272090396"></script>
 <script>
 (() => {
   const g = document.getElementById('gmain'), img = document.getElementById('gimg');
-  document.querySelectorAll('.gthumbs button').forEach(b => b.addEventListener('click', () => {
-    img.src = b.dataset.src;
-    document.querySelectorAll('.gthumbs button').forEach(x => x.setAttribute('aria-current', x === b));
-    g.dispatchEvent(new Event('swap'));
-  }));
+  const thumbs = document.querySelectorAll('.gthumbs button');
+  const prevBtn = document.querySelector('.gnav.prev');
+  const nextBtn = document.querySelector('.gnav.next');
+  let current = 0;
+  const show = i => { current = ((i % thumbs.length) + thumbs.length) % thumbs.length; img.src = thumbs[current].dataset.src; thumbs.forEach((x, k) => x.setAttribute('aria-current', k === current)); };
+  thumbs.forEach((b, k) => b.addEventListener('click', () => show(k)));
+  if (prevBtn) prevBtn.addEventListener('click', () => show(current - 1));
+  if (nextBtn) nextBtn.addEventListener('click', () => show(current + 1));
   AIT.forms(() => "antonbwehding@gmail.com");
 })();
 </script>

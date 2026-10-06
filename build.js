@@ -112,7 +112,10 @@ ${header}
   <nav class="crumbs wrap" aria-label="Breadcrumb"><a href="${home}">All in Time</a><span>/</span>${sold ? `<a href="${R}${soldUrl}">Solgte ure</a>` : `<a href="${home}#available">Ure</a>`}<span>/</span><span aria-current="page">${esc(name)}</span></nav>
   <section class="wp wrap">
     <div class="gal">
-      <div class="gmain" id="gmain"><img id="gimg" src="${R}${esc(rel(img0))}" alt="${esc(name)}" style="object-position:${pos(w)}" fetchpriority="high"></div>
+      <div class="gmain" id="gmain">
+        ${w.images.length > 1 ? `<button class="gnav prev" aria-label="Forrige"><svg viewBox="0 0 24 24"><polyline points="15,18 9,12 15,6"/></svg></button><button class="gnav next" aria-label="Næste"><svg viewBox="0 0 24 24"><polyline points="9,18 15,12 9,6"/></svg></button>` : ''}
+        <img id="gimg" src="${R}${esc(rel(img0))}" alt="${esc(name)}" style="object-position:${pos(w)}" fetchpriority="high">
+      </div>
       ${w.images.length > 1 ? `<div class="gthumbs" role="list">${w.images.map((p, k) => `<button type="button" role="listitem" data-src="${R}${esc(rel(p))}" aria-label="Foto ${k + 1} af ${w.images.length}"${k === 0 ? ' aria-current="true"' : ''}><img src="${R}${esc(rel(p))}" alt="" loading="lazy"></button>`).join('')}</div>` : ''}
     </div>
     <aside class="info">
@@ -159,11 +162,14 @@ ${footer}
 <script>
 (() => {
   const g = document.getElementById('gmain'), img = document.getElementById('gimg');
-  document.querySelectorAll('.gthumbs button').forEach(b => b.addEventListener('click', () => {
-    img.src = b.dataset.src;
-    document.querySelectorAll('.gthumbs button').forEach(x => x.setAttribute('aria-current', x === b));
-    g.dispatchEvent(new Event('swap'));
-  }));
+  const thumbs = document.querySelectorAll('.gthumbs button');
+  const prevBtn = document.querySelector('.gnav.prev');
+  const nextBtn = document.querySelector('.gnav.next');
+  let current = 0;
+  const show = i => { current = ((i % thumbs.length) + thumbs.length) % thumbs.length; img.src = thumbs[current].dataset.src; thumbs.forEach((x, k) => x.setAttribute('aria-current', k === current)); };
+  thumbs.forEach((b, k) => b.addEventListener('click', () => show(k)));
+  if (prevBtn) prevBtn.addEventListener('click', () => show(current - 1));
+  if (nextBtn) nextBtn.addEventListener('click', () => show(current + 1));
   AIT.forms(() => ${JSON.stringify(email)});
 })();
 </script>
