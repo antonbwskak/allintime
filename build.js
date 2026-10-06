@@ -114,9 +114,7 @@ ${header}
     <div class="gal">
       <div class="gmain" id="gmain">
         ${w.images.length > 1 ? `<button class="gnav prev" aria-label="Forrige"><svg viewBox="0 0 24 24"><polyline points="15,18 9,12 15,6"/></svg></button><button class="gnav next" aria-label="Næste"><svg viewBox="0 0 24 24"><polyline points="9,18 15,12 9,6"/></svg></button>` : ''}
-        <div class="gframes" id="gframes">
-          <img id="gimg" src="${R}${esc(rel(img0))}" alt="${esc(name)}" style="object-position:${pos(w)}" fetchpriority="high">
-        </div>
+        <img id="gimg" src="${R}${esc(rel(img0))}" alt="${esc(name)}" style="object-position:${pos(w)}" fetchpriority="high">
       </div>
       ${w.images.length > 1 ? `<div class="gthumbs" role="list">${w.images.map((p, k) => `<button type="button" role="listitem" data-src="${R}${esc(rel(p))}" aria-label="Foto ${k + 1} af ${w.images.length}"${k === 0 ? ' aria-current="true"' : ''}><img src="${R}${esc(rel(p))}" alt="" loading="lazy"></button>`).join('')}</div>` : ''}
     </div>
@@ -163,23 +161,18 @@ ${footer}
 <script src="${R}assets/common.js?v=${V}"></script>
 <script>
 (() => {
-  const gframes = document.getElementById('gframes');
+  const img = document.getElementById('gimg');
   const thumbs = document.querySelectorAll('.gthumbs button');
   const prevBtn = document.querySelector('.gnav.prev');
   const nextBtn = document.querySelector('.gnav.next');
-  let current = 0, buf = null;
-  const imgs = [document.getElementById('gimg')];
-  if (thumbs.length > 1) { const b = document.createElement('img'); b.style.transform = 'translateX(100%)'; b.style.opacity = '0'; gframes.appendChild(b); imgs.push(b); buf = b; }
+  let current = 0;
   const show = i => {
     const next = ((i % thumbs.length) + thumbs.length) % thumbs.length;
     if (next === current) return;
-    const cur = imgs[current], nxt = imgs[next > 0 && imgs.length > 1 ? 1 : 0];
-    cur.style.transform = 'translateX(-100%)'; cur.style.opacity = '0';
-    nxt.src = thumbs[next].dataset.src;
-    nxt.style.transform = 'translateX(100%)'; nxt.style.opacity = '0';
-    requestAnimationFrame(() => { nxt.style.transform = 'translateX(0)'; nxt.style.opacity = '1'; });
-    current = next > 0 && imgs.length > 1 ? 1 : 0;
+    img.style.opacity = '0';
+    setTimeout(() => { img.src = thumbs[next].dataset.src; img.style.opacity = '1'; }, 200);
     thumbs.forEach((x, k) => x.setAttribute('aria-current', k === next));
+    current = next;
   };
   thumbs.forEach((b, k) => b.addEventListener('click', () => show(k)));
   if (prevBtn) prevBtn.addEventListener('click', () => show(current - 1));
