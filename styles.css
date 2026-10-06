@@ -323,7 +323,7 @@ a.card{text-decoration:none;color:inherit}
 .hx{background:var(--green-d)}
 .hx-pin{position:relative;min-height:100svh;color:var(--paper);background:var(--green-d);display:grid;grid-template-columns:1fr auto;grid-template-rows:auto auto auto;padding:calc(var(--hh) + 3svh) var(--m) clamp(28px,5svh,56px);align-items:start;gap:0}
 .hx-pin.grain::after{opacity:.1}
-.hx-t{grid-column:1;grid-row:1;font-size:clamp(52px,7vw,130px);line-height:.9;white-space:nowrap;padding-right:clamp(40px,4vw,60px)}
+.hx-t{grid-column:1;grid-row:1;font-size:clamp(52px,7vw,130px);line-height:.9;white-space:nowrap;padding-right:clamp(40px,4vw,60px);padding-top:clamp(80px,12vh,160px)}
 .hx-t .w{display:inline;font-family:"Instrument Serif",Georgia,serif;letter-spacing:-.015em;line-height:.95}
 .hx-t .w b{font-weight:400}
 .hx-t em{font-style:italic}
