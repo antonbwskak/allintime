@@ -78,7 +78,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 .card .st{font-size:13px;color:var(--muted)}
 .card .st.avail{color:var(--green);font-weight:500}
 .card .st.res{color:var(--brass-d);font-weight:500}
-.card h3{font:400 clamp(24px,1.8vw,30px)/1.1 "Instrument Serif",serif;margin-top:6px}
+.card h3{font:400 clamp(24px,1.8vw,30px)/1.1 "Instrument Serif",serif;margin-top:2px}
 .card .pr{margin-top:4px;font-size:14.5px;color:var(--muted)}
 .card:focus-visible{outline:2px solid var(--green);outline-offset:6px}
 
@@ -355,11 +355,11 @@ a.card{text-decoration:none;color:inherit}
 html{scroll-padding-top:24px}
 
 /* footer wordmark */
-.fbig{display:flex;justify-content:center;padding-bottom:36px}
-.fbig img{width:84%;height:auto;opacity:.95}
+.fbig{display:flex;justify-content:center;padding-bottom:20px}
+.fbig img{width:30%;height:auto;opacity:.95}
 .flogo{display:none}
 .fcols{grid-template-columns:1fr 1fr 1fr;padding-top:10px}
-.foot{padding-top:90px}
+.foot{padding-top:30px}
 @media (max-width:820px){.fcols{grid-template-columns:1fr 1fr}.fbig img{width:100%}}
 
 /* cards with descriptions */
