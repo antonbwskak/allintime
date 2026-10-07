@@ -58,7 +58,7 @@
   // forms + deep links (?watch=... from a watch page, #sell mode)
   forms(() => S.email || 'antonbwehding@gmail.com');
   const ef = $('#enqForm');
-  document.addEventListener('click', e => { const t = e.target.closest('[data-mode]'); if (t) ef.__setMode(t.dataset.mode === 'sell'); });
+  if (ef) { document.addEventListener('click', e => { const t = e.target.closest('[data-mode]'); if (t) ef.__setMode(t.dataset.mode === 'sell'); }); }
   reveal(QA);
 
   if (QA) {
