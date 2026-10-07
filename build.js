@@ -27,8 +27,8 @@ const watches = fs.readdirSync(dir).filter(f => f.endsWith('.json')).map(f => {
   return w;
 }).filter(w => w.images && w.images.length)
   .sort((a, b) => {
-    const aHasInfo = a.brand && a.model ? 0 : 1;
-    const bHasInfo = b.brand && b.model ? 0 : 1;
+    const aHasInfo = a.brand && a.model ? 1 : 0;
+    const bHasInfo = b.brand && b.model ? 1 : 0;
     if (aHasInfo !== bHasInfo) return aHasInfo - bHasInfo;
     return (a.order ?? 999) - (b.order ?? 999);
   });
