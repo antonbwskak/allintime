@@ -429,7 +429,447 @@
       "file": "tudor-black-bay-gmt-pepsi.json",
       "slug": "tudor-black-bay-gmt-pepsi",
       "url": "watch/tudor-black-bay-gmt-pepsi/"
+    },
+    {
+      "brand": "",
+      "model": "",
+      "slug": "watch",
+      "reference": "",
+      "featured": false,
+      "order": 999,
+      "focus_x": 50,
+      "focus_y": 50,
+      "status": "sold",
+      "images": [
+        "/media/uploads/IMG_4110.jpeg"
+      ],
+      "price_mode": "on_request",
+      "condition": "",
+      "description": "",
+      "year": "",
+      "file": "IMG_4110.json",
+      "url": "watch/watch/"
+    },
+    {
+      "brand": "",
+      "model": "",
+      "slug": "-2",
+      "reference": "",
+      "featured": false,
+      "order": 999,
+      "focus_x": 50,
+      "focus_y": 50,
+      "status": "sold",
+      "images": [
+        "/media/uploads/IMG_4210.jpeg"
+      ],
+      "price_mode": "on_request",
+      "condition": "",
+      "description": "",
+      "year": "",
+      "file": "IMG_4210.json",
+      "url": "watch/-2/"
+    },
+    {
+      "brand": "",
+      "model": "",
+      "slug": "-3",
+      "reference": "",
+      "featured": false,
+      "order": 999,
+      "focus_x": 50,
+      "focus_y": 50,
+      "status": "sold",
+      "images": [
+        "/media/uploads/IMG_4236.jpeg"
+      ],
+      "price_mode": "on_request",
+      "condition": "",
+      "description": "",
+      "year": "",
+      "file": "IMG_4236.json",
+      "url": "watch/-3/"
+    },
+    {
+      "brand": "",
+      "model": "",
+      "slug": "-4",
+      "reference": "",
+      "featured": false,
+      "order": 999,
+      "focus_x": 50,
+      "focus_y": 50,
+      "status": "sold",
+      "images": [
+        "/media/uploads/IMG_4254.jpeg"
+      ],
+      "price_mode": "on_request",
+      "condition": "",
+      "description": "",
+      "year": "",
+      "file": "IMG_4254.json",
+      "url": "watch/-4/"
+    },
+    {
+      "brand": "",
+      "model": "",
+      "slug": "-5",
+      "reference": "",
+      "featured": false,
+      "order": 999,
+      "focus_x": 50,
+      "focus_y": 50,
+      "status": "sold",
+      "images": [
+        "/media/uploads/IMG_4318.jpeg"
+      ],
+      "price_mode": "on_request",
+      "condition": "",
+      "description": "",
+      "year": "",
+      "file": "IMG_4318.json",
+      "url": "watch/-5/"
+    },
+    {
+      "brand": "",
+      "model": "",
+      "slug": "-6",
+      "reference": "",
+      "featured": false,
+      "order": 999,
+      "focus_x": 50,
+      "focus_y": 50,
+      "status": "sold",
+      "images": [
+        "/media/uploads/IMG_4377.jpeg"
+      ],
+      "price_mode": "on_request",
+      "condition": "",
+      "description": "",
+      "year": "",
+      "file": "IMG_4377.json",
+      "url": "watch/-6/"
+    },
+    {
+      "brand": "",
+      "model": "",
+      "slug": "-7",
+      "reference": "",
+      "featured": false,
+      "order": 999,
+      "focus_x": 50,
+      "focus_y": 50,
+      "status": "sold",
+      "images": [
+        "/media/uploads/IMG_4416.jpeg"
+      ],
+      "price_mode": "on_request",
+      "condition": "",
+      "description": "",
+      "year": "",
+      "file": "IMG_4416.json",
+      "url": "watch/-7/"
+    },
+    {
+      "brand": "",
+      "model": "",
+      "slug": "-8",
+      "reference": "",
+      "featured": false,
+      "order": 999,
+      "focus_x": 50,
+      "focus_y": 50,
+      "status": "sold",
+      "images": [
+        "/media/uploads/IMG_4507.jpeg"
+      ],
+      "price_mode": "on_request",
+      "condition": "",
+      "description": "",
+      "year": "",
+      "file": "IMG_4507.json",
+      "url": "watch/-8/"
+    },
+    {
+      "brand": "",
+      "model": "",
+      "slug": "-9",
+      "reference": "",
+      "featured": false,
+      "order": 999,
+      "focus_x": 50,
+      "focus_y": 50,
+      "status": "sold",
+      "images": [
+        "/media/uploads/IMG_4521.jpeg"
+      ],
+      "price_mode": "on_request",
+      "condition": "",
+      "description": "",
+      "year": "",
+      "file": "IMG_4521.json",
+      "url": "watch/-9/"
+    },
+    {
+      "brand": "",
+      "model": "",
+      "slug": "-10",
+      "reference": "",
+      "featured": false,
+      "order": 999,
+      "focus_x": 50,
+      "focus_y": 50,
+      "status": "sold",
+      "images": [
+        "/media/uploads/IMG_4534.jpeg"
+      ],
+      "price_mode": "on_request",
+      "condition": "",
+      "description": "",
+      "year": "",
+      "file": "IMG_4534.json",
+      "url": "watch/-10/"
+    },
+    {
+      "brand": "",
+      "model": "",
+      "slug": "-11",
+      "reference": "",
+      "featured": false,
+      "order": 999,
+      "focus_x": 50,
+      "focus_y": 50,
+      "status": "sold",
+      "images": [
+        "/media/uploads/IMG_4571.jpeg"
+      ],
+      "price_mode": "on_request",
+      "condition": "",
+      "description": "",
+      "year": "",
+      "file": "IMG_4571.json",
+      "url": "watch/-11/"
+    },
+    {
+      "brand": "",
+      "model": "",
+      "slug": "-12",
+      "reference": "",
+      "featured": false,
+      "order": 999,
+      "focus_x": 50,
+      "focus_y": 50,
+      "status": "sold",
+      "images": [
+        "/media/uploads/IMG_4613.jpeg"
+      ],
+      "price_mode": "on_request",
+      "condition": "",
+      "description": "",
+      "year": "",
+      "file": "IMG_4613.json",
+      "url": "watch/-12/"
+    },
+    {
+      "brand": "",
+      "model": "",
+      "slug": "-13",
+      "reference": "",
+      "featured": false,
+      "order": 999,
+      "focus_x": 50,
+      "focus_y": 50,
+      "status": "sold",
+      "images": [
+        "/media/uploads/IMG_4694.jpeg"
+      ],
+      "price_mode": "on_request",
+      "condition": "",
+      "description": "",
+      "year": "",
+      "file": "IMG_4694.json",
+      "url": "watch/-13/"
+    },
+    {
+      "brand": "",
+      "model": "",
+      "slug": "-14",
+      "reference": "",
+      "featured": false,
+      "order": 999,
+      "focus_x": 50,
+      "focus_y": 50,
+      "status": "sold",
+      "images": [
+        "/media/uploads/IMG_4772.jpeg"
+      ],
+      "price_mode": "on_request",
+      "condition": "",
+      "description": "",
+      "year": "",
+      "file": "IMG_4772.json",
+      "url": "watch/-14/"
+    },
+    {
+      "brand": "",
+      "model": "",
+      "slug": "-15",
+      "reference": "",
+      "featured": false,
+      "order": 999,
+      "focus_x": 50,
+      "focus_y": 50,
+      "status": "sold",
+      "images": [
+        "/media/uploads/IMG_4785.jpeg"
+      ],
+      "price_mode": "on_request",
+      "condition": "",
+      "description": "",
+      "year": "",
+      "file": "IMG_4785.json",
+      "url": "watch/-15/"
+    },
+    {
+      "brand": "",
+      "model": "",
+      "slug": "-16",
+      "reference": "",
+      "featured": false,
+      "order": 999,
+      "focus_x": 50,
+      "focus_y": 50,
+      "status": "sold",
+      "images": [
+        "/media/uploads/IMG_4795.jpeg"
+      ],
+      "price_mode": "on_request",
+      "condition": "",
+      "description": "",
+      "year": "",
+      "file": "IMG_4795.json",
+      "url": "watch/-16/"
+    },
+    {
+      "brand": "",
+      "model": "",
+      "slug": "-17",
+      "reference": "",
+      "featured": false,
+      "order": 999,
+      "focus_x": 50,
+      "focus_y": 50,
+      "status": "sold",
+      "images": [
+        "/media/uploads/IMG_4808.jpeg"
+      ],
+      "price_mode": "on_request",
+      "condition": "",
+      "description": "",
+      "year": "",
+      "file": "IMG_4808.json",
+      "url": "watch/-17/"
+    },
+    {
+      "brand": "",
+      "model": "",
+      "slug": "-18",
+      "reference": "",
+      "featured": false,
+      "order": 999,
+      "focus_x": 50,
+      "focus_y": 50,
+      "status": "sold",
+      "images": [
+        "/media/uploads/IMG_4901.jpeg"
+      ],
+      "price_mode": "on_request",
+      "condition": "",
+      "description": "",
+      "year": "",
+      "file": "IMG_4901.json",
+      "url": "watch/-18/"
+    },
+    {
+      "brand": "",
+      "model": "",
+      "slug": "-19",
+      "reference": "",
+      "featured": false,
+      "order": 999,
+      "focus_x": 50,
+      "focus_y": 50,
+      "status": "sold",
+      "images": [
+        "/media/uploads/IMG_5095.jpeg"
+      ],
+      "price_mode": "on_request",
+      "condition": "",
+      "description": "",
+      "year": "",
+      "file": "IMG_5095.json",
+      "url": "watch/-19/"
+    },
+    {
+      "brand": "",
+      "model": "",
+      "slug": "-20",
+      "reference": "",
+      "featured": false,
+      "order": 999,
+      "focus_x": 50,
+      "focus_y": 50,
+      "status": "sold",
+      "images": [
+        "/media/uploads/IMG_5104.jpeg"
+      ],
+      "price_mode": "on_request",
+      "condition": "",
+      "description": "",
+      "year": "",
+      "file": "IMG_5104.json",
+      "url": "watch/-20/"
+    },
+    {
+      "brand": "",
+      "model": "",
+      "slug": "-21",
+      "reference": "",
+      "featured": false,
+      "order": 999,
+      "focus_x": 50,
+      "focus_y": 50,
+      "status": "sold",
+      "images": [
+        "/media/uploads/IMG_7662.jpeg"
+      ],
+      "price_mode": "on_request",
+      "condition": "",
+      "description": "",
+      "year": "",
+      "file": "IMG_7662.json",
+      "url": "watch/-21/"
+    },
+    {
+      "brand": "",
+      "model": "",
+      "slug": "-22",
+      "reference": "",
+      "featured": false,
+      "order": 999,
+      "focus_x": 50,
+      "focus_y": 50,
+      "status": "sold",
+      "images": [
+        "/media/uploads/IMG_7689.jpeg"
+      ],
+      "price_mode": "on_request",
+      "condition": "",
+      "description": "",
+      "year": "",
+      "file": "IMG_7689.json",
+      "url": "watch/-22/"
     }
   ],
-  "built": "2026-10-07T18:36:34.756Z"
+  "built": "2026-10-07T19:48:48.641Z"
 }
