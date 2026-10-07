@@ -26,7 +26,12 @@ const watches = fs.readdirSync(dir).filter(f => f.endsWith('.json')).map(f => {
   w.images = (w.images || []).filter(Boolean);
   return w;
 }).filter(w => w.images && w.images.length)
-  .sort((a, b) => (a.order ?? 999) - (b.order ?? 999));
+  .sort((a, b) => {
+    const aHasInfo = a.brand && a.model ? 0 : 1;
+    const bHasInfo = b.brand && b.model ? 0 : 1;
+    if (aHasInfo !== bHasInfo) return aHasInfo - bHasInfo;
+    return (a.order ?? 999) - (b.order ?? 999);
+  });
 for (const w of watches) {
   let base = slugify(`${w.brand} ${w.model}`) || w.file?.replace('.json','') || 'watch';
   let s = base, n = 2;
