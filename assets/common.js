@@ -12,32 +12,30 @@
       const setMode = sell => {
         f.classList.toggle('is-sell', sell);
         $$('input[name=topic]', f).forEach(r => r.checked = (r.value === 'Sell or trade') === sell);
-        const lw = $('.lbl-watch', f); if (lw) lw.textContent = sell ? 'Your watch' : 'Watch';
-        const w = $('input[name=watch]', f); if (w && !w.dataset.fixed) w.placeholder = sell ? 'Brand, model, year' : 'Which watch, or what you are looking for';
+        const lw = $('.lbl-watch', f); if (lw) lw.textContent = sell ? 'Dit ur' : 'Ur';
+        const w = $('input[name=watch]', f); if (w && !w.dataset.fixed) w.placeholder = sell ? 'Mærke, model, årgang' : 'Hvilket ur, eller hvad du leder efter';
       };
       f.__setMode = setMode;
       $$('input[name=topic]', f).forEach(r => r.addEventListener('change', () => setMode(r.value === 'Sell or trade' && r.checked)));
-      if (fin) fin.addEventListener('change', () => { dzb.textContent = fin.files.length ? `${fin.files.length} photo${fin.files.length > 1 ? 's' : ''} added` : 'Add photos'; });
+      if (fin) fin.addEventListener('change', () => { dzb.textContent = fin.files.length ? `${fin.files.length} billede${fin.files.length > 1 ? 'r' : ''} tilføjet` : 'Tilføj billeder'; });
       f.addEventListener('submit', async e => {
         e.preventDefault();
         const st = $('.status', f), btn = $('button[type=submit]', f);
         if (fin && !f.classList.contains('is-sell')) fin.value = '';
-        if (fin && fin.files.length > 4) { st.className = 'status err'; st.textContent = 'Please attach up to 4 photos.'; return; }
-        btn.disabled = true; st.className = 'status'; st.textContent = 'Sending…';
+        if (fin && fin.files.length > 4) { st.className = 'status err'; st.textContent = 'Maksimalt 4 billeder.'; return; }
+        btn.disabled = true; st.className = 'status'; st.textContent = 'Sender…';
         const data = new FormData(f), hasFiles = fin && fin.files.length;
-        try {
-          const res = await fetch(f.getAttribute('action') || '/', { method: 'POST', body: hasFiles ? data : new URLSearchParams(data).toString(), headers: hasFiles ? {} : { 'Content-Type': 'application/x-www-form-urlencoded' } });
-          if (!res.ok) throw new Error(res.status);
-          const sell = f.classList.contains('is-sell');
-          f.reset(); if (dzb) dzb.textContent = 'Add photos'; setMode(false);
-          st.className = 'status ok';
-          st.textContent = sell ? 'Thank you. We will look at your watch and reply by email, usually within a day.' : 'Thank you. We will reply personally, usually the same day.';
-        } catch (err) {
-          const to = getEmail();
-          const lines = [...data.entries()].filter(([k, v]) => typeof v === 'string' && v && !['form-name', 'company'].includes(k)).map(([k, v]) => `${k}: ${v}`).join('\n');
-          st.className = 'status err';
-          st.innerHTML = `That did not go through. <a href="mailto:${esc(to)}?subject=${encodeURIComponent(f.classList.contains('is-sell') ? 'Watch valuation' : 'Watch enquiry')}&body=${encodeURIComponent(lines)}">Send it by email instead</a>.`;
-        } finally { btn.disabled = false; }
+        const sell = f.classList.contains('is-sell');
+        const to = getEmail();
+        const topic = sell ? 'Ur til salg' : 'Forespørgsel';
+        const lines = [...data.entries()].filter(([k, v]) => typeof v === 'string' && v && !['form-name', 'company'].includes(k)).map(([k, v]) => `${k}: ${v}`).join('\n');
+        const subject = encodeURIComponent(topic + ' fra allintime.dk');
+        const body = encodeURIComponent(lines + (hasFiles ? '\n\n[Billeder er vedhæftet i denne besked]' : ''));
+        window.location.href = `mailto:${esc(to)}?subject=${subject}&body=${body}`;
+        f.reset(); if (dzb) dzb.textContent = 'Tilføj billeder'; setMode(false);
+        st.className = 'status ok';
+        st.textContent = sell ? 'Tak! Vi ser på dit ur og svarer via email, typisk inden for en dag.' : 'Tak! Vi svarer personligt, typisk samme dag.';
+        btn.disabled = false;
       });
     });
   }
