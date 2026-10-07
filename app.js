@@ -20,21 +20,18 @@
   if (S.email) $$('#mailLink,.js-mail').forEach(a => { a.href = 'mailto:' + S.email; a.textContent = S.email; });
   $$('#igLink,.js-ig').forEach(a => a.href = `https://www.instagram.com/${ig}/`); $('#igLink').textContent = '@' + ig;
   $('#yr').textContent = new Date().getFullYear();
-  const hv = $('#heroVid'), hi = $('#heroImg');
+  const hb = $('#heroBg');
   if (S.hero_caption) $('#heroCap').textContent = S.hero_caption;
-  if (S.hero_image && !S.hero_video) { hv.remove(); hi.src = src(S.hero_image); }
-  else {
-    // One video, no play button: it stays hidden (showing its own first frame) until it is really playing.
-    // If the phone blocks autoplay (Low Power Mode, in-app browsers), it starts on the first touch or scroll.
-    hv.muted = true; hv.defaultMuted = true; hv.playsInline = true; hv.setAttribute('muted', ''); hv.setAttribute('playsinline', ''); hv.removeAttribute('controls');
+  if (hb) {
+    hb.muted = true; hb.defaultMuted = true; hb.playsInline = true; hb.setAttribute('muted', ''); hb.setAttribute('playsinline', ''); hb.removeAttribute('controls');
     const want = src(innerWidth < 820 && S.hero_video_mobile ? S.hero_video_mobile : (S.hero_video || '/media/video/Adobe Express - DSCF0700.mp4'));
-    if (want && !hv.src.endsWith(want)) hv.src = want;
-    hv.addEventListener('playing', () => hv.classList.add('is-playing'));
-    const tryPlay = () => { const p = hv.play(); if (p && p.catch) p.catch(() => {}); };
+    if (want && !hb.src.endsWith(want)) hb.src = want;
+    hb.addEventListener('playing', () => hb.classList.add('is-playing'));
+    const tryPlay = () => { const p = hb.play(); if (p && p.catch) p.catch(() => {}); };
     tryPlay();
-    const kick = () => { if (hv.paused) tryPlay(); else ['touchstart', 'pointerdown', 'scroll', 'keydown'].forEach(e => removeEventListener(e, kick)); };
+    const kick = () => { if (hb.paused) tryPlay(); else ['touchstart', 'pointerdown', 'scroll', 'keydown'].forEach(e => removeEventListener(e, kick)); };
     ['touchstart', 'pointerdown', 'scroll', 'keydown'].forEach(e => addEventListener(e, kick, { passive: true }));
-    document.addEventListener('visibilitychange', () => { if (!document.hidden && hv.paused) tryPlay(); });
+    document.addEventListener('visibilitychange', () => { if (!document.hidden && hb.paused) tryPlay(); });
   }
 
   const card = w => `<a class="card rv" href="${esc(w.url)}">
