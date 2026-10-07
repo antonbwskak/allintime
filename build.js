@@ -28,8 +28,9 @@ const watches = fs.readdirSync(dir).filter(f => f.endsWith('.json')).map(f => {
 }).filter(w => w.images && w.images.length)
   .sort((a, b) => (a.order ?? 999) - (b.order ?? 999));
 for (const w of watches) {
-  let s = slugify(`${w.brand} ${w.model}`) || 'watch', n = 2;
-  while (used.has(s)) s = `${slugify(`${w.brand} ${w.model}`)}-${n++}`;
+  let base = slugify(`${w.brand} ${w.model}`) || w.file?.replace('.json','') || 'watch';
+  let s = base, n = 2;
+  while (used.has(s)) s = `${base}-${n++}`;
   used.add(s); w.slug = s;
   w.url = `watch/${s}/${PREVIEW ? 'index.html' : ''}`;
 }
