@@ -78,7 +78,7 @@ function page(w, i) {
   const specs = [['Brand', w.brand], ['Model', w.model], ['Reference', w.reference], ['Year', w.year], ['Box & papers', w.set], ['Condition', w.condition], ['Status', statusText(w)]].filter(r => r[1]);
   const sameBrand = watches.filter(x => x !== w && x.brand === w.brand);
   const others = watches.filter(x => x !== w && x.brand !== w.brand);
-  const more = [...watches.filter(x => x !== w && x.status !== 'sold'), ...sameBrand, ...others].filter((x, k, a) => a.indexOf(x) === k).slice(0, 4);
+  const more = [...watches.filter(x => x !== w && x.status !== 'sold'), ...sameBrand.filter(x => x.status !== 'sold'), ...others.filter(x => x.status !== 'sold')].filter((x, k, a) => a.indexOf(x) === k).slice(0, 4);
   const prev = watches[(i - 1 + watches.length) % watches.length], next = watches[(i + 1) % watches.length];
   const ld = {
     '@context': 'https://schema.org', '@type': 'Product', name, brand: { '@type': 'Brand', name: w.brand },

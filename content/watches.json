@@ -353,6 +353,33 @@
       "url": "watch/tudor-black-bay-bronze/"
     },
     {
+      "set": "Komplet sæt med inderboks, yderboks, manual, hangtag samt originale papirer",
+      "brand": "Omega",
+      "model": "Speedmaster '57 (Ubrugt)",
+      "reference": "332.10.41.51.11.001",
+      "featured": true,
+      "price_dkk": 49900,
+      "order": 99,
+      "focus_x": 50,
+      "focus_y": 50,
+      "status": "available",
+      "images": [
+        "/media/uploads/dscf0706.jpeg",
+        "/media/uploads/dscf0709.jpeg",
+        "/media/uploads/dscf0710.jpeg",
+        "/media/uploads/dscf0713.jpeg",
+        "/media/uploads/dscf0715.jpeg",
+        "/media/uploads/dscf0724.jpeg"
+      ],
+      "price_mode": "price",
+      "condition": "100%",
+      "description": "En elegant og moderne fortolkning af den originale Speedmaster fra 1957, her med en karakteristisk bordeauxrød skive og klassisk stålkonstruktion. Modellen kombinerer Speedmasters historiske design med Omegas moderne Co-Axial Master Chronometer-værk, kronograf, datovisning og tachymeterskala. Et raffineret Speedmaster med et markant farvevalg og tydelige vintage-referencer.",
+      "year": "2026",
+      "file": "omega-speedmaster-57.json",
+      "slug": "omega-speedmaster-57-ubrugt",
+      "url": "watch/omega-speedmaster-57-ubrugt/"
+    },
+    {
       "set": "Komplet sæt med inderboks, yderboks, manual samt garantikort.",
       "brand": "Omega",
       "model": "Seamaster 300M Co-Axial \"Casino Royale\"",
@@ -404,5 +431,5 @@
       "url": "watch/tudor-black-bay-gmt-pepsi/"
     }
   ],
-  "built": "2026-10-07T09:45:30.799Z"
+  "built": "2026-10-07T12:27:18.785Z"
 }
