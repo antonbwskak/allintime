@@ -133,7 +133,8 @@ button,input,select,textarea{font:inherit;color:inherit}
 .steps span{font:400 26px/1 "Instrument Serif",serif;color:var(--brass)}
 .btn.full{width:100%;max-width:480px;margin-top:24px}
 .btn.full+ .body.light{margin-top:12px}
-.sell-content{grid-column:1}
+.sell-left{grid-column:1}
+.sell-right{grid-column:2}
 
 /* forms */
 .form{display:grid;gap:18px}
