@@ -21,7 +21,7 @@
   $$('#igLink,.js-ig').forEach(a => a.href = `https://www.instagram.com/${ig}/`); $('#igLink').textContent = '@' + ig;
   $('#yr').textContent = new Date().getFullYear();
   const hb = $('#heroBg');
-  if (S.hero_caption) $('#heroCap').textContent = S.hero_caption;
+  if (S.hero_caption) { const hc = $('#heroCap'); if (hc) hc.textContent = S.hero_caption; }
   if (hb) {
     hb.muted = true; hb.defaultMuted = true; hb.playsInline = true; hb.setAttribute('muted', ''); hb.setAttribute('playsinline', ''); hb.removeAttribute('controls');
     const want = src(innerWidth < 820 && S.hero_video_mobile ? S.hero_video_mobile : (S.hero_video || '/media/video/Adobe Express - DSCF0700.mp4'));
