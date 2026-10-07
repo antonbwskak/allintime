@@ -14,9 +14,9 @@
 
   // editable text
   $$('[data-s]').forEach(el => { const v = S[el.dataset.s]; if (v) el.textContent = v; });
-  { const h = $('#heroTitle'), t = h.textContent.trim(); let k = t.indexOf(',');
+  { const h = $('#heroTitle'); if (h) { const t = h.textContent.trim(); let k = t.indexOf(',');
     let a, b; if (k > 0) { a = t.slice(0, k + 1); b = t.slice(k + 1).trim(); } else { const ws = t.split(' '), m = Math.ceil(ws.length / 2); a = ws.slice(0, m).join(' '); b = ws.slice(m).join(' '); }
-    h.innerHTML = `<span class="w"><b>${esc(a)}</b></span>${b ? ` <span class="w"><b><em>${esc(b)}</em></b></span>` : ''}`;  }
+    h.innerHTML = `<span class="w"><b>${esc(a)}</b></span>${b ? ` <span class="w"><b><em>${esc(b)}</em></b></span>` : ''}`; } }
   if (S.email) $$('#mailLink,.js-mail').forEach(a => { a.href = 'mailto:' + S.email; a.textContent = S.email; });
   $$('#igLink,.js-ig').forEach(a => a.href = `https://www.instagram.com/${ig}/`); $('#igLink').textContent = '@' + ig;
   $('#yr').textContent = new Date().getFullYear();
