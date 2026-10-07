@@ -131,6 +131,8 @@ button,input,select,textarea{font:inherit;color:inherit}
 .steps{list-style:none;margin-top:40px;border-top:1px solid var(--line-l);max-width:480px}
 .steps li{display:grid;grid-template-columns:44px 1fr;padding:16px 0;border-bottom:1px solid var(--line-l);font-size:16px;color:#dfe2d8}
 .steps span{font:400 26px/1 "Instrument Serif",serif;color:var(--brass)}
+.btn.full{width:100%;max-width:480px;margin-top:24px}
+.btn.full+ .body.light{margin-top:12px}
 
 /* forms */
 .form{display:grid;gap:18px}
