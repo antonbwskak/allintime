@@ -27,7 +27,7 @@
     // One video, no play button: it stays hidden (showing its own first frame) until it is really playing.
     // If the phone blocks autoplay (Low Power Mode, in-app browsers), it starts on the first touch or scroll.
     hv.muted = true; hv.defaultMuted = true; hv.playsInline = true; hv.setAttribute('muted', ''); hv.setAttribute('playsinline', ''); hv.removeAttribute('controls');
-    const want = src(innerWidth < 820 && S.hero_video_mobile ? S.hero_video_mobile : S.hero_video);
+    const want = src(innerWidth < 820 && S.hero_video_mobile ? S.hero_video_mobile : (S.hero_video || '/media/video/Adobe Express - DSCF0700.mp4'));
     if (want && !hv.src.endsWith(want)) hv.src = want;
     hv.addEventListener('playing', () => hv.classList.add('is-playing'));
     const tryPlay = () => { const p = hv.play(); if (p && p.catch) p.catch(() => {}); };
