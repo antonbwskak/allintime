@@ -1,24 +1,24 @@
 {
   "watches": [
     {
-      "slug": "rolex-submariner-date",
+      "set": "",
       "brand": "Rolex",
       "model": "Submariner Date",
+      "slug": "rolex-submariner-date",
       "reference": "",
-      "year": "",
-      "status": "sold",
       "featured": false,
-      "order": 1,
-      "price_mode": "on_request",
       "price_dkk": null,
-      "set": "",
-      "condition": "",
-      "description": "Black dial and bezel, date under the Cyclops lens and an Oyster bracelet. The dive watch every other dive watch is measured against.",
+      "order": 0,
+      "focus_x": 50,
+      "focus_y": 42,
+      "status": "sold",
       "images": [
         "/media/uploads/1-rolex-submariner.jpg"
       ],
-      "focus_x": 50,
-      "focus_y": 42,
+      "price_mode": "on_request",
+      "condition": "",
+      "description": "Black dial and bezel, date under the Cyclops lens and an Oyster bracelet. The dive watch every other dive watch is measured against.",
+      "year": "",
       "file": "1-rolex-submariner.json",
       "url": "watch/rolex-submariner-date/"
     },
@@ -404,5 +404,5 @@
       "url": "watch/tudor-black-bay-gmt-pepsi/"
     }
   ],
-  "built": "2026-10-06T08:36:00.715Z"
+  "built": "2026-10-07T09:38:48.984Z"
 }
