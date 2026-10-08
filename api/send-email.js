@@ -29,7 +29,7 @@ ${message}
 
   const data = JSON.stringify({
     personalizations: [{ to: [{ email: 'antonbwehding@gmail.com' }] }],
-    from: { email: 'noreply@allintime.dk', name: 'All in Time' },
+    from: { email: 'anton@allintime.dk', name: 'All in Time' },
     reply_to: { email: email, name: name },
     subject: subject,
     content: [{ type: 'text/plain', value: text }]
