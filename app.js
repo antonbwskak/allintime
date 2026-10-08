@@ -49,9 +49,12 @@
 
   // sold watches preview (8 most recent); the full list lives on /sold/
   {
-    const sold = W.filter(w => w.status === 'sold').slice().reverse();
-    if (!sold.length) $('#archive').hidden = true;
-    else { $('#archGrid').innerHTML = sold.slice(0, 8).map(card).join(''); $('#allSold').textContent = `Se alle ${sold.length} solgte ure`; }
+    const ag = $('#archGrid');
+    if (ag) {
+      const sold = W.filter(w => w.status === 'sold').slice().reverse();
+      if (!sold.length) $('#archive').hidden = true;
+      else { ag.innerHTML = sold.slice(0, 8).map(card).join(''); $('#allSold').textContent = `Se alle ${sold.length} solgte ure`; }
+    }
   }
   const soldHref = D.sold_url || 'sold/'; $$('.js-sold,#allSold').forEach(a => a.href = soldHref);
 
