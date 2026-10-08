@@ -227,7 +227,7 @@ ${header}
   </section>
   <section class="sold-list wrap" aria-label="Alle solgte ure">
     <div class="grid" id="soldGrid">${soldList.map(w => card(w).replace('<a class="card"', `<a class="card" data-brand="${esc(w.brand)}"`)).join('')}</div>
-    <div class="sold-cta"><h2 class="display">Leder du efter et lignende?</h2><a class="btn" href="${home}#contact">Spørg os til at finde et</a></div>
+    <div class="sold-cta"><h2 class="display">Leder du efter et lignende?</h2><a class="btn" href="${home}#contact">Bed os om at finde et</a></div>
   </section>
 </main>
 ${footer}

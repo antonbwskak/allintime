@@ -44,7 +44,7 @@
   {
     const a = W.filter(w => w.status !== 'sold'), g = $('#availGrid');
     if (a.length) { g.className = 'grid'; g.innerHTML = a.map(card).join(''); $$('.rv', g).forEach(el => el.classList.add('in')); }
-    else { g.className = ''; $('#available').classList.add('is-empty'); g.innerHTML = `<div class="quiet"><p><b>Intet tilgængeligt lige nu.</b> Nye ure bliver announced på Instagram først.</p><a href="#contact">Spørg os til at finde et</a></div>`; }
+    else { g.className = ''; $('#available').classList.add('is-empty'); g.innerHTML = `<div class="quiet"><p><b>Intet tilgængeligt lige nu.</b> Nye ure bliver announced på Instagram først.</p><a href="#contact">Bed os om at finde et</a></div>`; }
   }
 
   // sold watches preview (8 most recent); the full list lives on /sold/
