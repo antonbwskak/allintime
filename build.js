@@ -60,7 +60,7 @@ const header = `<header class="top" data-qa-ignore>
 </header>`;
 const footer = `<footer class="foot">
   <div class="wrap fcols">
-    <img src="${R}assets/logo.png" alt="All in Time" class="flogo" width="150" height="114">
+    <img src="${R}assets/logo.png" alt="All in Time" class="flogo" width="150" height="114" loading="lazy" decoding="async">
     <div><p class="label light">Kontakt</p>${email ? `<a href="mailto:${esc(email)}">${esc(email)}</a><br>` : ''}<a href="https://www.instagram.com/${esc(ig)}/" target="_blank" rel="noopener">Instagram</a></div>
     <div><p class="label light">Besøg</p>${esc(settings.viewings || '')}<br>${esc(settings.location || '')}</div>
     <div><p class="label light">Udforsk</p><a href="${R}lager/">Ure på lager</a><br><a href="${R}sold/">Solgte ure</a><br><a href="${R}service/">Service</a><br><a href="${home}#sell">Sælg eller byt</a></div>
@@ -69,7 +69,7 @@ const footer = `<footer class="foot">
   <div class="wrap fine"><span>© ${new Date().getFullYear()} All in Time · CVR: 46744535</span><a href="${R}handelsbetingelser/">Handelsbetingelser</a><span></span></div>
 </footer>`;
 const card = w => `<a class="card" href="${R}${esc(w.url)}">
-  <div class="ph"><img src="${R}${esc(rel(w.images[0]))}" alt="${esc(w.brand + ' ' + w.model)}" loading="lazy" style="object-position:${pos(w)}"></div>
+  <div class="ph"><img src="${R}${esc(rel(w.images[0]))}" alt="${esc(w.brand + ' ' + w.model)}" loading="lazy" decoding="async" style="object-position:${pos(w)}"></div>
   <div class="cap"><span class="b">${esc(w.brand)}</span><span class="st ${w.status === 'available' ? 'avail' : w.status === 'reserved' ? 'res' : ''}">${esc(statusText(w))}</span></div>
   <h3>${esc(w.model)}</h3>${w.status !== 'sold' ? `<p class="pr">${esc(priceText(w))}</p>` : ''}${w.description ? `<p class="ds">${esc(w.description)}</p>` : ''}
 </a>`;
@@ -122,7 +122,7 @@ ${header}
         ${w.images.length > 1 ? `<button class="gnav prev" aria-label="Forrige"><svg viewBox="0 0 24 24"><polyline points="15,18 9,12 15,6"/></svg></button><button class="gnav next" aria-label="Næste"><svg viewBox="0 0 24 24"><polyline points="9,18 15,12 9,6"/></svg></button>` : ''}
         <img id="gimg" src="${R}${esc(rel(img0))}" alt="${esc(name)}" style="object-position:${pos(w)}" fetchpriority="high">
       </div>
-      ${w.images.length > 1 ? `<div class="gthumbs" role="list">${w.images.map((p, k) => `<button type="button" role="listitem" data-src="${R}${esc(rel(p))}" aria-label="Foto ${k + 1} af ${w.images.length}"${k === 0 ? ' aria-current="true"' : ''}><img src="${R}${esc(rel(p))}" alt="" loading="lazy"></button>`).join('')}</div>` : ''}
+      ${w.images.length > 1 ? `<div class="gthumbs" role="list">${w.images.map((p, k) => `<button type="button" role="listitem" data-src="${R}${esc(rel(p))}" aria-label="Foto ${k + 1} af ${w.images.length}"${k === 0 ? ' aria-current="true"' : ''}><img src="${R}${esc(rel(p))}" alt="" loading="lazy" decoding="async"></button>`).join('')}</div>` : ''}
     </div>
     <aside class="info">
       <p class="label">${esc(w.brand)}</p>
