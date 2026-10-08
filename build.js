@@ -63,7 +63,7 @@ const footer = `<footer class="foot">
     <img src="${R}assets/logo.png" alt="All in Time" class="flogo" width="150" height="114">
     <div><p class="label light">Kontakt</p>${email ? `<a href="mailto:${esc(email)}">${esc(email)}</a><br>` : ''}<a href="https://www.instagram.com/${esc(ig)}/" target="_blank" rel="noopener">Instagram</a></div>
     <div><p class="label light">Besøg</p>${esc(settings.viewings || '')}<br>${esc(settings.location || '')}</div>
-    <div><p class="label light">Udforsk</p><a href="${R}${soldUrl}">Solgte ure</a><br><a href="${home}#sell">Sælg eller byt</a></div>
+    <div><p class="label light">Udforsk</p><a href="${R}lager/">Ure på lager</a><br><a href="${R}${soldUrl}">Solgte ure</a><br><a href="${home}#sell">Sælg eller byt</a></div>
   </div>
   <div class="wrap fbig" aria-hidden="true"><img src="${R}assets/logo-word.png" alt="" loading="lazy"></div>
   <div class="wrap fine"><span>© ${new Date().getFullYear()} All in Time · CVR: 46744535</span><a href="${R}handelsbetingelser/">Handelsbetingelser</a><span></span></div>
