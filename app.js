@@ -24,7 +24,7 @@
   if (S.hero_caption) { const hc = $('#heroCap'); if (hc) hc.textContent = S.hero_caption; }
   if (hb) {
     hb.muted = true; hb.defaultMuted = true; hb.playsInline = true; hb.setAttribute('muted', ''); hb.setAttribute('playsinline', ''); hb.removeAttribute('controls');
-    const want = src(innerWidth < 820 && S.hero_video_mobile ? S.hero_video_mobile : (S.hero_video || '/media/video/Adobe Express - DSCF0700 (2).mp4'));
+    const want = src(innerWidth < 820 && S.hero_video_mobile ? S.hero_video_mobile : (S.hero_video || '/media/video/Adobe Express - DSCF0700 (1).mp4'));
     if (want && !hb.src.endsWith(want)) hb.src = want;
     hb.addEventListener('playing', () => hb.classList.add('is-playing'));
     const tryPlay = () => { const p = hb.play(); if (p && p.catch) p.catch(() => {}); };
