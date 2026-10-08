@@ -1,13 +1,17 @@
 const https = require('https');
 
 module.exports = async (req, res) => {
+  console.log('API called with method:', req.method);
+
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
   const { name, email, topic, watch, phone, set, message } = req.body;
+  console.log('Form data received:', { name, email, topic, watch, phone, set, message });
 
   if (!name || !email || !message) {
+    console.log('Missing required fields');
     return res.status(400).json({ error: 'Missing required fields' });
   }
 
@@ -19,7 +23,7 @@ module.exports = async (req, res) => {
   const text = `
 Navn: ${name}
 Email: ${email}
-Emne: ${topic}
+Emne: ${topic || '-'}
 Ur: ${watch || '-'}
 ${isSell ? `Telefon: ${phone || '-'}\nBoks og papirer: ${set || '-'}` : ''}
 
@@ -46,15 +50,17 @@ ${message}
   };
 
   return new Promise((resolve, reject) => {
+    console.log('Sending to SendGrid...');
     const req = https.request(options, (res2) => {
       let body = '';
       res2.on('data', chunk => body += chunk);
       res2.on('end', () => {
+        console.log('SendGrid response status:', res2.statusCode);
+        console.log('SendGrid response body:', body);
         if (res2.statusCode >= 200 && res2.statusCode < 300) {
           res.status(200).json({ success: true });
         } else {
-          console.error('SendGrid error:', res2.statusCode, body);
-          res.status(500).json({ error: 'Failed to send email' });
+          res.status(500).json({ error: 'Failed to send email', details: body });
         }
         resolve();
       });
