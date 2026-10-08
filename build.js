@@ -66,7 +66,7 @@ const footer = `<footer class="foot">
     <div><p class="label light">Udforsk</p><a href="${R}${soldUrl}">Solgte ure</a><br><a href="${home}#sell">Sælg eller byt</a></div>
   </div>
   <div class="wrap fbig" aria-hidden="true"><img src="${R}assets/logo-word.png" alt="" loading="lazy"></div>
-  <div class="wrap fine"><span>© ${new Date().getFullYear()} All in Time</span><a href="#">Til toppen</a></div>
+  <div class="wrap fine"><div class="fleft"><span>© ${new Date().getFullYear()} All in Time · CVR: 46744535</span></div><a href="${R}handelsbetingelser/">Handelsbetingelser</a><div class="fright"><a href="#">Til toppen</a></div></div>
 </footer>`;
 const card = w => `<a class="card" href="${R}${esc(w.url)}">
   <div class="ph"><img src="${R}${esc(rel(w.images[0]))}" alt="${esc(w.brand + ' ' + w.model)}" loading="lazy" style="object-position:${pos(w)}"></div>

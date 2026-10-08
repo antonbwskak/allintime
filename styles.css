@@ -172,7 +172,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 .flogo{width:130px;height:auto}
 .foot .label{margin-bottom:10px}
 .foot a{text-decoration:none}.foot a:hover{color:var(--paper)}
-.fine{display:flex;justify-content:space-between;border-top:1px solid var(--line-l);padding-top:22px;padding-bottom:26px;font-size:13.5px;color:#a4b0a7}
+.fine{display:flex;justify-content:center;gap:clamp(24px,5vw,60px);border-top:1px solid var(--line-l);padding-top:22px;padding-bottom:26px;font-size:13.5px;color:#a4b0a7}.fleft,.fright{min-width:120px}
 
 /* dialog */
 .dlg{border:0;padding:0;width:min(1180px,94vw);max-height:92vh;margin:auto;background:var(--paper);color:var(--ink);overflow:auto}
