@@ -59,12 +59,8 @@
   forms(() => S.email || 'antonbwehding@gmail.com');
   const ef = $('#enqForm');
   if (ef) {
-    console.log('Form found, setting up handlers');
-    document.addEventListener('click', e => { const t = e.target.closest('[data-mode]'); if (t) { console.log('data-mode click:', t.dataset.mode); ef.__setMode(t.dataset.mode === 'sell'); } });
+    document.addEventListener('click', e => { const t = e.target.closest('[data-mode]'); if (t) ef.__setMode(t.dataset.mode === 'sell'); });
     ef.querySelectorAll('input[name=topic]').forEach(r => r.addEventListener('change', () => ef.__setMode(r.value === 'Sell or trade' && r.checked)));
-    ef.querySelectorAll('.seg label').forEach(l => l.addEventListener('click', e => { console.log('label click, data-mode:', l.dataset.mode); ef.__setMode(l.dataset.mode === 'sell'); e.stopPropagation(); }));
-  } else {
-    console.log('Form NOT found!');
   }
   reveal(QA);
 

@@ -21,20 +21,28 @@
       f.addEventListener('submit', async e => {
         e.preventDefault();
         const st = $('.status', f), btn = $('button[type=submit]', f);
-        if (fin && !f.classList.contains('is-sell')) fin.value = '';
         if (fin && fin.files.length > 4) { st.className = 'status err'; st.textContent = 'Maksimalt 4 billeder.'; return; }
         btn.disabled = true; st.className = 'status'; st.textContent = 'Sender…';
-        const data = new FormData(f), hasFiles = fin && fin.files.length;
         const sell = f.classList.contains('is-sell');
-        const to = getEmail();
-        const topic = sell ? 'Ur til salg' : 'Forespørgsel';
-        const lines = [...data.entries()].filter(([k, v]) => typeof v === 'string' && v && !['form-name', 'company'].includes(k)).map(([k, v]) => `${k}: ${v}`).join('\n');
-        const subject = encodeURIComponent(topic + ' fra allintime.dk');
-        const body = encodeURIComponent(lines + (hasFiles ? '\n\n[Billeder er vedhæftet i denne besked]' : ''));
-        window.location.href = `mailto:${esc(to)}?subject=${subject}&body=${body}`;
-        f.reset(); if (dzb) dzb.textContent = 'Tilføj billeder'; setMode(false);
-        st.className = 'status ok';
-        st.textContent = sell ? 'Tak! Vi ser på dit ur og svarer via email, typisk inden for en dag.' : 'Tak! Vi svarer personligt, typisk samme dag.';
+        const formData = new FormData(f);
+        const body = Object.fromEntries(formData.entries());
+        try {
+          const res = await fetch('/api/send-email', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(body)
+          });
+          if (res.ok) {
+            f.reset(); if (dzb) dzb.textContent = 'Tilføj billeder'; setMode(false);
+            st.className = 'status ok';
+            st.textContent = sell ? 'Tak! Vi ser på dit ur og svarer via email, typisk inden for en dag.' : 'Tak! Vi svarer personligt, typisk samme dag.';
+          } else {
+            throw new Error('Server error');
+          }
+        } catch (err) {
+          st.className = 'status err';
+          st.textContent = 'Der opstod en fejl. Prøv igen eller skriv til os direkte på antonbwehding@gmail.com';
+        }
         btn.disabled = false;
       });
     });
