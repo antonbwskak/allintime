@@ -26,22 +26,27 @@
         const sell = f.classList.contains('is-sell');
         const formData = new FormData(f);
         const body = Object.fromEntries(formData.entries());
+        console.log('Submitting form to /api/send-email:', body);
         try {
           const res = await fetch('/api/send-email', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(body)
           });
+          console.log('Response status:', res.status);
           const data = await res.json();
+          console.log('Response data:', data);
           if (res.ok && data.success) {
             f.reset(); if (dzb) dzb.textContent = 'Tilføj billeder'; setMode(false);
             st.className = 'status ok';
             st.textContent = sell ? 'Tak! Vi ser på dit ur og svarer via email, typisk inden for en dag.' : 'Tak! Vi svarer personligt, typisk samme dag.';
             btn.style.display = 'none';
           } else {
-            throw new Error('Kunne ikke sende besked');
+            console.log('Error: res.ok or data.success was false');
+            throw new Error('Kunne ikke sende besked: ' + (data.error || 'Unknown error'));
           }
         } catch (err) {
+          console.log('Catch error:', err.message);
           st.className = 'status err';
           st.textContent = 'Der opstod en fejl. Prøv igen eller skriv til os direkte på antonbwehding@gmail.com';
         }
