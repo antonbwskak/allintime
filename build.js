@@ -108,7 +108,9 @@ ${canonical ? `<meta property="og:url" content="${canonical}">` : ''}
 <meta name="theme-color" content="#0e3725">
 <link rel="icon" href="${R}assets/logo-mark.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600&display=swap">
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>.display,h1,h2,h3{font-family:'Instrument Serif',Georgia,serif}</style>
 <link rel="stylesheet" href="${R}styles.css?v=${V}">
 <script type="application/ld+json">${JSON.stringify(ld).replace(/</g, '\\u003c')}</script>
 </head>
@@ -215,7 +217,9 @@ ${site ? `<link rel="canonical" href="${site}/sold/">` : ''}
 <meta name="theme-color" content="#0e3725">
 <link rel="icon" href="${R}assets/logo-mark.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600&display=swap">
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>.display,h1,h2,h3{font-family:'Instrument Serif',Georgia,serif}</style>
 <link rel="stylesheet" href="${R}styles.css?v=${V}">
 </head>
 <body class="soldpage">
@@ -263,7 +267,9 @@ ${site ? `<link rel="canonical" href="${site}/lager/">` : ''}
 <meta name="theme-color" content="#0e3725">
 <link rel="icon" href="${R}assets/logo-mark.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600&display=swap">
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>.display,h1,h2,h3{font-family:'Instrument Serif',Georgia,serif}</style>
 <link rel="stylesheet" href="${R}styles.css?v=${V}">
 </head>
 <body class="soldpage">
