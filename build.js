@@ -223,7 +223,7 @@ ${header}
 <main>
   <section class="shero wrap">
     <div><p class="label">Arkiv · ${soldList.length} ure</p><h1 class="display">Solgte ure</h1></div>
-    <p class="body narrow">Hvert ur der er gået gennem All in Time, fotograferet som det var. Leder du efter et lignende? Fortæl os det — så holder vi øje.</p>
+    <p class="body narrow">Her ser du nogle af de ure vi hidtil har leveret til tilfredse kunder. Leder du efter et lignende? Kontakt os - så finder vi det.</p>
   </section>
   <section class="sold-list wrap" aria-label="Alle solgte ure">
     <div class="grid" id="soldGrid">${soldList.map(w => card(w).replace('<a class="card"', `<a class="card" data-brand="${esc(w.brand)}"`)).join('')}</div>
