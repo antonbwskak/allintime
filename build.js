@@ -56,7 +56,7 @@ const R = '../../';
 const home = R + (PREVIEW ? 'index.html' : '');
 const header = `<header class="top" data-qa-ignore>
   <a href="${home}" class="brand" aria-label="All in Time, home"><img src="${R}assets/logo-word.png" alt="All in Time" width="160" height="32"></a>
-  <nav aria-label="Main"><a href="${R}lager/">Ure på lager</a><a href="${R}${soldUrl}">Solgte ure</a><a href="${home}#sell">Sælg eller byt</a><a href="#enquire" class="pill">Skriv til os</a></nav>
+  <nav aria-label="Main"><a href="${R}lager/">Ure på lager</a><a href="${R}sold/">Solgte ure</a><a href="${R}service/">Service</a><a href="${home}#sell">Sælg eller byt</a><a href="#enquire" class="pill">Skriv til os</a></nav>
 </header>`;
 const footer = `<footer class="foot">
   <div class="wrap fcols">
