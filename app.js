@@ -58,7 +58,10 @@
   // forms + deep links (?watch=... from a watch page, #sell mode)
   forms(() => S.email || 'antonbwehding@gmail.com');
   const ef = $('#enqForm');
-  if (ef) { document.addEventListener('click', e => { const t = e.target.closest('[data-mode]'); if (t) ef.__setMode(t.dataset.mode === 'sell'); }); }
+  if (ef) {
+    document.addEventListener('click', e => { const t = e.target.closest('[data-mode]'); if (t) ef.__setMode(t.dataset.mode === 'sell'); });
+    ef.querySelectorAll('input[name=topic]').forEach(r => r.addEventListener('change', () => ef.__setMode(r.value === 'Sell or trade' && r.checked)));
+  }
   reveal(QA);
 
   if (QA) {
