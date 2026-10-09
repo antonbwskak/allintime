@@ -1,0 +1,24 @@
+{
+  "set": "Komplet sæt med inderboks, yderboks, manual, ekstra led samt originale papirer og købskvittering.",
+  "brand": "Omega",
+  "model": "Seamaster Diver 300M",
+  "reference": "210.30.42.20.03.001",
+  "featured": true,
+  "price_dkk": 30490,
+  "order": 1,
+  "focus_x": 50,
+  "focus_y": 50,
+  "status": "available",
+  "images": [
+    "/media/uploads/dscf0756.jpeg",
+    "/media/uploads/dscf0757.jpeg",
+    "/media/uploads/dscf0758.jpeg",
+    "/media/uploads/dscf0759.jpeg",
+    "/media/uploads/dscf0760.jpeg",
+    "/media/uploads/dscf0763.jpeg"
+  ],
+  "price_mode": "price",
+  "condition": "90%",
+  "description": "En moderne Omega Seamaster Diver 300M med blå keramisk bølgeskive, matchende dykkerkrans med hvid emaljeskala og klassisk stålkonstruktion. Modellen har en 42 mm urkasse, rhodiumbelagte visere og timemarkeringer samt 300 meters vandtæthed. Uret drives af Omegas Co-Axial Master Chronometer-kaliber 8800, synligt gennem safirglasset i bagkassen. En sporty og gennemført Seamaster, der forener kollektionens maritime arv med moderne materialer og teknisk præcision.",
+  "year": "2020"
+}
