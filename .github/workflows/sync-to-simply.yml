@@ -1,0 +1,24 @@
+name: Sync to Simply.com
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Sync to Simply.com via FTP
+        uses: SamMcC/ftp-deploy@v1.1.1
+        with:
+          server: ftp.simply.com
+          username: ${{ secrets.SIMPLY_FTP_USER }}
+          password: ${{ secrets.SIMPLY_FTP_PASSWORD }}
+          port: 21
+          local-dir: ./
+          remote-dir: /public_html/
+          ssl: true
+          dry-run: false
