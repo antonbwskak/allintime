@@ -823,6 +823,60 @@
       "url": "watch/rolex-submariner-date/"
     },
     {
+      "set": "Komplet sæt med inderboks, yderboks, manual, ekstra led samt originale papirer.",
+      "brand": "Omega",
+      "model": "Speedmaster Moonwatch",
+      "reference": "310.30.42.50.04.001",
+      "featured": true,
+      "price_dkk": 51900,
+      "order": 0,
+      "focus_x": 50,
+      "focus_y": 50,
+      "status": "available",
+      "images": [
+        "/media/uploads/dscf0727.jpeg",
+        "/media/uploads/dscf0729.jpeg",
+        "/media/uploads/dscf0731.jpeg",
+        "/media/uploads/dscf0730.jpeg",
+        "/media/uploads/dscf0733.jpeg",
+        "/media/uploads/dscf0748.jpeg"
+      ],
+      "price_mode": "price",
+      "condition": "95%",
+      "description": "En ikonisk Omega Speedmaster Moonwatch Professional med elegant hvidlakeret skive, sorte kontrastdetaljer og klassisk stålkonstruktion. Modellen viderefører det legendariske Moonwatch-design, der har været en del af Omegas historie inden for rumfart, og kombinerer vintage-inspirerede detaljer med det moderne Co-Axial Master Chronometer-kaliber 3861. Et tidløst og karakterfuldt ur, der forener historisk arv, teknisk præcision og et raffineret udtryk.",
+      "year": "2024",
+      "file": "omega-speedmaster-moonwatch.json",
+      "slug": "omega-speedmaster-moonwatch",
+      "url": "watch/omega-speedmaster-moonwatch/"
+    },
+    {
+      "set": "Komplet sæt med inderboks, yderboks, manual, ekstra led samt originale papirer og købskvittering.",
+      "brand": "Omega",
+      "model": "Seamaster Diver 300M",
+      "reference": "210.30.42.20.03.001",
+      "featured": true,
+      "price_dkk": 30490,
+      "order": 1,
+      "focus_x": 50,
+      "focus_y": 50,
+      "status": "available",
+      "images": [
+        "/media/uploads/dscf0756.jpeg",
+        "/media/uploads/dscf0757.jpeg",
+        "/media/uploads/dscf0758.jpeg",
+        "/media/uploads/dscf0759.jpeg",
+        "/media/uploads/dscf0760.jpeg",
+        "/media/uploads/dscf0763.jpeg"
+      ],
+      "price_mode": "price",
+      "condition": "90%",
+      "description": "En moderne Omega Seamaster Diver 300M med blå keramisk bølgeskive, matchende dykkerkrans med hvid emaljeskala og klassisk stålkonstruktion. Modellen har en 42 mm urkasse, rhodiumbelagte visere og timemarkeringer samt 300 meters vandtæthed. Uret drives af Omegas Co-Axial Master Chronometer-kaliber 8800, synligt gennem safirglasset i bagkassen. En sporty og gennemført Seamaster, der forener kollektionens maritime arv med moderne materialer og teknisk præcision.",
+      "year": "2020",
+      "file": "omega-seamaster-diver-300m.json",
+      "slug": "omega-seamaster-diver-300m",
+      "url": "watch/omega-seamaster-diver-300m/"
+    },
+    {
       "slug": "tudor-black-bay-gmt",
       "brand": "Tudor",
       "model": "Black Bay GMT",
@@ -889,7 +943,7 @@
       "url": "watch/tudor-black-bay-green/"
     },
     {
-      "slug": "omega-seamaster-diver-300m",
+      "slug": "omega-seamaster-diver-300m-2",
       "brand": "Omega",
       "model": "Seamaster Diver 300M",
       "reference": "",
@@ -908,7 +962,7 @@
       "focus_x": 47,
       "focus_y": 44,
       "file": "5-omega-seamaster-wave.json",
-      "url": "watch/omega-seamaster-diver-300m/"
+      "url": "watch/omega-seamaster-diver-300m-2/"
     },
     {
       "slug": "omega-seamaster-planet-ocean",
@@ -1109,7 +1163,7 @@
       "url": "watch/omega-seamaster-diver-300m-007-edition/"
     },
     {
-      "slug": "omega-speedmaster-moonwatch",
+      "slug": "omega-speedmaster-moonwatch-2",
       "brand": "Omega",
       "model": "Speedmaster Moonwatch",
       "reference": "",
@@ -1128,7 +1182,7 @@
       "focus_x": 47,
       "focus_y": 42,
       "file": "15-omega-speedmaster.json",
-      "url": "watch/omega-speedmaster-moonwatch/"
+      "url": "watch/omega-speedmaster-moonwatch-2/"
     },
     {
       "slug": "tudor-black-bay-bronze",
@@ -1231,5 +1285,5 @@
       "url": "watch/tudor-black-bay-gmt-pepsi/"
     }
   ],
-  "built": "2026-10-08T18:27:37.341Z"
+  "built": "2026-10-10T11:27:13.903Z"
 }
