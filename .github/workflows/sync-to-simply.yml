@@ -12,13 +12,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Sync to Simply.com via FTP
-        uses: SamMcC/ftp-deploy@v1.1.1
+        uses: webfactory/ftp-deploy@master
         with:
-          server: ftp.simply.com
-          username: ${{ secrets.SIMPLY_FTP_USER }}
-          password: ${{ secrets.SIMPLY_FTP_PASSWORD }}
-          port: 21
-          local-dir: ./
-          remote-dir: /public_html/
-          ssl: true
-          dry-run: false
+          ftp-server: ftp://ftp.simply.com:21/public_html
+          ftp-username: ${{ secrets.SIMPLY_FTP_USER }}
+          ftp-password: ${{ secrets.SIMPLY_FTP_PASSWORD }}
+          gitDepth: false
