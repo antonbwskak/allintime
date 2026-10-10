@@ -2,89 +2,26 @@ backend:
   name: github
   repo: antonbwskak/allintime
   branch: main
-  app_id: Ov23ctq2tXt9JzstPj6J
-  base_url: https://all-in-time.netlify.app
-  auth_endpoint: /api/auth
 
-site_url: /
-logo_url: /assets/logo-mark.png
-media_folder: media/uploads
-public_folder: /media/uploads
+media_folder: "media/uploads"
+public_folder: "/media/uploads"
 
 collections:
-  - name: watches
-    label: Ure
-    label_singular: Ur
-    description: Alle ure på siden. Sæt status til Solgt når det er væk — så ryger det automatisk til arkivet.
-    folder: content/watches
+  - name: "watches"
+    label: "Ure"
+    folder: "content/watches"
     create: true
-    delete: true
-    extension: json
-    format: json
-    slug: "{{fields.brand}}-{{fields.model}}"
-    identifier_field: model
-    summary: "{{brand}} {{model}} · {{status}}"
-    sortable_fields: [order, brand, status]
+    slug: "{{slug}}"
     fields:
-      - { name: brand, label: Mærke, widget: select, options: [Rolex, Tudor, Omega, Panerai, Cartier, "Patek Philippe", "Audemars Piguet", "Grand Seiko", Breitling, IWC, "Jaeger-LeCoultre", Longines, Other] }
-      - { name: model, label: Model, widget: string, hint: "f.eks. Speedmaster Moonwatch" }
-      - { name: reference, label: Reference, widget: string, required: false, hint: "f.eks. 311.30.42.30.01.005" }
-      - { name: year, label: År, widget: string, required: false }
-      - name: status
-        label: Status
-        widget: select
-        default: available
-        options:
-          - { label: "Tilgængelig", value: available }
-          - { label: "Reserveret", value: reserved }
-          - { label: "Solgt", value: sold }
-      - name: price_mode
-        label: Pris
-        widget: select
-        default: on_request
-        options:
-          - { label: "Pris på forespørgsel", value: on_request }
-          - { label: "Vis pris", value: price }
-      - { name: price_dkk, label: "Pris (DKK)", widget: number, value_type: int, required: false, hint: "Vises kun når Pris er sat til Vis pris" }
-      - { name: set, label: "Boks & papirer", widget: string, required: false, hint: "f.eks. Fuld sæt, boks og papirer 2019" }
-      - { name: condition, label: Stand, widget: string, required: false, hint: "f.eks. Let slid på rem, serviceret 2024" }
-      - { name: description, label: Beskrivelse, widget: text, required: false }
-      - name: images
-        label: Fotos
-        widget: list
-        summary: "{{fields.image}}"
-        field: { name: image, label: Foto, widget: image }
-        hint: Det første foto er hovedbilledet.
-      - { name: featured, label: "Fremhæves på forsiden", widget: boolean, default: false }
-      - { name: order, label: "Sorteringsrækkefølge", widget: number, value_type: int, default: 100, hint: "Lavere tal vises først" }
-      - { name: focus_x, label: "Fotofokus venstre-højre (0-100)", widget: number, value_type: int, default: 50, required: false }
-      - { name: focus_y, label: "Fotofokus top-bund (0-100)", widget: number, value_type: int, default: 50, required: false }
-
-  - name: pages
-    label: Sidetekst
-    files:
-      - name: settings
-        label: Forside og kontakt
-        file: content/settings.json
-        format: json
-        fields:
-          - { name: hero_kicker, label: "Hero lille linje", widget: string }
-          - { name: hero_title, label: "Hero overskrift", widget: string }
-          - { name: hero_text, label: "Hero brødtekst", widget: text }
-          - { name: hero_video, label: "Hero video (mp4, valgfrit)", widget: file, required: false, hint: "Lad stå tomt for at bruge hero-fotoet i stedet" }
-          - { name: hero_video_mobile, label: "Hero video til mobil (mindre mp4, valgfrit)", widget: file, required: false }
-          - { name: hero_image, label: "Hero foto", widget: image }
-          - { name: hero_caption, label: "Hero billedtekst", widget: string, required: false }
-          - { name: intro_title, label: "Intro overskrift", widget: string }
-          - { name: intro_text, label: "Intro brødtekst", widget: text }
-          - { name: sell_title, label: "Sælg sektion overskrift", widget: string }
-          - { name: sell_text, label: "Sælg sektion brødtekst", widget: text }
-          - { name: email, label: "Kontakt email", widget: string }
-          - { name: instagram, label: "Instagram handle", widget: string }
-          - { name: location, label: Lokation, widget: string }
-          - { name: viewings, label: "Besigtigelse linje", widget: string }
-          - { name: available_kicker, label: "Tilgængelig sektion lille linje", widget: string }
-          - { name: available_title, label: "Tilgængelig sektion overskrift", widget: string }
-          - { name: archive_kicker, label: "Solgte ure sektion lille linje", widget: string }
-          - { name: archive_title, label: "Solgte ure sektion overskrift", widget: string }
-          - { name: archive_text, label: "Solgte ure sektion brødtekst", widget: text }
+      - {label: Brand, name: brand, widget: string}
+      - {label: Model, name: model, widget: string}
+      - {label: Slug, name: slug, widget: string}
+      - {label: Reference, name: reference, widget: string, required: false}
+      - {label: Year, name: year, widget: string, required: false}
+      - {label: Condition, name: condition, widget: string, required: false}
+      - {label: Description, name: description, widget: text}
+      - {label: Price (DKK), name: price_dkk, widget: number, required: false}
+      - {label: Status, name: status, widget: select, options: ["available", "sold"]}
+      - {label: Featured, name: featured, widget: boolean, default: false}
+      - {label: Tilbehør, name: set, widget: string, required: false}
+      - {label: Images, name: images, widget: list}
