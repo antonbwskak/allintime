@@ -1,0 +1,22 @@
+name: Sync to Simply.com
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install lftp
+        run: sudo apt-get update && sudo apt-get install -y lftp
+
+      - name: Sync to Simply.com via FTP
+        run: |
+          lftp -c "set ftp:ssl-force true;
+          open ftp.simply.com;
+          user ${{ secrets.SIMPLY_FTP_USER }} ${{ secrets.SIMPLY_FTP_PASSWORD }};
+          mirror -R --verbose ./ /public_html/"
