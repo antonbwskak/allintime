@@ -224,7 +224,7 @@ html[data-qa] .rv{opacity:1;transform:none}
   .top{justify-content:space-between}
   .top nav{display:none;position:fixed;top:var(--hh);left:0;right:0;bottom:0;background:var(--paper);flex-direction:column;padding:20px;gap:0;z-index:1000}
   .top nav.is-open{display:flex}
-  .top nav a:not(.pill){display:block;padding:16px 0;border-bottom:1px solid var(--line);font-size:18px}
+  .top nav a:not(.pill){display:block;padding:16px 0;border-bottom:1px solid var(--line);font-size:18px;color:var(--ink)}
   .top nav a.pill{display:inline-block;margin-top:20px;padding:14px 28px}
   .top .hamburger{display:block;width:32px;height:32px;background:none;border:none;cursor:pointer;padding:4px;z-index:1001}
   .top .hamburger span{display:block;width:24px;height:2px;background:var(--ink);margin:5px 0;transition:transform .3s,opacity .3s}
