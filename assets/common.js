@@ -26,6 +26,18 @@
         const sell = f.classList.contains('is-sell');
         const formData = new FormData(f);
         const body = Object.fromEntries(formData.entries());
+
+        // Convert images to base64 for sell form
+        if (fin && fin.files.length > 0 && sell) {
+          const toBase64 = file => new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onload = () => resolve(reader.result);
+            reader.onerror = reject;
+            reader.readAsDataURL(file);
+          });
+          body.images = await Promise.all(Array.from(fin.files).map(toBase64));
+        }
+
         try {
           const res = await fetch('https://allintime.dk/x7kq9m2n4p8.php', {
             method: 'POST',
