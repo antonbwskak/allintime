@@ -26,29 +26,24 @@
         const sell = f.classList.contains('is-sell');
         const formData = new FormData(f);
         const body = Object.fromEntries(formData.entries());
-        console.log('Submitting form to /api/send-email:', body);
         try {
-          const res = await fetch('/api/send-email', {
+          const res = await fetch('https://allintime.dk/x7kq9m2n4p8.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(body)
           });
-          console.log('Response status:', res.status);
           const data = await res.json();
-          console.log('Response data:', data);
           if (res.ok && data.success) {
             f.reset(); if (dzb) dzb.textContent = 'Tilføj billeder'; setMode(false);
             st.className = 'status ok';
             st.textContent = sell ? 'Tak! Vi ser på dit ur og svarer via email, typisk inden for en dag.' : 'Tak! Vi svarer personligt, typisk samme dag.';
             btn.style.display = 'none';
           } else {
-            console.log('Error: res.ok or data.success was false');
-            throw new Error('Kunne ikke sende besked: ' + (data.error || 'Unknown error'));
+            throw new Error(data.error || 'Unknown error');
           }
         } catch (err) {
-          console.log('Catch error:', err.message);
           st.className = 'status err';
-          st.textContent = 'Der opstod en fejl. Prøv igen eller skriv til os direkte på antonbwehding@gmail.com';
+          st.textContent = 'Der opstod en fejl. Prøv igen eller skriv til os direkte på anton@allintime.dk';
         }
         btn.disabled = false;
       });
@@ -111,6 +106,24 @@
     document.addEventListener('focusin', e => { if (t.contains(e.target)) t.classList.remove('tuck'); });
   }
   autohide();
+
+  // mobile hamburger menu
+  function mobileMenu() {
+    const h = document.querySelector('.hamburger');
+    const n = document.querySelector('.top nav');
+    if (!h || !n) return;
+    h.addEventListener('click', () => {
+      const open = h.classList.toggle('is-open');
+      n.classList.toggle('is-open');
+      h.setAttribute('aria-expanded', open);
+    });
+    n.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      h.classList.remove('is-open');
+      n.classList.remove('is-open');
+      h.setAttribute('aria-expanded', 'false');
+    }));
+  }
+  mobileMenu();
 
 
   window.AIT = Object.assign(window.AIT || {}, { forms, reveal, esc });

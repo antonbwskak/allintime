@@ -59,7 +59,7 @@
   const soldHref = D.sold_url || 'sold/'; $$('.js-sold,#allSold').forEach(a => a.href = soldHref);
 
   // forms + deep links (?watch=... from a watch page, #sell mode)
-  forms(() => S.email || 'antonbwehding@gmail.com');
+  forms(() => S.email || 'anton@allintime.dk');
   const ef = $('#enqForm');
   if (ef) {
     document.addEventListener('click', e => { const t = e.target.closest('[data-mode]'); if (t) ef.__setMode(t.dataset.mode === 'sell'); });
