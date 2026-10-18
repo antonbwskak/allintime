@@ -3,10 +3,9 @@ header('Content-Type: application/json');
 
 $logFile = __DIR__ . '/form_submissions.log';
 
-function logSubmission($data, $result) {
+function logMsg($msg) {
     global $logFile;
-    $entry = date('Y-m-d H:i:s') . ' | ' . ($data['topic'] ?? 'unknown') . ' | ' . ($data['email'] ?? 'no email') . ' | ' . ($data['name'] ?? 'no name') . ' | ' . $result . "\n";
-    @file_put_contents($logFile, $entry, FILE_APPEND);
+    @file_put_contents($logFile, date('Y-m-d H:i:s') . ' ' . $msg . "\n", FILE_APPEND);
 }
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -15,12 +14,13 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-$data = json_decode(file_get_contents('php://input'), true);
+$raw = file_get_contents('php://input');
+$data = json_decode($raw, true);
 
 if (!$data) {
+    logMsg('ERROR: Invalid JSON');
     http_response_code(400);
     echo json_encode(['error' => 'Invalid data']);
-    logSubmission($_POST, 'INVALID_DATA');
     exit;
 }
 
@@ -34,15 +34,14 @@ $message = trim($data['message'] ?? '');
 $images = $data['images'] ?? [];
 
 if (!$name || !$email || !$message) {
+    logMsg('ERROR: Missing fields');
     http_response_code(400);
     echo json_encode(['error' => 'Missing required fields']);
     exit;
 }
 
 $isSell = ($topic === 'Sell or trade');
-$subject = $isSell
-    ? "Ur til salg fra allintime.dk"
-    : "Forespørgsel fra allintime.dk";
+$subject = "Ny besked fra allintime.dk";
 
 $body = "Navn: $name\n";
 $body .= "Email: $email\n";
@@ -56,142 +55,109 @@ if ($isSell) {
 
 $body .= "\nBesked:\n$message\n";
 
-if (!empty($images) && $isSell) {
-    $body .= "\n\nBilleder:\n";
-    foreach ($images as $i => $img) {
-        $body .= "Bild $i: se vedhæftning\n";
-    }
-}
-
-$to = 'anton@allintime.dk';
-$from = 'anton@allintime.dk';
 $smtpHost = 'smtp.simply.com';
 $smtpPort = 587;
 $smtpUser = 'anton@allintime.dk';
 $smtpPass = '290607Abw';
+$from = 'anton@allintime.dk';
+$to = 'anton@allintime.dk';
+$CRLF = "\r\n";
 
-function smtpMail($to, $subject, $body, $from, $smtpHost, $smtpPort, $smtpUser, $smtpPass, $isSell, $images) {
-    $timeout = 10;
-    $localhost = 'localhost';
-    $newLine = "\r\n";
+logMsg("Sending $topic from $email");
 
-    $socket = @fsockopen("tls://$smtpHost", $smtpPort, $errno, $errstr, $timeout);
-    if (!$socket) {
-        return "Connection failed: $errstr ($errno)";
-    }
-    stream_set_timeout($socket, $timeout);
-
-    $response = fgets($socket, 515);
-    if (substr($response, 0, 3) !== '220') {
-        fclose($socket);
-        return "Bad greeting: $response";
-    }
-
-    fputs($socket, "EHLO $localhost$newLine");
-    $response = fgets($socket, 515);
-    if (substr($response, 0, 3) !== '250') {
-        fputs($socket, "HELO $localhost$newLine");
-        $response = fgets($socket, 515);
-    }
-
-    fputs($socket, "AUTH LOGIN$newLine");
-    $response = fgets($socket, 515);
-    if (substr($response, 0, 3) !== '334') {
-        fclose($socket);
-        return "Auth init failed: $response";
-    }
-
-    fputs($socket, base64_encode($smtpUser) . $newLine);
-    $response = fgets($socket, 515);
-    if (substr($response, 0, 3) !== '334') {
-        fclose($socket);
-        return "Username failed: $response";
-    }
-
-    fputs($socket, base64_encode($smtpPass) . $newLine);
-    $response = fgets($socket, 515);
-    if (substr($response, 0, 3) !== '235') {
-        fclose($socket);
-        return "Password failed: $response";
-    }
-
-    fputs($socket, "MAIL FROM: <$from>$newLine");
-    $response = fgets($socket, 515);
-    if (substr($response, 0, 3) !== '250') {
-        fclose($socket);
-        return "Mail from failed: $response";
-    }
-
-    fputs($socket, "RCPT TO: <$to>$newLine");
-    $response = fgets($socket, 515);
-    if (substr($response, 0, 3) !== '250') {
-        fclose($socket);
-        return "Rcpt to failed: $response";
-    }
-
-    fputs($socket, "DATA$newLine");
-    $response = fgets($socket, 515);
-    if (substr($response, 0, 3) !== '354') {
-        fclose($socket);
-        return "Data failed: $response";
-    }
-
-    $boundary = md5(time());
-    $headers = "From: $from$newLine";
-    $headers .= "Reply-To: $email$newLine";
-    $headers .= "Subject: $subject$newLine";
-    $headers .= "MIME-Version: 1.0$newLine";
-
-    if (!empty($images) && $isSell) {
-        $headers .= "Content-Type: multipart/mixed; boundary=$boundary$newLine";
-        $msgBody = "--$boundary$newLine";
-        $msgBody .= "Content-Type: text/plain; charset=UTF-8$newLine";
-        $msgBody .= "Content-Transfer-Encoding: 7bit$newLine$newLine";
-        $msgBody .= $body . $newLine;
-
-        foreach ($images as $i => $img) {
-            if (preg_match('/^data:image\/(\w+);base64,/', $img, $matches)) {
-                $ext = $matches[1];
-                $imgData = base64_decode(str_replace($matches[0], '', $img));
-                $filename = "ur_billede_" . ($i + 1) . ".$ext";
-
-                $msgBody .= "$newLine--$boundary$newLine";
-                $msgBody .= "Content-Type: image/$ext; name=\"$filename\"$newLine";
-                $msgBody .= "Content-Transfer-Encoding: base64$newLine";
-                $msgBody .= "Content-Disposition: attachment; filename=\"$filename\"$newLine$newLine";
-                $msgBody .= chunk_split(base64_encode($imgData));
-            }
-        }
-        $msgBody .= "$newLine--$boundary--$newLine";
-    } else {
-        $headers .= "Content-Type: multipart/mixed; boundary=$boundary$newLine";
-        $msgBody = "--$boundary$newLine";
-        $msgBody .= "Content-Type: text/plain; charset=UTF-8$newLine";
-        $msgBody .= "Content-Transfer-Encoding: 7bit$newLine$newLine";
-        $msgBody .= $body . $newLine;
-        $msgBody .= "--$boundary--$newLine";
-    }
-
-    fputs($socket, "$headers$newLine$newLine$msgBody$newLine.$newLine");
-    $response = fgets($socket, 515);
-    if (substr($response, 0, 3) !== '250') {
-        fclose($socket);
-        return "Message send failed: $response";
-    }
-
-    fputs($socket, "QUIT$newLine");
-    fclose($socket);
-
-    return true;
-}
-
-$result = smtpMail($to, $subject, $body, $from, $smtpHost, $smtpPort, $smtpUser, $smtpPass, $isSell, $images);
-
-if ($result === true) {
-    logSubmission($data, 'SUCCESS');
-    echo json_encode(['success' => true]);
-} else {
-    logSubmission($data, 'SMTP_ERROR: ' . $result);
+$socket = @fsockopen('tls://' . $smtpHost, $smtpPort, $errno, $errstr, 10);
+if (!$socket) {
+    logMsg("ERROR: Connection failed - $errstr ($errno)");
     http_response_code(500);
-    echo json_encode(['error' => 'Failed to send email: ' . $result]);
+    echo json_encode(['error' => 'Connection failed']);
+    exit;
 }
+stream_set_timeout($socket, 10);
+
+$line = fgets($socket, 512);
+if (substr($line, 0, 3) !== '220') {
+    fclose($socket);
+    logMsg("ERROR: Bad greeting: $line");
+    http_response_code(500);
+    echo json_encode(['error' => 'SMTP error']);
+    exit;
+}
+
+fputs($socket, "EHLO localhost$CRLF");
+$line = fgets($socket, 512);
+while (substr($line, 3, 1) === '-') {
+    $line = fgets($socket, 512);
+}
+
+fputs($socket, "AUTH LOGIN$CRLF");
+$line = fgets($socket, 512);
+
+fputs($socket, base64_encode($smtpUser) . $CRLF);
+$line = fgets($socket, 512);
+
+fputs($socket, base64_encode($smtpPass) . $CRLF);
+$line = fgets($socket, 512);
+if (substr($line, 0, 3) !== '235') {
+    fclose($socket);
+    logMsg("ERROR: Auth failed: $line");
+    http_response_code(500);
+    echo json_encode(['error' => 'Auth failed']);
+    exit;
+}
+
+fputs($socket, "MAIL FROM: <$from>$CRLF");
+$line = fgets($socket, 512);
+
+fputs($socket, "RCPT TO: <$to>$CRLF");
+$line = fgets($socket, 512);
+
+fputs($socket, "DATA$CRLF");
+$line = fgets($socket, 512);
+
+$boundary = md5(time());
+$headers = "From: $from$CRLF";
+$headers .= "Reply-To: $email$CRLF";
+$headers .= "Subject: $subject$CRLF";
+$headers .= "MIME-Version: 1.0$CRLF";
+
+if ($isSell && !empty($images)) {
+    $headers .= "Content-Type: multipart/mixed; boundary=$boundary$CRLF";
+    $msgBody = "--$boundary$CRLF";
+    $msgBody .= "Content-Type: text/plain; charset=UTF-8$CRLF$CRLF";
+    $msgBody .= $body . $CRLF;
+
+    foreach ($images as $i => $img) {
+        if (preg_match('/^data:image\/(\w+);base64,/', $img, $matches)) {
+            $ext = $matches[1];
+            $imgData = base64_decode(str_replace($matches[0], '', $img));
+            $filename = "ur_billede_" . ($i + 1) . ".$ext";
+
+            $msgBody .= "$CRLF--$boundary$CRLF";
+            $msgBody .= "Content-Type: image/$ext; name=\"$filename\"$CRLF";
+            $msgBody .= "Content-Transfer-Encoding: base64$CRLF";
+            $msgBody .= "Content-Disposition: attachment; filename=\"$filename\"$CRLF$CRLF";
+            $msgBody .= chunk_split(base64_encode($imgData));
+        }
+    }
+    $msgBody .= "$CRLF--$boundary--$CRLF";
+} else {
+    $headers .= "Content-Type: text/plain; charset=UTF-8$CRLF";
+    $msgBody = $body . $CRLF;
+}
+
+fputs($socket, $headers . $CRLF . $CRLF . $msgBody . "." . $CRLF);
+$line = fgets($socket, 512);
+
+if (substr($line, 0, 3) !== '250') {
+    fclose($socket);
+    logMsg("ERROR: Send failed: $line");
+    http_response_code(500);
+    echo json_encode(['error' => 'Send failed']);
+    exit;
+}
+
+fputs($socket, "QUIT$CRLF");
+fclose($socket);
+
+logMsg("SUCCESS: $topic from $email");
+echo json_encode(['success' => true]);
