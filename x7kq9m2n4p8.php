@@ -198,7 +198,7 @@ function smtpMail($to, $subject, $body, $from, $smtpHost, $smtpPort, $smtpUser, 
         $msgBody .= "--$boundary$newLine";
         $msgBody .= "Content-Type: text/plain; charset=UTF-8$newLine";
         $msgBody .= "Content-Transfer-Encoding: 7bit$newLine$newLine";
-        $msgBody .= $body . "$newLine--$boundary--$newLine";
+        $msgBody .= $body . $newLine . "--$boundary--$newLine";
     }
 
     fputs($socket, "$msgHeaders$newLine$newLine$msgBody$newLine.$newLine");
