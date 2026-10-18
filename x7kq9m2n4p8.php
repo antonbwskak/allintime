@@ -161,20 +161,19 @@ function smtpMail($to, $subject, $body, $from, $smtpHost, $smtpPort, $smtpUser, 
     }
 
     // Build message
-    $boundary = md5(time());
-
-    $headers = [];
-    $headers[] = "From: $from";
-    $headers[] = "Reply-To: $email";
-    $headers[] = "MIME-Version: 1.0";
-    $headers[] = "Content-Type: multipart/mixed; boundary=$boundary";
-
-    $msgHeaders = implode($newLine, $headers);
-
-    // Message body with attachments
-    $msgBody = "";
-
     if (!empty($images) && $isSell) {
+        // Sell with images - use multipart
+        $boundary = md5(time());
+        $headers = [];
+        $headers[] = "From: $from";
+        $headers[] = "Reply-To: $email";
+        $headers[] = "Subject: $subject";
+        $headers[] = "MIME-Version: 1.0";
+        $headers[] = "Content-Type: multipart/mixed; boundary=$boundary";
+
+        $msgHeaders = implode($newLine, $headers);
+
+        $msgBody = "";
         $msgBody .= "--$boundary$newLine";
         $msgBody .= "Content-Type: text/plain; charset=UTF-8$newLine";
         $msgBody .= "Content-Transfer-Encoding: 7bit$newLine$newLine";
@@ -195,10 +194,16 @@ function smtpMail($to, $subject, $body, $from, $smtpHost, $smtpPort, $smtpUser, 
         }
         $msgBody .= "$newLine--$boundary--$newLine";
     } else {
-        $msgBody .= "--$boundary$newLine";
-        $msgBody .= "Content-Type: text/plain; charset=UTF-8$newLine";
-        $msgBody .= "Content-Transfer-Encoding: 7bit$newLine$newLine";
-        $msgBody .= $body . $newLine . "--$boundary--$newLine";
+        // Simple text email (Enquiry or Sell without images)
+        $headers = [];
+        $headers[] = "From: $from";
+        $headers[] = "Reply-To: $email";
+        $headers[] = "Subject: $subject";
+        $headers[] = "MIME-Version: 1.0";
+        $headers[] = "Content-Type: text/plain; charset=UTF-8";
+
+        $msgHeaders = implode($newLine, $headers);
+        $msgBody = $body;
     }
 
     fputs($socket, "$msgHeaders$newLine$newLine$msgBody$newLine.$newLine");
