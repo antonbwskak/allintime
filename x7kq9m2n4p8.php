@@ -99,11 +99,15 @@ if (!empty($images) && $isSell) {
     $body = implode("\r\n", $body_parts);
 }
 
-$sent = mail($to, $subject, $body, $header_str);
+$sent = @mail($to, $subject, $body, $header_str);
+$mailError = error_get_last();
 
 if ($sent) {
+    logSubmission($data, 'SUCCESS');
     echo json_encode(['success' => true]);
 } else {
+    $errorMsg = $mailError ? $mailError['message'] : 'Unknown error';
+    logSubmission($data, 'MAIL_FAILED: ' . $errorMsg);
     http_response_code(500);
-    echo json_encode(['error' => 'Failed to send email']);
+    echo json_encode(['error' => 'Failed to send email: ' . $errorMsg]);
 }
