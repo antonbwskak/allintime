@@ -70,51 +70,30 @@ $smtpPort = 587;
 $smtpUser = 'anton@allintime.dk';
 $smtpPass = '290607Abw';
 
-// Simple SMTP send
-function smtpMail($to, $subject, $body, $from, $smtpHost, $smtpPort, $smtpUser, $smtpPass, $images = []) {
+function smtpMail($to, $subject, $body, $from, $smtpHost, $smtpPort, $smtpUser, $smtpPass, $isSell, $images) {
     $timeout = 10;
     $localhost = 'localhost';
     $newLine = "\r\n";
 
-    // Connect to SMTP
     $socket = @fsockopen($smtpHost, $smtpPort, $errno, $errstr, $timeout);
     if (!$socket) {
         return "Connection failed: $errstr ($errno)";
     }
-
     stream_set_timeout($socket, $timeout);
 
-    // Read greeting
     $response = fgets($socket, 515);
     if (substr($response, 0, 3) !== '220') {
         fclose($socket);
         return "Bad greeting: $response";
     }
 
-    // Send EHLO
     fputs($socket, "EHLO $localhost$newLine");
     $response = fgets($socket, 515);
     if (substr($response, 0, 3) !== '250') {
-        // Try HELO instead
         fputs($socket, "HELO $localhost$newLine");
         $response = fgets($socket, 515);
     }
 
-    // Send STARTTLS
-    fputs($socket, "STARTTLS$newLine");
-    $response = fgets($socket, 515);
-    if (substr($response, 0, 3) === '220') {
-        // Upgrade to TLS
-        if (!stream_socket_enable_crypto($socket, true, STREAM_CRYPTO_METHOD_TLSv1_2_CLIENT)) {
-            fclose($socket);
-            return "TLS upgrade failed";
-        }
-        // Re-EHLO after TLS
-        fputs($socket, "EHLO $localhost$newLine");
-        $response = fgets($socket, 515);
-    }
-
-    // Auth login
     fputs($socket, "AUTH LOGIN$newLine");
     $response = fgets($socket, 515);
     if (substr($response, 0, 3) !== '334') {
@@ -136,7 +115,6 @@ function smtpMail($to, $subject, $body, $from, $smtpHost, $smtpPort, $smtpUser, 
         return "Password failed: $response";
     }
 
-    // MAIL FROM
     fputs($socket, "MAIL FROM: <$from>$newLine");
     $response = fgets($socket, 515);
     if (substr($response, 0, 3) !== '250') {
@@ -144,7 +122,6 @@ function smtpMail($to, $subject, $body, $from, $smtpHost, $smtpPort, $smtpUser, 
         return "Mail from failed: $response";
     }
 
-    // RCPT TO
     fputs($socket, "RCPT TO: <$to>$newLine");
     $response = fgets($socket, 515);
     if (substr($response, 0, 3) !== '250') {
@@ -152,7 +129,6 @@ function smtpMail($to, $subject, $body, $from, $smtpHost, $smtpPort, $smtpUser, 
         return "Rcpt to failed: $response";
     }
 
-    // DATA
     fputs($socket, "DATA$newLine");
     $response = fgets($socket, 515);
     if (substr($response, 0, 3) !== '354') {
@@ -160,21 +136,15 @@ function smtpMail($to, $subject, $body, $from, $smtpHost, $smtpPort, $smtpUser, 
         return "Data failed: $response";
     }
 
-    // Build message
     $boundary = md5(time());
-    $headers = [];
-    $headers[] = "From: $from";
-    $headers[] = "Reply-To: $email";
-    $headers[] = "Subject: $subject";
-    $headers[] = "MIME-Version: 1.0";
+    $headers = "From: $from$newLine";
+    $headers .= "Reply-To: $email$newLine";
+    $headers .= "Subject: $subject$newLine";
+    $headers .= "MIME-Version: 1.0$newLine";
 
     if (!empty($images) && $isSell) {
-        // Sell with images - use multipart
-        $headers[] = "Content-Type: multipart/mixed; boundary=$boundary";
-        $msgHeaders = implode($newLine, $headers);
-
-        $msgBody = "";
-        $msgBody .= "--$boundary$newLine";
+        $headers .= "Content-Type: multipart/mixed; boundary=$boundary$newLine";
+        $msgBody = "--$boundary$newLine";
         $msgBody .= "Content-Type: text/plain; charset=UTF-8$newLine";
         $msgBody .= "Content-Transfer-Encoding: 7bit$newLine$newLine";
         $msgBody .= $body . $newLine;
@@ -194,33 +164,28 @@ function smtpMail($to, $subject, $body, $from, $smtpHost, $smtpPort, $smtpUser, 
         }
         $msgBody .= "$newLine--$boundary--$newLine";
     } else {
-        // Enquiry OR Sell without images - always use multipart
-        $headers[] = "Content-Type: multipart/mixed; boundary=$boundary";
-        $msgHeaders = implode($newLine, $headers);
-
-        $msgBody = "";
-        $msgBody .= "--$boundary$newLine";
+        $headers .= "Content-Type: multipart/mixed; boundary=$boundary$newLine";
+        $msgBody = "--$boundary$newLine";
         $msgBody .= "Content-Type: text/plain; charset=UTF-8$newLine";
         $msgBody .= "Content-Transfer-Encoding: 7bit$newLine$newLine";
         $msgBody .= $body . $newLine;
         $msgBody .= "--$boundary--$newLine";
     }
 
-    fputs($socket, "$msgHeaders$newLine$newLine$msgBody$newLine.$newLine");
+    fputs($socket, "$headers$newLine$newLine$msgBody$newLine.$newLine");
     $response = fgets($socket, 515);
     if (substr($response, 0, 3) !== '250') {
         fclose($socket);
         return "Message send failed: $response";
     }
 
-    // QUIT
     fputs($socket, "QUIT$newLine");
     fclose($socket);
 
     return true;
 }
 
-$result = smtpMail($to, $subject, $body, $from, $smtpHost, $smtpPort, $smtpUser, $smtpPass, $isSell ? $images : []);
+$result = smtpMail($to, $subject, $body, $from, $smtpHost, $smtpPort, $smtpUser, $smtpPass, $isSell, $images);
 
 if ($result === true) {
     logSubmission($data, 'SUCCESS');
