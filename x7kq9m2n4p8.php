@@ -75,7 +75,7 @@ function smtpMail($to, $subject, $body, $from, $smtpHost, $smtpPort, $smtpUser, 
     $localhost = 'localhost';
     $newLine = "\r\n";
 
-    $socket = @fsockopen($smtpHost, $smtpPort, $errno, $errstr, $timeout);
+    $socket = @fsockopen("tls://$smtpHost", $smtpPort, $errno, $errstr, $timeout);
     if (!$socket) {
         return "Connection failed: $errstr ($errno)";
     }
