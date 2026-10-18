@@ -1,6 +1,14 @@
 <?php
 header('Content-Type: application/json');
 
+$logFile = __DIR__ . '/form_submissions.log';
+
+function logSubmission($data, $result) {
+    global $logFile;
+    $entry = date('Y-m-d H:i:s') . ' | ' . ($data['topic'] ?? 'unknown') . ' | ' . ($data['email'] ?? 'no email') . ' | ' . ($data['name'] ?? 'no name') . ' | ' . $result . "\n";
+    @file_put_contents($logFile, $entry, FILE_APPEND);
+}
+
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
     echo json_encode(['error' => 'Method not allowed']);
@@ -12,6 +20,7 @@ $data = json_decode(file_get_contents('php://input'), true);
 if (!$data) {
     http_response_code(400);
     echo json_encode(['error' => 'Invalid data']);
+    logSubmission($_POST, 'INVALID_DATA');
     exit;
 }
 
@@ -102,8 +111,10 @@ if (!empty($images) && $isSell) {
 $sent = mail($to, $subject, $body, $header_str);
 
 if ($sent) {
+    logSubmission($data, 'SUCCESS');
     echo json_encode(['success' => true]);
 } else {
+    logSubmission($data, 'MAIL_FAILED');
     http_response_code(500);
     echo json_encode(['error' => 'Failed to send email']);
 }
