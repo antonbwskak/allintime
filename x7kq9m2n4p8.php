@@ -17,8 +17,6 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 $raw = file_get_contents('php://input');
 $data = json_decode($raw, true);
 
-logMsg("RAW input: " . substr($raw, 0, 200));
-
 if (!$data) {
     logMsg('ERROR: Invalid JSON');
     http_response_code(400);
@@ -33,7 +31,6 @@ $watch = $data['watch'] ?? '';
 $phone = $data['phone'] ?? '';
 $set = $data['set'] ?? '';
 $message = trim($data['message'] ?? '');
-$images = $data['images'] ?? [];
 
 if (!$name || !$email || !$message) {
     logMsg('ERROR: Missing fields');
@@ -43,7 +40,9 @@ if (!$name || !$email || !$message) {
 }
 
 $isSell = ($topic === 'Sell or trade');
-$subject = "Ny besked fra allintime.dk";
+$subject = $isSell
+    ? "Ur til salg fra allintime.dk"
+    : "Forespørgsel fra allintime.dk";
 
 $body = "Navn: $name\n";
 $body .= "Email: $email\n";
@@ -57,117 +56,28 @@ if ($isSell) {
 
 $body .= "\nBesked:\n$message\n";
 
-$smtpHost = 'smtp.simply.com';
-$smtpPort = 587;
-$smtpUser = 'anton@allintime.dk';
-$smtpPass = '290607Abw';
-$from = 'mailer@allintime.dk';
 $to = 'anton@allintime.dk';
-$CRLF = "\r\n";
+$headers = [
+    'From' => 'anton@allintime.dk',
+    'Reply-To' => $email,
+    'MIME-Version' => '1.0',
+    'Content-Type' => 'text/plain; charset=UTF-8'
+];
 
-logMsg("Sending $topic from $email");
-
-// Use TLS from start
-$socket = @fsockopen('tls://' . $smtpHost, $smtpPort, $errno, $errstr, 10);
-if (!$socket) {
-    logMsg("ERROR: TLS connection failed - $errstr ($errno)");
-    http_response_code(500);
-    echo json_encode(['error' => 'Connection failed: ' . $errstr]);
-    exit;
-}
-logMsg("TLS connected successfully");
-if (!$socket) {
-    logMsg("ERROR: Connection failed - $errstr ($errno)");
-    http_response_code(500);
-    echo json_encode(['error' => 'Connection failed']);
-    exit;
-}
-stream_set_timeout($socket, 10);
-
-$line = fgets($socket, 512);
-if (substr($line, 0, 3) !== '220') {
-    fclose($socket);
-    logMsg("ERROR: Bad greeting: $line");
-    http_response_code(500);
-    echo json_encode(['error' => 'SMTP error']);
-    exit;
+$header_str = '';
+foreach ($headers as $key => $value) {
+    $header_str .= "$key: $value\r\n";
 }
 
-fputs($socket, "EHLO localhost$CRLF");
-$line = fgets($socket, 512);
-while (substr($line, 3, 1) === '-') {
-    $line = fgets($socket, 512);
-}
+logMsg("Sending $topic from $email using PHP mail()");
 
-fputs($socket, "AUTH LOGIN$CRLF");
-$line = fgets($socket, 512);
+$sent = @mail($to, $subject, $body, $header_str);
 
-fputs($socket, base64_encode($smtpUser) . $CRLF);
-$line = fgets($socket, 512);
-
-fputs($socket, base64_encode($smtpPass) . $CRLF);
-$line = fgets($socket, 512);
-if (substr($line, 0, 3) !== '235') {
-    fclose($socket);
-    logMsg("ERROR: Auth failed: $line");
-    http_response_code(500);
-    echo json_encode(['error' => 'Auth failed']);
-    exit;
-}
-
-fputs($socket, "MAIL FROM: <$from>$CRLF");
-$line = fgets($socket, 512);
-
-fputs($socket, "RCPT TO: <$to>$CRLF");
-$line = fgets($socket, 512);
-
-fputs($socket, "DATA$CRLF");
-$line = fgets($socket, 512);
-
-$boundary = md5(time());
-$headers = "From: $from$CRLF";
-$headers .= "Reply-To: $email$CRLF";
-$headers .= "Subject: $subject$CRLF";
-$headers .= "MIME-Version: 1.0$CRLF";
-
-if ($isSell && !empty($images)) {
-    $headers .= "Content-Type: multipart/mixed; boundary=$boundary$CRLF";
-    $msgBody = "--$boundary$CRLF";
-    $msgBody .= "Content-Type: text/plain; charset=UTF-8$CRLF$CRLF";
-    $msgBody .= $body . $CRLF;
-
-    foreach ($images as $i => $img) {
-        if (preg_match('/^data:image\/(\w+);base64,/', $img, $matches)) {
-            $ext = $matches[1];
-            $imgData = base64_decode(str_replace($matches[0], '', $img));
-            $filename = "ur_billede_" . ($i + 1) . ".$ext";
-
-            $msgBody .= "$CRLF--$boundary$CRLF";
-            $msgBody .= "Content-Type: image/$ext; name=\"$filename\"$CRLF";
-            $msgBody .= "Content-Transfer-Encoding: base64$CRLF";
-            $msgBody .= "Content-Disposition: attachment; filename=\"$filename\"$CRLF$CRLF";
-            $msgBody .= chunk_split(base64_encode($imgData));
-        }
-    }
-    $msgBody .= "$CRLF--$boundary--$CRLF";
+if ($sent) {
+    logMsg("SUCCESS: $topic from $email");
+    echo json_encode(['success' => true]);
 } else {
-    $headers .= "Content-Type: text/plain; charset=UTF-8$CRLF";
-    $msgBody = $body . $CRLF;
-}
-
-fputs($socket, $headers . $CRLF . $CRLF . $msgBody . "." . $CRLF);
-$line = fgets($socket, 512);
-
-if (substr($line, 0, 3) !== '250') {
-    fclose($socket);
-    logMsg("ERROR: Send failed: $line");
+    logMsg("ERROR: mail() failed");
     http_response_code(500);
-    echo json_encode(['error' => 'Send failed']);
-    exit;
+    echo json_encode(['error' => 'Failed to send email']);
 }
-
-fputs($socket, "QUIT$CRLF");
-fclose($socket);
-
-logMsg("SUCCESS: $topic from $email");
-echo json_encode(['success' => true]);
