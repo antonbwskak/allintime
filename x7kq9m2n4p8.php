@@ -17,6 +17,8 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 $raw = file_get_contents('php://input');
 $data = json_decode($raw, true);
 
+logMsg("RAW input: " . substr($raw, 0, 200));
+
 if (!$data) {
     logMsg('ERROR: Invalid JSON');
     http_response_code(400);
