@@ -59,13 +59,14 @@ $smtpHost = 'smtp.simply.com';
 $smtpPort = 587;
 $smtpUser = 'anton@allintime.dk';
 $smtpPass = '290607Abw';
-$from = 'noreply@allintime.dk';
+$from = 'anton@allintime.dk';
 $to = 'anton@allintime.dk';
 $CRLF = "\r\n";
 
 logMsg("Sending $topic from $email");
 
-$socket = @fsockopen($smtpHost, $smtpPort, $errno, $errstr, 10);
+// Use TLS from the start (implicit TLS on port 587)
+$socket = @fsockopen('tls://' . $smtpHost, $smtpPort, $errno, $errstr, 10);
 if (!$socket) {
     logMsg("ERROR: Connection failed - $errstr ($errno)");
     http_response_code(500);
@@ -87,24 +88,6 @@ fputs($socket, "EHLO localhost$CRLF");
 $line = fgets($socket, 512);
 while (substr($line, 3, 1) === '-') {
     $line = fgets($socket, 512);
-}
-
-// STARTTLS
-fputs($socket, "STARTTLS$CRLF");
-$line = fgets($socket, 512);
-if (substr($line, 0, 3) === '220') {
-    if (!stream_socket_enable_crypto($socket, true, STREAM_CRYPTO_METHOD_TLSv1_2_CLIENT)) {
-        fclose($socket);
-        logMsg("ERROR: TLS upgrade failed");
-        http_response_code(500);
-        echo json_encode(['error' => 'TLS failed']);
-        exit;
-    }
-    fputs($socket, "EHLO localhost$CRLF");
-    $line = fgets($socket, 512);
-    while (substr($line, 3, 1) === '-') {
-        $line = fgets($socket, 512);
-    }
 }
 
 fputs($socket, "AUTH LOGIN$CRLF");
