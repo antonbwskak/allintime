@@ -41,8 +41,8 @@ if (!$name || !$email || !$message) {
 
 $isSell = ($topic === 'Sell or trade');
 $subject = $isSell
-    ? "Ur til salg fra allintime.dk"
-    : "Forespørgsel fra allintime.dk";
+    ? "Ny mail fra allintime.dk"
+    : "Besked fra kunde";
 
 $body = "Navn: $name\n";
 $body .= "Email: $email\n";
