@@ -61,7 +61,7 @@ $smtpHost = 'smtp.simply.com';
 $smtpPort = 587;
 $smtpUser = 'anton@allintime.dk';
 $smtpPass = '290607Abw';
-$from = 'anton@allintime.dk';
+$from = 'mailer@allintime.dk';
 $to = 'anton@allintime.dk';
 $CRLF = "\r\n";
 
