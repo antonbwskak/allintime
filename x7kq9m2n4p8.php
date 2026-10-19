@@ -65,8 +65,15 @@ $CRLF = "\r\n";
 
 logMsg("Sending $topic from $email");
 
-// Use TLS from the start (implicit TLS on port 587)
+// Use TLS from start
 $socket = @fsockopen('tls://' . $smtpHost, $smtpPort, $errno, $errstr, 10);
+if (!$socket) {
+    logMsg("ERROR: TLS connection failed - $errstr ($errno)");
+    http_response_code(500);
+    echo json_encode(['error' => 'Connection failed: ' . $errstr]);
+    exit;
+}
+logMsg("TLS connected successfully");
 if (!$socket) {
     logMsg("ERROR: Connection failed - $errstr ($errno)");
     http_response_code(500);
