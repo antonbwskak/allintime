@@ -850,6 +850,28 @@
       "url": "watch/omega-speedmaster-moonwatch/"
     },
     {
+      "set": "Komplet sæt med alt originalt tilbehør",
+      "brand": "Tudor",
+      "model": "Black Bay 58 GMT",
+      "reference": "M7939G1A0NRU-0003",
+      "featured": false,
+      "order": 0,
+      "focus_x": 50,
+      "focus_y": 50,
+      "status": "sold",
+      "images": [
+        "/media/uploads/img_8244.jpeg",
+        "/media/uploads/img_8245.jpeg"
+      ],
+      "price_mode": "on_request",
+      "condition": "Fabriksny",
+      "description": "Et elegant TUDOR Black Bay 58 GMT med sort, hvælvet urskive, gyldne markeringer og en karakteristisk sort og bordeauxrød 24-timers bezel. Uret forener TUDORs historiske dykkerurstradition med et vintage-inspireret design og en moderne GMT-funktion, der gør det muligt at holde styr på flere tidszoner. Den 39 mm store stålkasse kombinerer klassiske proportioner med et raffineret udtryk, mens det METAS-certificerede Manufacture Calibre MT5450-U sikrer høj præcision, robusthed og en gangreserve på op til 65 timer. Et tidløst og karakterfuldt ur, der forener schweizisk urmagerkunst, historisk arv og moderne funktionalitet.\n\n(Billeder lånt fra Tudors officielle hjemmeside, da uret blev solgt på bestilling)",
+      "year": "2026",
+      "file": "tudor-black-bay-58-gmt.json",
+      "slug": "tudor-black-bay-58-gmt",
+      "url": "watch/tudor-black-bay-58-gmt/"
+    },
+    {
       "set": "Komplet sæt med inderboks, yderboks, manual, ekstra led samt originale papirer og købskvittering.",
       "brand": "Omega",
       "model": "Seamaster Diver 300M",
@@ -1285,5 +1307,5 @@
       "url": "watch/tudor-black-bay-gmt-pepsi/"
     }
   ],
-  "built": "2026-10-10T16:18:33.631Z"
+  "built": "2026-10-20T11:59:31.912Z"
 }
