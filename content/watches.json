@@ -1297,7 +1297,7 @@
       "order": 99,
       "focus_x": 50,
       "focus_y": 50,
-      "status": "available",
+      "status": "sold",
       "images": [
         "/media/uploads/dscf0706.jpeg",
         "/media/uploads/dscf0709.jpeg",
@@ -1311,7 +1311,7 @@
       "description": "En elegant og moderne fortolkning af den originale Speedmaster fra 1957, her med en karakteristisk bordeauxrød skive og klassisk stålkonstruktion. Modellen kombinerer Speedmasters historiske design med Omegas moderne Co-Axial Master Chronometer-værk, kronograf, datovisning og tachymeterskala. Et raffineret Speedmaster med et markant farvevalg og tydelige vintage-referencer.",
       "year": "2026",
       "file": "omega-speedmaster-57.json",
-      "added": 1791628205146,
+      "added": 1792579742712,
       "slug": "omega-speedmaster-57-ubrugt",
       "url": "watch/omega-speedmaster-57-ubrugt/"
     },
@@ -1351,7 +1351,7 @@
       "order": 100,
       "focus_x": 50,
       "focus_y": 50,
-      "status": "available",
+      "status": "sold",
       "images": [
         "/media/uploads/dscf0655.jpeg",
         "/media/uploads/dscf0656.jpeg",
@@ -1364,10 +1364,10 @@
       "description": "En moderne Tudor-klassiker med den karakteristiske rød/blå “Pepsi” GMT-krans og sort skive. Uret kombinerer Black Bays vintageinspirerede design med en praktisk GMT-funktion, der gør det muligt at aflæse flere tidszoner. Med 41 mm stålkasse, automatisk Manufacture-værk og 200 meters vandtæthed er det et robust og alsidigt sportsur med tydelige referencer til Tudors historiske design.",
       "year": "2018",
       "file": "tudor-black-bay-gmt-pepsi.json",
-      "added": 1791712348130,
+      "added": 1792579739583,
       "slug": "tudor-black-bay-gmt-pepsi",
       "url": "watch/tudor-black-bay-gmt-pepsi/"
     }
   ],
-  "built": "2026-10-21T10:43:15.356Z"
+  "built": "2026-10-21T10:49:44.956Z"
 }
