@@ -869,7 +869,7 @@
       "model": "Speedmaster Moonwatch",
       "reference": "310.30.42.50.04.001",
       "featured": true,
-      "price_dkk": 51900,
+      "price_dkk": 49500,
       "order": 0,
       "focus_x": 50,
       "focus_y": 50,
@@ -887,7 +887,7 @@
       "description": "En ikonisk Omega Speedmaster Moonwatch Professional med elegant hvidlakeret skive, sorte kontrastdetaljer og klassisk stålkonstruktion. Modellen viderefører det legendariske Moonwatch-design, der har været en del af Omegas historie inden for rumfart, og kombinerer vintage-inspirerede detaljer med det moderne Co-Axial Master Chronometer-kaliber 3861. Et tidløst og karakterfuldt ur, der forener historisk arv, teknisk præcision og et raffineret udtryk.",
       "year": "2024",
       "file": "omega-speedmaster-moonwatch.json",
-      "added": 1791712080588,
+      "added": 1792583483511,
       "slug": "omega-speedmaster-moonwatch",
       "url": "watch/omega-speedmaster-moonwatch/"
     },
@@ -920,7 +920,7 @@
       "model": "Seamaster Diver 300M",
       "reference": "210.30.42.20.03.001",
       "featured": true,
-      "price_dkk": 30490,
+      "price_dkk": 28900,
       "order": 1,
       "focus_x": 50,
       "focus_y": 50,
@@ -938,7 +938,7 @@
       "description": "En moderne Omega Seamaster Diver 300M med blå keramisk bølgeskive, matchende dykkerkrans med hvid emaljeskala og klassisk stålkonstruktion. Modellen har en 42 mm urkasse, rhodiumbelagte visere og timemarkeringer samt 300 meters vandtæthed. Uret drives af Omegas Co-Axial Master Chronometer-kaliber 8800, synligt gennem safirglasset i bagkassen. En sporty og gennemført Seamaster, der forener kollektionens maritime arv med moderne materialer og teknisk præcision.",
       "year": "2020",
       "file": "omega-seamaster-diver-300m.json",
-      "added": 1791712080588,
+      "added": 1792583487308,
       "slug": "omega-seamaster-diver-300m",
       "url": "watch/omega-seamaster-diver-300m/"
     },
@@ -1369,5 +1369,5 @@
       "url": "watch/tudor-black-bay-gmt-pepsi/"
     }
   ],
-  "built": "2026-10-21T11:27:06.930Z"
+  "built": "2026-10-21T11:51:29.718Z"
 }
