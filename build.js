@@ -3,7 +3,7 @@
 // 2. Writes content/watches.json + content/data.js (used by the home page)
 // 3. Generates a real page for every watch at /watch/<name>/ with its own link, SEO and share preview
 // 4. Writes sitemap.xml and robots.txt
-const fs = require('fs'), path = require('path');
+const fs = require('fs'), path = require('path'), { execFileSync } = require('child_process');
 const ROOT = __dirname;
 const PREVIEW = !!process.env.PREVIEW; // preview hosts without clean URLs: link to .../index.html
 const read = p => JSON.parse(fs.readFileSync(path.join(ROOT, p), 'utf8'));
@@ -32,6 +32,30 @@ const watches = fs.readdirSync(dir).filter(f => f.endsWith('.json')).map(f => {
     if (aHasInfo !== bHasInfo) return aHasInfo - bHasInfo;
     return (a.order ?? 999) - (b.order ?? 999);
   });
+// ---- when each watch was first added (drives "newest first" ordering)
+// git history is the source of truth: the date the file was first committed.
+// Untracked/new files fall back to their file mtime.
+const addedAt = {};
+try {
+  const out = execFileSync('git', ['log', '--diff-filter=A', '--name-only', '--format=%cI', '--', 'content/watches'], {
+    cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore']
+  });
+  let stamp = null;
+  for (const line of out.split('\n')) {
+    const t = line.trim();
+    if (!t) continue;
+    if (/^\d{4}-\d{2}-\d{2}T/.test(t)) { stamp = t; continue; }
+    if (stamp && t.endsWith('.json') && !addedAt[t]) addedAt[t] = stamp;
+  }
+} catch (e) { /* not a git repo (e.g. CI preview) - fall back to mtime */ }
+
+for (const w of watches) {
+  const stamp = w.date_added
+    || addedAt[w.file]
+    || fs.statSync(path.join(dir, w.file)).mtime.toISOString();
+  w.added = new Date(stamp).getTime() || 0;
+}
+
 for (const w of watches) {
   let base = slugify(`${w.brand} ${w.model}`) || w.file?.replace('.json','') || 'watch';
   let s = base, n = 2;
@@ -202,7 +226,7 @@ watches.forEach((w, i) => {
 
 // ---- sold watches page (/sold/)
 {
-  const soldList = watches.filter(w => w.status === 'sold').slice().reverse();
+  const soldList = watches.filter(w => w.status === 'sold').slice().sort((a, b) => b.added - a.added);
   const brands = [...new Set(soldList.map(w => w.brand))];
   const html = `<!doctype html>
 <html lang="da">
