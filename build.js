@@ -226,7 +226,10 @@ watches.forEach((w, i) => {
 
 // ---- sold watches page (/sold/)
 {
-  const soldList = watches.filter(w => w.status === 'sold').slice().sort((a, b) => b.added - a.added);
+  // newest first; watches without a description (plain image uploads) go last
+  const described = w => ((w.description || '').trim() ? 1 : 0);
+  const soldList = watches.filter(w => w.status === 'sold').slice()
+    .sort((a, b) => (described(b) - described(a)) || (b.added - a.added));
   const brands = [...new Set(soldList.map(w => w.brand))];
   const html = `<!doctype html>
 <html lang="da">
