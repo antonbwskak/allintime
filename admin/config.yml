@@ -88,3 +88,4 @@ collections:
           - { name: archive_kicker, label: "Solgte ure sektion lille linje", widget: string }
           - { name: archive_title, label: "Solgte ure sektion overskrift", widget: string }
           - { name: archive_text, label: "Solgte ure sektion brødtekst", widget: text }
+          - { name: ga_id, label: "Google Analytics ID (G-XXXXXXX)", widget: string, required: false, hint: "Findes under Google Analytics → Admin → Datastrømme. Tomt felt = analytics er slået fra." }

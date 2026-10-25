@@ -17,6 +17,21 @@ const site = (settings.site_url || '').replace(/\/$/, '');
 const ig = (settings.instagram || 'allintime.dk').replace(/^@/, '');
 const email = settings.email || '';
 
+// ---- Google Analytics 4 (indlæses kun efter cookie-samtykke)
+const gaId = (settings.ga_id || '').trim();
+const gaTag = prefix => gaId
+  ? `<script src="${prefix}assets/analytics.js" data-ga="${gaId}" defer></script>`
+  : '';
+// sider der skrives i hånden - tag'et holdes synkroniseret af builden
+function injectGA(file, prefix) {
+  const p = path.join(ROOT, file);
+  if (!fs.existsSync(p)) return;
+  let h = fs.readFileSync(p, 'utf8');
+  h = h.replace(/\n?<script[^>]*assets\/analytics\.js[^>]*><\/script>/g, '');
+  if (gaId) h = h.replace('</head>', `${gaTag(prefix)}\n</head>`);
+  fs.writeFileSync(p, h);
+}
+
 // ---- watches
 const dir = path.join(ROOT, 'content', 'watches');
 const used = new Set();
@@ -137,6 +152,7 @@ ${canonical ? `<meta property="og:url" content="${canonical}">` : ''}
 <style>.display,h1,h2,h3{font-family:'Instrument Serif',Georgia,serif}</style>
 <link rel="stylesheet" href="${R}styles.css?v=${V}">
 <script type="application/ld+json">${JSON.stringify(ld).replace(/</g, '\\u003c')}</script>
+${gaTag(R)}
 </head>
 <body class="wpage">
 ${header}
@@ -248,6 +264,7 @@ ${site ? `<link rel="canonical" href="${site}/sold/">` : ''}
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>.display,h1,h2,h3{font-family:'Instrument Serif',Georgia,serif}</style>
 <link rel="stylesheet" href="${R}styles.css?v=${V}">
+${gaTag(R)}
 </head>
 <body class="soldpage">
 ${header}
@@ -298,6 +315,7 @@ ${site ? `<link rel="canonical" href="${site}/lager/">` : ''}
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>.display,h1,h2,h3{font-family:'Instrument Serif',Georgia,serif}</style>
 <link rel="stylesheet" href="${R}styles.css?v=${V}">
+${gaTag(R)}
 </head>
 <body class="soldpage">
 ${header}
@@ -329,5 +347,11 @@ fs.writeFileSync(path.join(ROOT, 'robots.txt'), `User-agent: *\nDisallow: /admin
 // ---- cache-bust home page assets
 const idx = path.join(ROOT, 'index.html');
 fs.writeFileSync(idx, fs.readFileSync(idx, 'utf8').replace(/(styles\.css|app\.js|content\/data\.js|assets\/common\.js)(\?v=\d+)?"/g, `$1?v=${V}"`));
+const svc = path.join(ROOT, 'service', 'index.html');
+if (fs.existsSync(svc)) fs.writeFileSync(svc, fs.readFileSync(svc, 'utf8').replace(/(styles\.css|assets\/common\.js)(\?v=\d+)?"/g, `$1?v=${V}"`));
+
+// ---- analytics på de sider der ikke er genereret af builden
+injectGA('index.html', '');
+injectGA('service/index.html', '/');
 
 console.log(`Built ${watches.length} watches${PREVIEW ? ' (preview links)' : ''}`);
