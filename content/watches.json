@@ -920,7 +920,7 @@
       "model": "Seamaster Diver 300M",
       "reference": "210.30.42.20.03.001",
       "featured": true,
-      "price_dkk": 28900,
+      "price_dkk": 29900,
       "order": 1,
       "focus_x": 50,
       "focus_y": 50,
@@ -938,7 +938,7 @@
       "description": "En moderne Omega Seamaster Diver 300M med blå keramisk bølgeskive, matchende dykkerkrans med hvid emaljeskala og klassisk stålkonstruktion. Modellen har en 42 mm urkasse, rhodiumbelagte visere og timemarkeringer samt 300 meters vandtæthed. Uret drives af Omegas Co-Axial Master Chronometer-kaliber 8800, synligt gennem safirglasset i bagkassen. En sporty og gennemført Seamaster, der forener kollektionens maritime arv med moderne materialer og teknisk præcision.",
       "year": "2020",
       "file": "omega-seamaster-diver-300m.json",
-      "added": 1792583487308,
+      "added": 1793008975395,
       "slug": "omega-seamaster-diver-300m",
       "url": "watch/omega-seamaster-diver-300m/"
     },
@@ -1369,5 +1369,5 @@
       "url": "watch/tudor-black-bay-gmt-pepsi/"
     }
   ],
-  "built": "2026-10-25T17:13:50.961Z"
+  "built": "2026-10-26T10:03:07.945Z"
 }
