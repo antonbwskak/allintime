@@ -119,8 +119,8 @@ function page(w, i) {
   const img0 = w.images[0] || '';
   const abs = p => site ? site + '/' + rel(p) : rel(p);
   const canonical = site ? `${site}/watch/${w.slug}/` : '';
-  const desc = (w.description || `${name}${w.reference ? ', reference ' + w.reference : ''}${w.year ? ', ' + w.year : ''}. ${sold ? 'Sold' : priceText(w)} at All in Time, pre-loved watches in Denmark.`).slice(0, 300);
-  const specs = [['Brand', w.brand], ['Model', w.model], ['Reference', w.reference], ['Year', w.year], ['Box & papers', w.set], ['Condition', w.condition], ['Status', statusText(w)]].filter(r => r[1]);
+  const desc = (w.description || `${name}${w.reference ? ', reference ' + w.reference : ''}${w.year ? ', ' + w.year : ''}. ${sold ? 'Solgt' : priceText(w)} hos All in Time, brugte luksusure i Danmark.`).slice(0, 300);
+  const specs = [['Mærke', w.brand], ['Model', w.model], ['Reference', w.reference], ['År', w.year], ['Boks & papirer', w.set], ['Stand', w.condition], ['Status', statusText(w)]].filter(r => r[1]);
   const sameBrand = watches.filter(x => x !== w && x.brand === w.brand);
   const others = watches.filter(x => x !== w && x.brand !== w.brand);
   const more = [...watches.filter(x => x !== w && x.status !== 'sold'), ...sameBrand.filter(x => x.status !== 'sold'), ...others.filter(x => x.status !== 'sold')].filter((x, k, a) => a.indexOf(x) === k).slice(0, 4);
@@ -186,16 +186,11 @@ ${header}
         <h2 class="display">${sold ? 'Leder du efter et lignende?' : 'Interesseret i dette ur?'}</h2>
         <p class="lead">${sold ? 'Fortæl os hvad der betyder noget for dig — reference, årstal eller skive — så giver vi besked når vi finder et.' : 'Spørg om hvad som helst, eller aftal en besigtigelse. Du hører personligt svar, som regel samme dag.'}</p>
       </div>
-      <form name="contact" method="POST" action="/" data-netlify="true" netlify-honeypot="company" class="form dark js-form">
-        <input type="hidden" name="form-name" value="contact">
-        <input type="hidden" name="topic" value="Enquiry">
-        <p class="hp"><label>Firma <input name="company"></label></p>
-        <div class="row2"><label>Navn<input name="name" required autocomplete="name"></label><label>Email<input name="email" type="email" required autocomplete="email"></label></div>
-        <label>Ur<input name="watch" data-fixed="1" value="${esc(name)}${w.reference ? ' (' + esc(w.reference) + ')' : ''}${sold ? ', eller lignende' : ''}"></label>
-        <label>Besked<textarea name="message" rows="4" required placeholder="${sold ? 'Hvad leder du efter? Budget, år, skive, boks og papirer…' : 'Dit spørgsmål, eller hvornår du gerne vil se det'}"></textarea></label>
-        <button class="btn light" type="submit">Send</button>
-        <p class="status" role="status" aria-live="polite"></p>
-      </form>
+      <ul class="links">
+        <li><span>Email</span><a href="mailto:${esc(email)}">${esc(email)}</a></li>
+        <li><span>Telefon</span><a href="tel:+4522720073">+45 22 72 00 73</a></li>
+        <li><span>Instagram</span><a href="https://www.instagram.com/${esc(ig)}/" target="_blank" rel="noopener">@${esc(ig)}</a></li>
+      </ul>
     </div>
   </section>
 
