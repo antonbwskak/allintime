@@ -924,7 +924,7 @@
       "order": 1,
       "focus_x": 50,
       "focus_y": 50,
-      "status": "available",
+      "status": "sold",
       "images": [
         "/media/uploads/dscf0756.jpeg",
         "/media/uploads/dscf0757.jpeg",
@@ -938,7 +938,7 @@
       "description": "En moderne Omega Seamaster Diver 300M med blå keramisk bølgeskive, matchende dykkerkrans med hvid emaljeskala og klassisk stålkonstruktion. Modellen har en 42 mm urkasse, rhodiumbelagte visere og timemarkeringer samt 300 meters vandtæthed. Uret drives af Omegas Co-Axial Master Chronometer-kaliber 8800, synligt gennem safirglasset i bagkassen. En sporty og gennemført Seamaster, der forener kollektionens maritime arv med moderne materialer og teknisk præcision.",
       "year": "2020",
       "file": "omega-seamaster-diver-300m.json",
-      "added": 1793008999254,
+      "added": 1794037387382,
       "slug": "omega-seamaster-diver-300m",
       "url": "watch/omega-seamaster-diver-300m/"
     },
@@ -1367,7 +1367,61 @@
       "added": 1792579739583,
       "slug": "tudor-black-bay-gmt-pepsi",
       "url": "watch/tudor-black-bay-gmt-pepsi/"
+    },
+    {
+      "set": "Fuldt sæt med boks, yderboks, garantikort, manual, booklet og købskvittering",
+      "brand": "Tudor",
+      "model": "Fastrider Black Shield",
+      "reference": "42000CR",
+      "featured": false,
+      "price_dkk": 22000,
+      "order": 100,
+      "focus_x": 50,
+      "focus_y": 50,
+      "status": "available",
+      "images": [
+        "/media/uploads/img_8346-5bedb9f2-c7f9-4428-a308-865d99a344ae.jpeg",
+        "/media/uploads/img_8347-fd9fd570-3588-4a85-8ea9-091e705ee38e.jpeg",
+        "/media/uploads/img_8349-73d2c387-6f48-4d3a-ac9b-f1386a93442f.jpeg",
+        "/media/uploads/img_8348-4f0c976d-2775-42ab-bead-740af2a7f8e1.jpeg",
+        "/media/uploads/img_8350-f1c134a1-53a1-4069-956e-6aa41f3bf9dc.jpeg"
+      ],
+      "price_mode": "price",
+      "condition": "95%",
+      "description": "Tudor Fastrider Black Shield fra 2022 med mat sort keramisk kasse, sort skive og røde detaljer. Kronografens tre tællere og den faste tachymeterlynette understreger det motorsportsinspirerede design. Den sorte gummirem holder udtrykket enkelt og sporty, mens de røde markeringer giver uret kant.",
+      "year": "2022",
+      "file": "tudor-fastrider-black-shield.json",
+      "added": 1794038431338,
+      "slug": "tudor-fastrider-black-shield",
+      "url": "watch/tudor-fastrider-black-shield/"
+    },
+    {
+      "set": "Fuldt sæt med boks, yderboks, garantikort, manual, ekstra led og ekstra natorem.",
+      "brand": "Tudor",
+      "model": "Heritage Chrono Blue",
+      "reference": "70330B",
+      "featured": false,
+      "price_dkk": 23000,
+      "order": 100,
+      "focus_x": 50,
+      "focus_y": 50,
+      "status": "available",
+      "images": [
+        "/media/uploads/img_8340-d3f9c6f6-bcfc-4373-ae57-635808ff72cc.jpeg",
+        "/media/uploads/img_8341-c7d73f9b-1264-4743-8e17-b4d415999c3a.jpeg",
+        "/media/uploads/img_8342-cf410623-143e-43a8-b459-3cc795a049c9.jpeg",
+        "/media/uploads/img_8344-cbacd1b8-1000-4bc4-8660-14684176b433.jpeg",
+        "/media/uploads/img_8345-77166d49-d397-452a-9c2b-4afd2cddcf99.jpeg"
+      ],
+      "price_mode": "price",
+      "condition": "80%",
+      "description": "Tudor Heritage Chrono Blue fra 2014 med blå lynette, lys skive og orange detaljer. De to markante kronograftællere giver uret sit karakteristiske retropræg, mens stållænken fuldender det sporty udtryk. Et farverigt alternativ til den klassiske sorte kronograf.",
+      "year": "2014",
+      "file": "tudor-heritage-chrono-blue.json",
+      "added": 1794038431338,
+      "slug": "tudor-heritage-chrono-blue",
+      "url": "watch/tudor-heritage-chrono-blue/"
     }
   ],
-  "built": "2026-10-26T10:29:16.656Z"
+  "built": "2026-11-07T08:00:42.779Z"
 }
