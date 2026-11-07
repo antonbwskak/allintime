@@ -1,0 +1,23 @@
+{
+  "set": "Boks og papirer samt ekstra stofrem.",
+  "brand": "Tudor",
+  "model": "Heritage Chrono Blue",
+  "reference": "70330B",
+  "featured": false,
+  "price_dkk": 23000,
+  "order": 100,
+  "focus_x": 50,
+  "focus_y": 50,
+  "status": "available",
+  "images": [
+    "/media/uploads/img_8340-d3f9c6f6-bcfc-4373-ae57-635808ff72cc.jpeg",
+    "/media/uploads/img_8341-c7d73f9b-1264-4743-8e17-b4d415999c3a.jpeg",
+    "/media/uploads/img_8342-cf410623-143e-43a8-b459-3cc795a049c9.jpeg",
+    "/media/uploads/img_8344-cbacd1b8-1000-4bc4-8660-14684176b433.jpeg",
+    "/media/uploads/img_8345-77166d49-d397-452a-9c2b-4afd2cddcf99.jpeg"
+  ],
+  "price_mode": "price",
+  "condition": "80%",
+  "description": "Tudor Heritage Chrono Blue fra 2014 med blå lynette, lys skive og orange detaljer. De to markante kronograftællere giver uret sit karakteristiske retropræg, mens stållænken fuldender det sporty udtryk. Et farverigt alternativ til den klassiske sorte kronograf. Stand vurderet til 80%. Leveres med boks, papirer og ekstra stofrem.",
+  "year": "2014"
+}
