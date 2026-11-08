@@ -1,0 +1,23 @@
+{
+  "brand": "Omega",
+  "model": "Seamaster Diver 300M, sort",
+  "reference": "",
+  "year": "2026",
+  "status": "available",
+  "price_mode": "price",
+  "set": "Fuldt sæt med boks, yderboks, manual og papirer.",
+  "condition": "100%",
+  "description": "Omega Seamaster Diver 300M fra 2026 med sort bølgemønstret skive, sort lynette og stållænke. De lyse timemarkeringer, skeletviserne og de røde detaljer giver skiven tydelig kontrast. Det klassiske sorte og stålblanke udtryk gør modellen nem at bruge til både hverdag og mere formelle anledninger. Leveres som fuldt sæt med boks, yderboks, manual og papirer. Uret er fabriksnyt.",
+  "images": [
+    "/media/uploads/omega-seamaster-diver-300m-sort-20261108-1.jpeg",
+    "/media/uploads/omega-seamaster-diver-300m-sort-20261108-2.jpeg",
+    "/media/uploads/omega-seamaster-diver-300m-sort-20261108-3.jpeg",
+    "/media/uploads/omega-seamaster-diver-300m-sort-20261108-4.jpeg",
+    "/media/uploads/omega-seamaster-diver-300m-sort-20261108-5.jpeg"
+  ],
+  "featured": false,
+  "order": 100,
+  "focus_x": 50,
+  "focus_y": 50,
+  "price_dkk": 37000
+}
