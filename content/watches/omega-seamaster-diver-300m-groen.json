@@ -1,0 +1,22 @@
+{
+  "brand": "Omega",
+  "model": "Seamaster Diver 300M, grøn",
+  "reference": "",
+  "year": "2026",
+  "status": "sold",
+  "price_mode": "on_request",
+  "set": "Fuldt sæt med boks, yderboks, manual og papirer.",
+  "condition": "100%",
+  "description": "Omega Seamaster Diver 300M fra 2026 med grøn bølgemønstret skive, matchende grøn lynette og stållænke. De lyse timemarkeringer og de karakteristiske skeletvisere står tydeligt mod den mørkegrønne skive. Et sporty dykkerur med et afdæmpet farvespil, der ændrer udtryk med lyset. Leveres som fuldt sæt med boks, yderboks, manual og papirer. Uret er fabriksnyt.",
+  "images": [
+    "/media/uploads/omega-seamaster-diver-300m-groen-20261108-1.jpeg",
+    "/media/uploads/omega-seamaster-diver-300m-groen-20261108-2.jpeg",
+    "/media/uploads/omega-seamaster-diver-300m-groen-20261108-3.jpeg",
+    "/media/uploads/omega-seamaster-diver-300m-groen-20261108-4.jpeg",
+    "/media/uploads/omega-seamaster-diver-300m-groen-20261108-5.jpeg"
+  ],
+  "featured": false,
+  "order": 100,
+  "focus_x": 50,
+  "focus_y": 50
+}
