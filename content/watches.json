@@ -1342,6 +1342,59 @@
       "url": "watch/omega-seamaster-300m-co-axial-casino-royale/"
     },
     {
+      "brand": "Omega",
+      "model": "Seamaster Diver 300M, grøn",
+      "reference": "",
+      "year": "2026",
+      "status": "sold",
+      "price_mode": "on_request",
+      "set": "Fuldt sæt med boks, yderboks, manual og papirer.",
+      "condition": "100%",
+      "description": "Omega Seamaster Diver 300M fra 2026 med grøn bølgemønstret skive, matchende grøn lynette og stållænke. De lyse timemarkeringer og de karakteristiske skeletvisere står tydeligt mod den mørkegrønne skive. Et sporty dykkerur med et afdæmpet farvespil, der ændrer udtryk med lyset. Leveres som fuldt sæt med boks, yderboks, manual og papirer. Uret er fabriksnyt.",
+      "images": [
+        "/media/uploads/omega-seamaster-diver-300m-groen-20261108-1.jpeg",
+        "/media/uploads/omega-seamaster-diver-300m-groen-20261108-2.jpeg",
+        "/media/uploads/omega-seamaster-diver-300m-groen-20261108-3.jpeg",
+        "/media/uploads/omega-seamaster-diver-300m-groen-20261108-4.jpeg",
+        "/media/uploads/omega-seamaster-diver-300m-groen-20261108-5.jpeg"
+      ],
+      "featured": false,
+      "order": 100,
+      "focus_x": 50,
+      "focus_y": 50,
+      "file": "omega-seamaster-diver-300m-groen.json",
+      "added": 1794168065304,
+      "slug": "omega-seamaster-diver-300m-gron",
+      "url": "watch/omega-seamaster-diver-300m-gron/"
+    },
+    {
+      "brand": "Omega",
+      "model": "Seamaster Diver 300M, sort",
+      "reference": "",
+      "year": "2026",
+      "status": "available",
+      "price_mode": "price",
+      "set": "Fuldt sæt med boks, yderboks, manual og papirer.",
+      "condition": "100%",
+      "description": "Omega Seamaster Diver 300M fra 2026 med sort bølgemønstret skive, sort lynette og stållænke. De lyse timemarkeringer, skeletviserne og de røde detaljer giver skiven tydelig kontrast. Det klassiske sorte og stålblanke udtryk gør modellen nem at bruge til både hverdag og mere formelle anledninger. Leveres som fuldt sæt med boks, yderboks, manual og papirer. Uret er fabriksnyt.",
+      "images": [
+        "/media/uploads/omega-seamaster-diver-300m-sort-20261108-1.jpeg",
+        "/media/uploads/omega-seamaster-diver-300m-sort-20261108-2.jpeg",
+        "/media/uploads/omega-seamaster-diver-300m-sort-20261108-3.jpeg",
+        "/media/uploads/omega-seamaster-diver-300m-sort-20261108-4.jpeg",
+        "/media/uploads/omega-seamaster-diver-300m-sort-20261108-5.jpeg"
+      ],
+      "featured": false,
+      "order": 100,
+      "focus_x": 50,
+      "focus_y": 50,
+      "price_dkk": 37000,
+      "file": "omega-seamaster-diver-300m-sort.json",
+      "added": 1794168065292,
+      "slug": "omega-seamaster-diver-300m-sort",
+      "url": "watch/omega-seamaster-diver-300m-sort/"
+    },
+    {
       "set": "Komplet sæt med inderboks, yderboks, ekstra led, manualer samt garantikort.",
       "brand": "Tudor",
       "model": "Black Bay GMT \"Pepsi\"",
@@ -1380,11 +1433,11 @@
       "focus_y": 50,
       "status": "available",
       "images": [
-        "/media/uploads/img_8346-5bedb9f2-c7f9-4428-a308-865d99a344ae.jpeg",
-        "/media/uploads/img_8347-fd9fd570-3588-4a85-8ea9-091e705ee38e.jpeg",
-        "/media/uploads/img_8349-73d2c387-6f48-4d3a-ac9b-f1386a93442f.jpeg",
-        "/media/uploads/img_8348-4f0c976d-2775-42ab-bead-740af2a7f8e1.jpeg",
-        "/media/uploads/img_8350-f1c134a1-53a1-4069-956e-6aa41f3bf9dc.jpeg"
+        "/media/uploads/tudor-fastrider-black-shield-20261108-1.jpeg",
+        "/media/uploads/tudor-fastrider-black-shield-20261108-2.jpeg",
+        "/media/uploads/tudor-fastrider-black-shield-20261108-3.jpeg",
+        "/media/uploads/tudor-fastrider-black-shield-20261108-4.jpeg",
+        "/media/uploads/tudor-fastrider-black-shield-20261108-5.jpeg"
       ],
       "price_mode": "price",
       "condition": "95%",
@@ -1407,11 +1460,11 @@
       "focus_y": 50,
       "status": "available",
       "images": [
-        "/media/uploads/img_8340-d3f9c6f6-bcfc-4373-ae57-635808ff72cc.jpeg",
-        "/media/uploads/img_8341-c7d73f9b-1264-4743-8e17-b4d415999c3a.jpeg",
-        "/media/uploads/img_8342-cf410623-143e-43a8-b459-3cc795a049c9.jpeg",
-        "/media/uploads/img_8344-cbacd1b8-1000-4bc4-8660-14684176b433.jpeg",
-        "/media/uploads/img_8345-77166d49-d397-452a-9c2b-4afd2cddcf99.jpeg"
+        "/media/uploads/tudor-heritage-chrono-blue-20261108-1.jpeg",
+        "/media/uploads/tudor-heritage-chrono-blue-20261108-2.jpeg",
+        "/media/uploads/tudor-heritage-chrono-blue-20261108-3.jpeg",
+        "/media/uploads/tudor-heritage-chrono-blue-20261108-4.jpeg",
+        "/media/uploads/tudor-heritage-chrono-blue-20261108-5.jpeg"
       ],
       "price_mode": "price",
       "condition": "80%",
@@ -1423,5 +1476,5 @@
       "url": "watch/tudor-heritage-chrono-blue/"
     }
   ],
-  "built": "2026-11-07T08:00:42.779Z"
+  "built": "2026-11-08T20:01:38.426Z"
 }
