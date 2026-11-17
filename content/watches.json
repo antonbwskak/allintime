@@ -1,6 +1,33 @@
 {
   "watches": [
     {
+      "brand": "Tudor",
+      "model": "Black Bay 58 GMT",
+      "reference": "M7939G1A0NRU-0003",
+      "year": "2026",
+      "status": "sold",
+      "featured": false,
+      "order": 1,
+      "focus_x": 50,
+      "focus_y": 50,
+      "price_mode": "on_request",
+      "condition": "Ubrugt med fuld folie",
+      "set": "Boks, yderboks, garantikort og hæfter",
+      "images": [
+        "/media/uploads/tudor-black-bay-58-gmt-20261117-1.jpeg",
+        "/media/uploads/tudor-black-bay-58-gmt-20261117-2.jpeg",
+        "/media/uploads/tudor-black-bay-58-gmt-20261117-3.jpeg",
+        "/media/uploads/tudor-black-bay-58-gmt-20261117-4.jpeg",
+        "/media/uploads/tudor-black-bay-58-gmt-20261117-5.jpeg"
+      ],
+      "date_added": "2026-11-17T14:28:25+01:00",
+      "description": "Tudor Black Bay 58 GMT fra 2026 med sort skive, gyldne detaljer og sort og bordeauxrød GMT-lynette. Uret er monteret på stållænke og har GMT-funktion til aflæsning af flere tidszoner. Dette eksemplar er ubrugt med fuld folie og leveres med boks, yderboks, garantikort og hæfter.",
+      "file": "tudor-black-bay-58-gmt-nyt-eksemplar.json",
+      "added": 1794922105000,
+      "slug": "tudor-black-bay-58-gmt-2",
+      "url": "watch/tudor-black-bay-58-gmt-2/"
+    },
+    {
       "brand": "",
       "model": "",
       "slug": "IMG_4110",
@@ -1476,5 +1503,5 @@
       "url": "watch/tudor-heritage-chrono-blue/"
     }
   ],
-  "built": "2026-11-08T20:01:38.426Z"
+  "built": "2026-11-17T13:45:20.189Z"
 }
