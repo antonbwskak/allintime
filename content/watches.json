@@ -1,33 +1,6 @@
 {
   "watches": [
     {
-      "brand": "Tudor",
-      "model": "Black Bay 58 GMT",
-      "reference": "M7939G1A0NRU-0003",
-      "year": "2026",
-      "status": "sold",
-      "featured": false,
-      "order": 1,
-      "focus_x": 50,
-      "focus_y": 50,
-      "price_mode": "on_request",
-      "condition": "Ubrugt med fuld folie",
-      "set": "Boks, yderboks, garantikort og hæfter",
-      "images": [
-        "/media/uploads/tudor-black-bay-58-gmt-20261117-1.jpeg",
-        "/media/uploads/tudor-black-bay-58-gmt-20261117-2.jpeg",
-        "/media/uploads/tudor-black-bay-58-gmt-20261117-3.jpeg",
-        "/media/uploads/tudor-black-bay-58-gmt-20261117-4.jpeg",
-        "/media/uploads/tudor-black-bay-58-gmt-20261117-5.jpeg"
-      ],
-      "date_added": "2026-11-17T14:28:25+01:00",
-      "description": "Tudor Black Bay 58 GMT fra 2026 med sort skive, gyldne detaljer og sort og bordeauxrød GMT-lynette. Uret er monteret på stållænke og har GMT-funktion til aflæsning af flere tidszoner. Dette eksemplar er ubrugt med fuld folie og leveres med boks, yderboks, garantikort og hæfter.",
-      "file": "tudor-black-bay-58-gmt-nyt-eksemplar.json",
-      "added": 1794922105000,
-      "slug": "tudor-black-bay-58-gmt-2",
-      "url": "watch/tudor-black-bay-58-gmt-2/"
-    },
-    {
       "brand": "",
       "model": "",
       "slug": "IMG_4110",
@@ -868,6 +841,60 @@
       "url": "watch/img_4077/"
     },
     {
+      "status": "available",
+      "featured": false,
+      "focus_x": 50,
+      "focus_y": 50,
+      "price_mode": "price",
+      "date_added": "2026-11-19T13:06:52.247135+00:00",
+      "brand": "Omega",
+      "model": "Speedmaster Reduced",
+      "reference": "3510.50.00",
+      "year": "1999",
+      "condition": "80%",
+      "price_dkk": 22495,
+      "order": -2,
+      "set": "Boks, garantikort og ekstra rem som vist på billederne.",
+      "images": [
+        "/media/uploads/omega-speedmaster-reduced-35105000-20261119-1.jpeg",
+        "/media/uploads/omega-speedmaster-reduced-35105000-20261119-2.jpeg",
+        "/media/uploads/omega-speedmaster-reduced-35105000-20261119-3.jpeg",
+        "/media/uploads/omega-speedmaster-reduced-35105000-20261119-4.jpeg",
+        "/media/uploads/omega-speedmaster-reduced-35105000-20261119-5.jpeg"
+      ],
+      "description": "Omega Speedmaster Reduced fra 1999 med sort skive, tre kronograftællere og sort tachymeterlynette. Uret er monteret på en sort læderrem med lyse syninger og har en stålkasse. Standen er vurderet til 80 %.",
+      "file": "omega-speedmaster-reduced-35105000.json",
+      "added": 1795093612247,
+      "slug": "omega-speedmaster-reduced",
+      "url": "watch/omega-speedmaster-reduced/"
+    },
+    {
+      "status": "available",
+      "featured": false,
+      "focus_x": 50,
+      "focus_y": 50,
+      "price_mode": "price",
+      "date_added": "2026-11-19T13:06:52.247135+00:00",
+      "brand": "Rolex",
+      "model": "Explorer II",
+      "reference": "16570",
+      "year": "-",
+      "condition": "85%",
+      "price_dkk": 45995,
+      "order": -1,
+      "images": [
+        "/media/uploads/rolex-explorer-ii-16570-20261119-1.jpeg",
+        "/media/uploads/rolex-explorer-ii-16570-20261119-2.jpeg",
+        "/media/uploads/rolex-explorer-ii-16570-20261119-3.jpeg",
+        "/media/uploads/rolex-explorer-ii-16570-20261119-4.jpeg"
+      ],
+      "description": "Rolex Explorer II ref. 16570 med sort skive, lysende timemarkeringer og rød GMT-viser. Den faste stållunette har 24-timersskala, og uret er monteret på stållænke. Datoen vises ved klokken 3 under forstørrelsesglasset. Standen er vurderet til 85 %.",
+      "file": "rolex-explorer-ii-16570.json",
+      "added": 1795093612247,
+      "slug": "rolex-explorer-ii",
+      "url": "watch/rolex-explorer-ii/"
+    },
+    {
       "set": "",
       "brand": "Rolex",
       "model": "Submariner Date",
@@ -968,6 +995,33 @@
       "added": 1794037387382,
       "slug": "omega-seamaster-diver-300m",
       "url": "watch/omega-seamaster-diver-300m/"
+    },
+    {
+      "brand": "Tudor",
+      "model": "Black Bay 58 GMT",
+      "reference": "M7939G1A0NRU-0003",
+      "year": "2026",
+      "status": "sold",
+      "featured": false,
+      "order": 1,
+      "focus_x": 50,
+      "focus_y": 50,
+      "price_mode": "on_request",
+      "condition": "Ubrugt med fuld folie",
+      "set": "Boks, yderboks, garantikort og hæfter",
+      "images": [
+        "/media/uploads/tudor-black-bay-58-gmt-20261117-1.jpeg",
+        "/media/uploads/tudor-black-bay-58-gmt-20261117-2.jpeg",
+        "/media/uploads/tudor-black-bay-58-gmt-20261117-3.jpeg",
+        "/media/uploads/tudor-black-bay-58-gmt-20261117-4.jpeg",
+        "/media/uploads/tudor-black-bay-58-gmt-20261117-5.jpeg"
+      ],
+      "date_added": "2026-11-17T14:28:25+01:00",
+      "description": "Tudor Black Bay 58 GMT fra 2026 med sort skive, gyldne detaljer og sort og bordeauxrød GMT-lynette. Uret er monteret på stållænke og har GMT-funktion til aflæsning af flere tidszoner. Dette eksemplar er ubrugt med fuld folie og leveres med boks, yderboks, garantikort og hæfter.",
+      "file": "tudor-black-bay-58-gmt-nyt-eksemplar.json",
+      "added": 1794922105000,
+      "slug": "tudor-black-bay-58-gmt-2",
+      "url": "watch/tudor-black-bay-58-gmt-2/"
     },
     {
       "slug": "tudor-black-bay-gmt",
@@ -1503,5 +1557,5 @@
       "url": "watch/tudor-heritage-chrono-blue/"
     }
   ],
-  "built": "2026-11-17T13:45:20.189Z"
+  "built": "2026-11-19T13:06:52.380Z"
 }
