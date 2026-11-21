@@ -846,6 +846,33 @@
       "focus_x": 50,
       "focus_y": 50,
       "price_mode": "price",
+      "date_added": "2026-11-21T14:03:33.233978+00:00",
+      "brand": "Rolex",
+      "model": "Daytona",
+      "reference": "16523",
+      "year": "T-serie (1996-1997)",
+      "condition": "70%",
+      "price_dkk": 99995,
+      "order": -3,
+      "set": "Watchpouch + ægthedsbevis fra os",
+      "images": [
+        "/media/uploads/rolex-daytona-16523-20261121-1.jpeg",
+        "/media/uploads/rolex-daytona-16523-20261121-2.jpeg",
+        "/media/uploads/rolex-daytona-16523-20261121-3.jpeg",
+        "/media/uploads/rolex-daytona-16523-20261121-4.jpeg"
+      ],
+      "description": "Rolex Daytona ref. 16523 i tofarvet udførelse med hvid skive, tre kronograftællere og tachymeterskala på lynetten. Uret er monteret på en tofarvet lænke. T-serie fra 1996-1997. Standen er vurderet til 70 %.",
+      "file": "rolex-daytona-16523.json",
+      "added": 1795269813233,
+      "slug": "rolex-daytona",
+      "url": "watch/rolex-daytona/"
+    },
+    {
+      "status": "available",
+      "featured": false,
+      "focus_x": 50,
+      "focus_y": 50,
+      "price_mode": "price",
       "date_added": "2026-11-19T13:06:52.247135+00:00",
       "brand": "Omega",
       "model": "Speedmaster Reduced",
@@ -889,11 +916,11 @@
         "/media/uploads/rolex-explorer-ii-16570-20261119-4.jpeg"
       ],
       "description": "Rolex Explorer II ref. 16570 med sort skive, lysende timemarkeringer og rød GMT-viser. Den faste stållunette har 24-timersskala, og uret er monteret på stållænke. Datoen vises ved klokken 3 under forstørrelsesglasset. Standen er vurderet til 85 %.",
+      "set": "Watchpouch + ægthedsbevis fra os",
       "file": "rolex-explorer-ii-16570.json",
       "added": 1795093612247,
       "slug": "rolex-explorer-ii",
-      "url": "watch/rolex-explorer-ii/",
-      "set": "Watchpouch + ægthedsbevis fra os"
+      "url": "watch/rolex-explorer-ii/"
     },
     {
       "set": "",
@@ -1558,5 +1585,5 @@
       "url": "watch/tudor-heritage-chrono-blue/"
     }
   ],
-  "built": "2026-11-19T13:06:52.380Z"
+  "built": "2026-11-21T14:03:33.389Z"
 }
