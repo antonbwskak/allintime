@@ -1,0 +1,23 @@
+{
+  "brand": "Tudor",
+  "model": "Black Bay 58 Burgundy",
+  "reference": "M7939A1A0RU-0001",
+  "year": "2026",
+  "status": "sold",
+  "featured": false,
+  "order": 100,
+  "focus_x": 50,
+  "focus_y": 50,
+  "price_mode": "on_request",
+  "condition": "Ubrugt",
+  "set": "Boks, yderboks, garantikort og hæfter som vist på billederne.",
+  "images": [
+    "/media/uploads/tudor-black-bay-58-burgundy-20261122-1.jpeg",
+    "/media/uploads/tudor-black-bay-58-burgundy-20261122-2.jpeg",
+    "/media/uploads/tudor-black-bay-58-burgundy-20261122-3.jpeg",
+    "/media/uploads/tudor-black-bay-58-burgundy-20261122-4.jpeg",
+    "/media/uploads/tudor-black-bay-58-burgundy-20261122-5.jpeg"
+  ],
+  "description": "Tudor Black Bay 58 fra 2026 med bordeauxrød skive og matchende dykkerlynette. Uret har en 39 mm stålkasse og femleddet stållænke med T-fit-lås. Dette eksemplar er ubrugt og leveres med boks og papirer som vist på billederne.",
+  "date_added": "2026-11-22T16:57:00+01:00"
+}
