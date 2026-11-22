@@ -1,0 +1,24 @@
+{
+  "brand": "Tudor",
+  "model": "Black Bay 58 GMT",
+  "reference": "M7939G1A0NRU-0003",
+  "year": "2026",
+  "status": "available",
+  "featured": false,
+  "order": 100,
+  "focus_x": 50,
+  "focus_y": 50,
+  "price_mode": "price",
+  "condition": "Ubrugt",
+  "set": "Boks, yderboks, garantikort og hæfter som vist på billederne.",
+  "images": [
+    "/media/uploads/tudor-black-bay-58-gmt-20261122-1.jpeg",
+    "/media/uploads/tudor-black-bay-58-gmt-20261122-2.jpeg",
+    "/media/uploads/tudor-black-bay-58-gmt-20261122-3.jpeg",
+    "/media/uploads/tudor-black-bay-58-gmt-20261122-4.jpeg",
+    "/media/uploads/tudor-black-bay-58-gmt-20261122-5.jpeg"
+  ],
+  "description": "Tudor Black Bay 58 GMT fra 2026 med sort skive, gyldne detaljer og sort og bordeauxrød 24-timerslynette. Uret har en 39 mm stålkasse og femleddet stållænke med T-fit-lås. GMT-funktionen gør det muligt at aflæse flere tidszoner. Dette eksemplar er ubrugt og leveres med boks og papirer som vist på billederne.",
+  "date_added": "2026-11-22T16:58:00+01:00",
+  "price_dkk": 32495
+}
