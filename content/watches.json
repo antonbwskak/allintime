@@ -1425,6 +1425,34 @@
       "url": "watch/omega-speedmaster-57-ubrugt/"
     },
     {
+      "brand": "Omega",
+      "model": "Seamaster Planet Ocean Chronograph",
+      "reference": "232.30.46.51.01.003",
+      "year": "2012",
+      "status": "sold",
+      "featured": false,
+      "order": 100,
+      "focus_x": 50,
+      "focus_y": 50,
+      "price_mode": "on_request",
+      "condition": "",
+      "set": "Boks, yderboks, manual, garantikort, pictograms-kort og chronometercertifikat som vist på billederne.",
+      "images": [
+        "/media/uploads/omega-planet-ocean-chronograph-20261122-1.jpeg",
+        "/media/uploads/omega-planet-ocean-chronograph-20261122-2.jpeg",
+        "/media/uploads/omega-planet-ocean-chronograph-20261122-3.jpeg",
+        "/media/uploads/omega-planet-ocean-chronograph-20261122-4.jpeg",
+        "/media/uploads/omega-planet-ocean-chronograph-20261122-5.jpeg",
+        "/media/uploads/omega-planet-ocean-chronograph-20261122-6.jpeg"
+      ],
+      "description": "Omega Seamaster Planet Ocean Chronograph med sort skive, orange detaljer og to kronograftællere. Uret er monteret på stållænke og har datovisning ved klokken seks samt glasbagkasse med indblik til værket. Garantikortet er dateret i 2012. Leveres med boks og tilbehør som vist på billederne.",
+      "date_added": "2026-11-22T16:55:00+01:00",
+      "file": "omega-planet-ocean-chronograph-20261122.json",
+      "added": 1795362900000,
+      "slug": "omega-seamaster-planet-ocean-chronograph",
+      "url": "watch/omega-seamaster-planet-ocean-chronograph/"
+    },
+    {
       "set": "Komplet sæt med inderboks, yderboks, manual samt garantikort.",
       "brand": "Omega",
       "model": "Seamaster 300M Co-Axial \"Casino Royale\"",
@@ -1502,6 +1530,87 @@
       "added": 1794168065292,
       "slug": "omega-seamaster-diver-300m-sort",
       "url": "watch/omega-seamaster-diver-300m-sort/"
+    },
+    {
+      "brand": "Omega",
+      "model": "Speedmaster Apollo 11 40th Anniversary",
+      "reference": "311.30.42.30.01.002",
+      "year": "",
+      "status": "sold",
+      "featured": false,
+      "order": 100,
+      "focus_x": 50,
+      "focus_y": 50,
+      "price_mode": "on_request",
+      "condition": "",
+      "set": "Ikke oplyst",
+      "images": [
+        "/media/uploads/omega-speedmaster-apollo11-20261122-1.jpeg",
+        "/media/uploads/omega-speedmaster-apollo11-20261122-2.jpeg",
+        "/media/uploads/omega-speedmaster-apollo11-20261122-3.jpeg",
+        "/media/uploads/omega-speedmaster-apollo11-20261122-4.jpeg"
+      ],
+      "description": "Omega Speedmaster Apollo 11 40th Anniversary med sort skive, Apollo 11-emblem i tælleren ved klokken ni og den røde tekst “02:56 GMT”. Uret er monteret på stållænke og har sort tachymeterlynette og tre kronograftællere.",
+      "date_added": "2026-11-22T16:56:00+01:00",
+      "file": "omega-speedmaster-apollo11-20261122.json",
+      "added": 1795362960000,
+      "slug": "omega-speedmaster-apollo-11-40th-anniversary",
+      "url": "watch/omega-speedmaster-apollo-11-40th-anniversary/"
+    },
+    {
+      "brand": "Tudor",
+      "model": "Black Bay 58 Burgundy",
+      "reference": "M7939A1A0RU-0001",
+      "year": "2026",
+      "status": "sold",
+      "featured": false,
+      "order": 100,
+      "focus_x": 50,
+      "focus_y": 50,
+      "price_mode": "on_request",
+      "condition": "Ubrugt",
+      "set": "Boks, yderboks, garantikort og hæfter som vist på billederne.",
+      "images": [
+        "/media/uploads/tudor-black-bay-58-burgundy-20261122-1.jpeg",
+        "/media/uploads/tudor-black-bay-58-burgundy-20261122-2.jpeg",
+        "/media/uploads/tudor-black-bay-58-burgundy-20261122-3.jpeg",
+        "/media/uploads/tudor-black-bay-58-burgundy-20261122-4.jpeg",
+        "/media/uploads/tudor-black-bay-58-burgundy-20261122-5.jpeg"
+      ],
+      "description": "Tudor Black Bay 58 fra 2026 med bordeauxrød skive og matchende dykkerlynette. Uret har en 39 mm stålkasse og femleddet stållænke med T-fit-lås. Dette eksemplar er ubrugt og leveres med boks og papirer som vist på billederne.",
+      "date_added": "2026-11-22T16:57:00+01:00",
+      "file": "tudor-black-bay-58-burgundy-20261122.json",
+      "added": 1795363020000,
+      "slug": "tudor-black-bay-58-burgundy",
+      "url": "watch/tudor-black-bay-58-burgundy/"
+    },
+    {
+      "brand": "Tudor",
+      "model": "Black Bay 58 GMT",
+      "reference": "M7939G1A0NRU-0003",
+      "year": "2026",
+      "status": "available",
+      "featured": false,
+      "order": 100,
+      "focus_x": 50,
+      "focus_y": 50,
+      "price_mode": "price",
+      "condition": "Ubrugt",
+      "set": "Boks, yderboks, garantikort og hæfter som vist på billederne.",
+      "images": [
+        "/media/uploads/tudor-black-bay-58-gmt-20261122-1.jpeg",
+        "/media/uploads/tudor-black-bay-58-gmt-20261122-2.jpeg",
+        "/media/uploads/tudor-black-bay-58-gmt-20261122-3.jpeg",
+        "/media/uploads/tudor-black-bay-58-gmt-20261122-4.jpeg",
+        "/media/uploads/tudor-black-bay-58-gmt-20261122-5.jpeg"
+      ],
+      "description": "Tudor Black Bay 58 GMT fra 2026 med sort skive, gyldne detaljer og sort og bordeauxrød 24-timerslynette. Uret har en 39 mm stålkasse og femleddet stållænke med T-fit-lås. GMT-funktionen gør det muligt at aflæse flere tidszoner. Dette eksemplar er ubrugt og leveres med boks og papirer som vist på billederne.",
+      "date_added": "2026-11-22T16:58:00+01:00",
+      "price_dkk": 32495,
+      "file": "tudor-black-bay-58-gmt-20261122.json",
+      "added": 1795363080000,
+      "slug": "tudor-black-bay-58-gmt-3",
+      "url": "watch/tudor-black-bay-58-gmt-3/"
     },
     {
       "set": "Komplet sæt med inderboks, yderboks, ekstra led, manualer samt garantikort.",
@@ -1585,5 +1694,5 @@
       "url": "watch/tudor-heritage-chrono-blue/"
     }
   ],
-  "built": "2026-11-21T14:03:33.389Z"
+  "built": "2026-11-22T15:54:00.464Z"
 }
