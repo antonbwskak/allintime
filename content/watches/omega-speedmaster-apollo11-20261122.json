@@ -1,0 +1,22 @@
+{
+  "brand": "Omega",
+  "model": "Speedmaster Apollo 11 40th Anniversary",
+  "reference": "311.30.42.30.01.002",
+  "year": "",
+  "status": "sold",
+  "featured": false,
+  "order": 100,
+  "focus_x": 50,
+  "focus_y": 50,
+  "price_mode": "on_request",
+  "condition": "",
+  "set": "Ikke oplyst",
+  "images": [
+    "/media/uploads/omega-speedmaster-apollo11-20261122-1.jpeg",
+    "/media/uploads/omega-speedmaster-apollo11-20261122-2.jpeg",
+    "/media/uploads/omega-speedmaster-apollo11-20261122-3.jpeg",
+    "/media/uploads/omega-speedmaster-apollo11-20261122-4.jpeg"
+  ],
+  "description": "Omega Speedmaster Apollo 11 40th Anniversary med sort skive, Apollo 11-emblem i tælleren ved klokken ni og den røde tekst “02:56 GMT”. Uret er monteret på stållænke og har sort tachymeterlynette og tre kronograftællere.",
+  "date_added": "2026-11-22T16:56:00+01:00"
+}
