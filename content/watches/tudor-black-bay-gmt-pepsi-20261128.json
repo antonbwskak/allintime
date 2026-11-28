@@ -1,0 +1,23 @@
+{
+  "brand": "Tudor",
+  "model": "Black Bay GMT Pepsi",
+  "reference": "",
+  "year": "",
+  "status": "available",
+  "featured": false,
+  "order": 101,
+  "focus_x": 50,
+  "focus_y": 50,
+  "price_mode": "price",
+  "price_dkk": 19500,
+  "condition": "",
+  "set": "",
+  "description": "Tudor Black Bay GMT med sort skive, lyse timemarkeringer og rød GMT-viser. Den drejelige blå og bordeauxrøde lynette har 24-timersskala og giver modellen sit karakteristiske Pepsi-udtryk. Uret er monteret på en treleddet stållænke og har datovisning ved klokken tre. GMT-funktionen gør det muligt at aflæse flere tidszoner.",
+  "images": [
+    "/media/uploads/tudor-black-bay-gmt-pepsi-20261128-1.jpeg",
+    "/media/uploads/tudor-black-bay-gmt-pepsi-20261128-2.jpeg",
+    "/media/uploads/tudor-black-bay-gmt-pepsi-20261128-3.jpeg",
+    "/media/uploads/tudor-black-bay-gmt-pepsi-20261128-4.jpeg"
+  ],
+  "date_added": "2026-11-28T14:02:00+01:00"
+}
