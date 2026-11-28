@@ -1632,7 +1632,7 @@
       "focus_y": 50,
       "price_mode": "price",
       "price_dkk": 67995,
-      "condition": "",
+      "condition": "70 %",
       "set": "Watchpouch + ægthedsbevis",
       "description": "Rolex GMT-Master i stål og guld med sort skive, guldfarvede visere og timemarkeringer. Den sorte drejelige lynette har 24-timersskala, som bruges sammen med GMT-viseren til at aflæse en anden tidszone. Uret er monteret på en tofarvet Jubilee-lænke. Datoen vises ved klokken tre under den karakteristiske datolup.",
       "images": [
@@ -1791,7 +1791,7 @@
       "brand": "Tudor",
       "model": "Black Bay GMT Pepsi",
       "reference": "",
-      "year": "",
+      "year": "2018",
       "status": "available",
       "featured": false,
       "order": 101,
@@ -1799,7 +1799,7 @@
       "focus_y": 50,
       "price_mode": "price",
       "price_dkk": 19500,
-      "condition": "",
+      "condition": "80 %",
       "set": "Boks, yderboks, manualer, garantikort og ekstra led",
       "description": "Tudor Black Bay GMT med sort skive, lyse timemarkeringer og rød GMT-viser. Den drejelige blå og bordeauxrøde lynette har 24-timersskala og giver modellen sit karakteristiske Pepsi-udtryk. Uret er monteret på en treleddet stållænke og har datovisning ved klokken tre. GMT-funktionen gør det muligt at aflæse flere tidszoner.",
       "images": [
